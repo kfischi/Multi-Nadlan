@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebMaster Pro - גלריית תבניות מקצועיות</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            opacity: 0.8;
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            background-color: #e9ecef;
+            color: #333;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Heebo', sans-serif;
+        }
+
+        .category-btn.active {
+            background-color: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+
+        .category-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Templates Grid */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .template-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .template-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .template-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .template-content {
+            padding: 1.5rem;
+        }
+
+        .template-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .template-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin: 0;
+        }
+
+        .template-category {
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .template-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .template-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-tag {
+            background-color: #f8f9fa;
+            color: #666;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid #e9ecef;
+        }
+
+        .template-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .template-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .price-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .contact-btn {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Heebo', sans-serif;
+        }
+
+        .contact-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        .footer h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            background-color: white;
+            color: #667eea;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-family: 'Heebo', sans-serif;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .stats {
+                gap: 1.5rem;
+            }
+            
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>גלריית תבניות מקצועיות</h1>
+            <p>8 תבניות אתרים מתקדמות לעסקים שונים. כל תבנית נבנית במיוחד עבור התחום הספציפי</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">תבניות מקצועיות</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1,247</div>
+                    <div class="stat-label">לקוחות מרוצים</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.8</div>
+                    <div class="stat-label">דירוג ממוצע</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Categories -->
+        <div class="categories">
+            <button class="category-btn active" onclick="filterTemplates('הכל')">הכל</button>
+            <button class="category-btn" onclick="filterTemplates('בריאות וכושר')">בריאות וכושר</button>
+            <button class="category-btn" onclick="filterTemplates('חינוך ולימודים')">חינוך ולימודים</button>
+            <button class="category-btn" onclick="filterTemplates('יופי ועיצוב')">יופי ועיצוב</button>
+            <button class="category-btn" onclick="filterTemplates('עסקי ומשפטי')">עסקי ומשפטי</button>
+            <button class="category-btn" onclick="filterTemplates('טכנולוגיה ומחשבים')">טכנולוגיה ומחשבים</button>
+        </div>
+
+        <!-- Templates Grid -->
+        <div class="templates-grid" id="templatesGrid">
+            <!-- Template 1 -->
+            <div class="template-card" data-category="בריאות וכושר">
+                <div class="template-image" style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E);">
+                    מאמן כושר אישי
+                </div>
+                <div class="template-content">
+                    <div class="template-header">
+                        <h3 class="template-title">מאמן כושר אישי</h3>
+                        <span class="template-category" style="background-color: #FF6B6B;">בריאות וכושר</span>
+                    </div>
+                    <p class="template-description">תבנית מקצועית למאמני כושר עם גלריה ומערכת הזמנות</p>
+                    <div class="template-features">
+                        <span class="feature-tag">✓ תכניות אימון</span>
+                        <span class="feature-tag">✓ הזמנת מפגשים</span>
+                        <span class="feature-tag">✓ גלריה</span>
+                    </div>
+                    <div class="template-footer">
+                        <div>
+                            <div class="template-price" style="color: #FF6B6B;">₪1,500</div>
+                            <div class="price-label">מחיר בניית אתר</div>
+                        </div>
+                    </div>
+                    <button class="contact-btn" style="background-color: #FF6B6B;" onclick="contactWhatsApp('מאמן כושר אישי')">
+                        בניתי לך אתר כזה
+                    </button>
+                </div>
+            </div>
+
+            <!-- Template 2 -->
+            <div class="template-card" data-category="בריאות וכושר">
+                <div class="template-image" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    פסיכולוגיה קלינית
+                </div>
+                <div class="template-content">
+                    <div class="template-header">
+                        <h3 class="template-title">פסיכולוגיה קלינית</h3>
+                        <span class="template-category" style="background-color: #667eea;">בריאות וכושר</span>
+                    </div>
+                    <p class="template-description">אתר מקצועי לפסיכולוגים עם מערכת הזמנות</p>
+                    <div class="template-features">
+                        <span class="feature-tag">✓ הזמנת פגישות</span>
+                        <span class="feature-tag">✓ מאמרים</span>
+                        <span class="feature-tag">✓ אזור מוגן</span>
+                    </div>
+                    <div class="template-footer">
+                        <div>
+                            <div class="template-price" style="color: #667eea;">₪1,800</div>
+                            <div class="price-label">מחיר בניית אתר</div>
+                        </div>
+                    </div>
+                    <button class="contact-btn" style="background-color: #667eea;" onclick="contactWhatsApp('פסיכולוגיה קלינית')">
+                        בניתי לך אתר כזה
+                    </button>
+                </div>
+            </div>
+
+            <!-- Template 3 -->
+            <div class="template-card" data-category="בריאות וכושר">
+                <div class="template-image" style="background: linear-gradient(135deg, #43cea2, #185a9d);">
+                    סטודיו יוגה
+                </div>
+                <div class="template-content">
+                    <div class="template-header">
+                        <h3 class="template-title">סטודיו יוגה</h3>
+                        <span class="template-category" style="background-color: #43cea2;">בריאות וכושר</span>
+                    </div>
+                    <p class="template-description">תבנית שלווה לסטודיו יוגה עם לוח שיעורים</p>
+                    <div class="template-features">
+                        <span class="feature-tag">✓ לוח שיעורים</span>
+                        <span class="feature-tag">✓ הרשמה</span>
+                        <span class="feature-tag">✓ בלוג</span>
+                    </div>
+                    <div class="template-footer">
+                        <div>
+                            <div class="template-price" style="color: #43cea2;">₪1,400</div>
+                            <div class="price-label">מחיר בניית אתר</div>
+                        </div>
+                    </div>
+                    <button class="contact-btn" style="background-color: #43cea2;" onclick="contactWhatsApp('סטודיו יוגה')">
+                        בניתי לך אתר כזה
+                    </button>
+                </div>
+            </div>
+
+            <!-- Template 4 -->
+            <div class="template-card" data-category="בריאות וכושר">
+                <div class="template-image" style="background: linear-gradient(135deg, #a8edea, #fed6e3);">
+                    תזונאית קלינית
+                </div>
+                <div class="template-content">
+                    <div class="template-header">
+                        <h3 class="template-title">תזונאית קלינית</h3>
+                        <span class="template-category" style="background-color: #a8edea;">בריאות וכושר</span>
+                    </div>
+                    <p class="template-description">אתר לתזונאים עם מחשבון קלוריות</p>
+                    <div class="template-features">
+                        <span class="feature-tag">✓ מחשבון קלוריות</span>
+                        <span class="feature-tag">✓ תפריטים</span>
+                        <span class="feature-tag">✓ יעוץ</span>
+                    </div>
+                    <div class="template-footer">
+                        <div>
+                            <div class="template-price" style="color: #a8edea;">₪1,600</div>
+                            <div class="price-label">מחיר בניית אתר</div>
+                        </div>
+                    </div>
+                    <button class="contact-btn" style="background-color: #a8edea;" onclick="contactWhatsApp('תזונאית קלינית')">
+                        בניתי לך אתר כזה
+                    </button>
+                </div>
+            </div>
+
+            <!-- Template 5 -->
+            <div class="template-card" data-category="חינוך ולימודים">
+                <div class="template-image" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
+                    מורה פרטי
+                </div>
+                <div class="template-content">
+                    <div class="template-header">
+                        <h3 class="template-title">מורה פרטי</h3>
+                        <span class="template-category" style="background-color: #11998e;">חינוך ולימודים</span>
+                    </div>
+                    <p class="template-description">פלטפורמה ללימודים פרטיים</p>
+                    <div class="template-features">
+                        <span class="feature-tag">✓ לוח זמנים</span>
+                        <span class="feature-tag">✓ חומרי לימוד</span>
+                        <span class="feature-tag">✓ מבחנים</span>
+                    </div>
+                    <div class="template-footer">
+                        <div>
+                            <div class="template-price" style="color: #11998e;">₪1,300</div>
+                            <div class="price-label">מחיר בניית אתר</div>
+                        </div>
+                    </div>
+                    <button class="contact-btn" style="background-color: #11998e;" onclick="contactWhatsApp('מורה פרטי')">
+                        בניתי לך אתר כזה
+                    </button>
+                </div>
+            </div>
+
+            <!-- Template 6 -->
+            <div class="template-card" data-category="יופי ועיצוב">
+                <div class="template-image" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    מספרה מקצועית
+                </div>
+                <div class="template-content">
+                    <div class="template-header">
+                        <h3 class="template-title">מספרה מקצועית</h3>
+                        <span class="template-category" style="background-color: #f093fb;">יופי ועיצוב</span>
+                    </div>
+                    <p class="template-description">אתר אלגנטי למספרה</p>
+                    <div class="template-features">
+                        <span class="feature-tag">✓ הזמנת תורים</span>
+                        <span class="feature-tag">✓ גלריה</span>
+                        <span class="feature-tag">✓ מחירון</span>
+                    </div>
+                    <div class="template-footer">
+                        <div>
+                            <div class="template-price" style="color: #f093fb;">₪1,200</div>
+                            <div class="price-label">מחיר בניית אתר</div>
+                        </div>
+                    </div>
+                    <button class="contact-btn" style="background-color: #f093fb;" onclick="contactWhatsApp('מספרה מקצועית')">
+                        בניתי לך אתר כזה
+                    </button>
+                </div>
+            </div>
+
+            <!-- Template 7 -->
+            <div class="template-card" data-category="עסקי ומשפטי">
+                <div class="template-image" style="background: linear-gradient(135deg, #2c3e50, #34495e);">
+                    משרד עורכי דין
+                </div>
+                <div class="template-content">
+                    <div class="template-header">
+                        <h3 class="template-title">משרד עורכי דין</h3>
+                        <span class="template-category" style="background-color: #2c3e50;">עסקי ומשפטי</span>
+                    </div>
+                    <p class="template-description">אתר מקצועי למשרד עורכי דין</p>
+                    <div class="template-features">
+                        <span class="feature-tag">✓ התמחויות</span>
+                        <span class="feature-tag">✓ צוות</span>
+                        <span class="feature-tag">✓ מאמרים</span>
+                    </div>
+                    <div class="template-footer">
+                        <div>
+                            <div class="template-price" style="color: #2c3e50;">₪2,000</div>
+                            <div class="price-label">מחיר בניית אתר</div>
+                        </div>
+                    </div>
+                    <button class="contact-btn" style="background-color: #2c3e50;" onclick="contactWhatsApp('משרד עורכי דין')">
+                        בניתי לך אתר כזה
+                    </button>
+                </div>
+            </div>
+
+            <!-- Template 8 -->
+            <div class="template-card" data-category="טכנולוגיה ומחשבים">
+                <div class="template-image" style="background: linear-gradient(135deg, #0f0f23, #1a1a2e);">
+                    מומחה סייבר
+                </div>
+                <div class="template-content">
+                    <div class="template-header">
+                        <h3 class="template-title">מומחה סייבר</h3>
+                        <span class="template-category" style="background-color: #0f0f23;">טכנולוגיה ומחשבים</span>
+                    </div>
+                    <p class="template-description">אתר לשירותי אבטחת מידע</p>
+                    <div class="template-features">
+                        <span class="feature-tag">✓ סקירות אבטחה</span>
+                        <span class="feature-tag">✓ יעוץ</span>
+                        <span class="feature-tag">✓ הדרכות</span>
+                    </div>
+                    <div class="template-footer">
+                        <div>
+                            <div class="template-price" style="color: #0f0f23;">₪2,200</div>
+                            <div class="price-label">מחיר בניית אתר</div>
+                        </div>
+                    </div>
+                    <button class="contact-btn" style="background-color: #0f0f23;" onclick="contactWhatsApp('מומחה סייבר')">
+                        בניתי לך אתר כזה
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h2>מוכן להתחיל?</h2>
+            <p>בחר תבנית ואנחנו נבנה לך אתר מקצועי תוך 7-14 ימי עבודה</p>
+            <button class="cta-btn" onclick="contactWhatsApp('שיחת ייעוץ כללית')">
+                קבע שיחת ייעוץ חינם
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        // Filter templates by category
+        function filterTemplates(category) {
+            const cards = document.querySelectorAll('.template-card');
+            const buttons = document.querySelectorAll('.category-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'הכל' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Contact via WhatsApp
+        function contactWhatsApp(templateName) {
+            const message = `שלום, אני מעוניין/ת לבנות אתר בסגנון "${templateName}". אשמח לקבל פרטים נוספים ותמחור.`;
+            const whatsappUrl = `https://wa.me/972501234567?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Add smooth animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.template-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
