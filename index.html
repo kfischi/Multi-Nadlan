@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebMaster Pro - גלריית תבניות מקצועיות</title>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>WebMaster Pro - גלריית תבניות אתרים מקצועיות</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,1058 +14,787 @@
 
         body {
             font-family: 'Heebo', sans-serif;
-            background-color: #f8f9fa;
             line-height: 1.6;
-            direction: rtl;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 2rem;
         }
 
-        /* Header */
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 0;
             text-align: center;
-            margin-bottom: 2rem;
+            color: white;
+            margin-bottom: 3rem;
         }
 
         .header h1 {
             font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 1rem;
-            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .header p {
             font-size: 1.2rem;
             opacity: 0.9;
-            margin-bottom: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .stats {
             display: flex;
             justify-content: center;
             gap: 3rem;
+            margin: 2rem 0;
             flex-wrap: wrap;
         }
 
-        .stat-item {
+        .stat {
             text-align: center;
+            color: white;
         }
 
         .stat-number {
             font-size: 2.5rem;
-            font-weight: bold;
+            font-weight: 700;
+            display: block;
         }
 
         .stat-label {
+            font-size: 1rem;
             opacity: 0.8;
         }
 
-        /* Categories */
-        .categories {
+        .filters {
             display: flex;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
             justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
-        .category-btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            background-color: #e9ecef;
-            color: #333;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .category-btn.active {
-            background-color: #667eea;
+        .filter-btn {
+            background: rgba(255,255,255,0.2);
             color: white;
-            font-weight: bold;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .category-btn:hover {
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.6);
             transform: translateY(-2px);
         }
 
-        /* Templates Grid */
         .templates-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .template-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
             position: relative;
         }
 
         .template-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         .template-image {
             height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 4rem;
             color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        .demo-badge.law {
+            background: linear-gradient(135deg, #1a365d 0%, #d4af37 100%);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         .template-content {
             padding: 1.5rem;
         }
 
-        .template-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
         .template-title {
             font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
             color: #333;
-            margin: 0;
         }
 
         .template-category {
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-        }
-
-        .template-description {
             color: #666;
+            font-size: 0.9rem;
             margin-bottom: 1rem;
-            line-height: 1.5;
         }
 
         .template-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            list-style: none;
             margin-bottom: 1.5rem;
         }
 
-        .feature-tag {
-            background-color: #f8f9fa;
-            color: #666;
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            border: 1px solid #e9ecef;
+        .template-features li {
+            padding: 0.3rem 0;
+            color: #555;
+            font-size: 0.9rem;
         }
 
-        .template-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
+        .template-features li:before {
+            content: "✅ ";
+            margin-left: 0.5rem;
         }
 
         .template-price {
             font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .price-label {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .contact-btn {
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 8px;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .contact-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            border-radius: 12px;
-        }
-
-        .footer h2 {
-            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
             margin-bottom: 1rem;
         }
 
-        .footer p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+        .template-actions {
+            display: flex;
+            gap: 0.5rem;
         }
 
-        .cta-btn {
-            padding: 1rem 3rem;
-            font-size: 1.2rem;
-            background-color: white;
-            color: #667eea;
+        .btn {
+            flex: 1;
+            padding: 0.8rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
+            font-weight: 600;
             cursor: pointer;
-            font-weight: bold;
             transition: all 0.3s ease;
-            font-family: 'Heebo', sans-serif;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
         }
 
-        .cta-btn:hover {
-            transform: scale(1.05);
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
         }
 
-        /* Responsive */
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-demo {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            color: white;
+            font-weight: 700;
+        }
+
+        .btn-demo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-demo.law {
+            background: linear-gradient(135deg, #1a365d 0%, #d4af37 100%);
+        }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #e9ecef;
+        }
+
+        .btn-secondary:hover {
+            background: #e9ecef;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 2rem 0;
+            opacity: 0.8;
+        }
+
         @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
             .header h1 {
                 font-size: 2rem;
             }
-            
-            .stats {
-                gap: 1.5rem;
-            }
-            
+
             .templates-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .container {
-                padding: 0 1rem;
+
+            .stats {
+                gap: 1.5rem;
             }
+
+            .filters {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <h1>גלריית תבניות מקצועיות</h1>
-            <p>8 תבניות אתרים מתקדמות לעסקים שונים. כל תבנית נבנית במיוחד עבור התחום הספציפי</p>
+    <div class="container">
+        <header class="header">
+            <h1>WebMaster Pro</h1>
+            <p>תבניות אתרים מקצועיות עם דמואים חיים - מוכן לשימוש תוך דקות</p>
             
             <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">8</div>
-                    <div class="stat-label">תבניות מקצועיות</div>
-                    <!-- Template 9 -->
-            <div class="template-card" data-category="בריאות וכושר">
-                <div class="template-image" style="background: linear-gradient(135deg, #ff9a9e, #fecfef);">
-                    קלינאית תקשורת
+                <div class="stat">
+                    <span class="stat-number">17</span>
+                    <span class="stat-label">תבניות מקצועיות</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">דמואים חיים</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">לקוחות מרוצים</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="filters">
+            <button class="filter-btn active" data-category="all">הכל</button>
+            <button class="filter-btn" data-category="health">בריאות וכושר</button>
+            <button class="filter-btn" data-category="education">חינוך ולימודים</button>
+            <button class="filter-btn" data-category="beauty">יופי ועיצוב</button>
+            <button class="filter-btn" data-category="business">עסקי ומשפטי</button>
+            <button class="filter-btn" data-category="tech">טכנולוגיה ומחשבים</button>
+        </div>
+
+        <div class="templates-grid">
+            <!-- מאמן כושר אישי - דמו חי -->
+            <div class="template-card" data-category="health">
+                <div class="template-image">
+                    🏋️‍♂️
+                    <div class="demo-badge">🔥 דמו חי</div>
                 </div>
                 <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">קלינאית תקשורת</h3>
-                        <span class="template-category" style="background-color: #ff9a9e;">בריאות וכושר</span>
+                    <h3 class="template-title">מאמן כושר אישי</h3>
+                    <p class="template-category">בריאות וכושר</p>
+                    <ul class="template-features">
+                        <li>וידאו רקע מרשים</li>
+                        <li>מחשבוני BMI ו-BMR</li>
+                        <li>תוכניות אימון</li>
+                        <li>המלצות לקוחות</li>
+                        <li>טופס יצירת קשר</li>
+                    </ul>
+                    <div class="template-price">₪2,200</div>
+                    <div class="template-actions">
+                        <a href="https://fitness-coach-demo.netlify.app/" target="_blank" class="btn btn-demo">
+                            🚀 דמו חי
+                        </a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20מאמן%20כושר%20אישי" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
                     </div>
-                    <p class="template-description">אתר מותאם לקלינאי תקשורת עם כלי הערכה ומשחקים</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ כלי הערכה</span>
-                        <span class="feature-tag">✓ משחקים אינטראקטיביים</span>
-                        <span class="feature-tag">✓ משאבי הורים</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #ff9a9e;">₪1,700</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #ff9a9e;" onclick="contactWhatsApp('קלינאית תקשורת')">
-                        אני רוצה אתר כזה
-                    </button>
                 </div>
             </div>
 
-            <!-- Template 10 -->
-            <div class="template-card" data-category="בריאות וכושר">
-                <div class="template-image" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-                    מאמן מנטלי
+            <!-- פסיכולוגיה קלינית -->
+            <div class="template-card" data-category="health">
+                <div class="template-image">
+                    🧠
                 </div>
                 <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">מאמן מנטלי</h3>
-                        <span class="template-category" style="background-color: #667eea;">בריאות וכושר</span>
+                    <h3 class="template-title">פסיכולוגיה קלינית</h3>
+                    <p class="template-category">בריאות וכושר</p>
+                    <ul class="template-features">
+                        <li>עיצוב רגוע ומקצועי</li>
+                        <li>6 תחומי התמחות</li>
+                        <li>טופס דיסקרטי</li>
+                        <li>כרטיס מטפל</li>
+                        <li>מידע מקצועי</li>
+                    </ul>
+                    <div class="template-price">₪2,000</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">תצוגה מקדימה</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20פסיכולוגיה%20קלינית" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
                     </div>
-                    <p class="template-description">פלטפורמה לאימון מנטלי עם כלי חשיבה ומדיטציות</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ כלי חשיבה</span>
-                        <span class="feature-tag">✓ מדיטציות מודרכות</span>
-                        <span class="feature-tag">✓ תוכניות פיתוח</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #667eea;">₪1,650</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #667eea;" onclick="contactWhatsApp('מאמן מנטלי')">
-                        אני רוצה אתר כזה
-                    </button>
                 </div>
             </div>
 
-            <!-- Template 11 -->
-            <div class="template-card" data-category="חינוך ולימודים">
-                <div class="template-image" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-                    מורה למדעים
+            <!-- סטודיו יוגה - דמו חי -->
+            <div class="template-card" data-category="health">
+                <div class="template-image">
+                    🧘‍♀️
+                    <div class="demo-badge">🧘‍♀️ דמו חי</div>
                 </div>
                 <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">מורה למדעים</h3>
-                        <span class="template-category" style="background-color: #667eea;">חינוך ולימודים</span>
+                    <h3 class="template-title">סטודיו יוגה</h3>
+                    <p class="template-category">בריאות וכושר</p>
+                    <ul class="template-features">
+                        <li>עיצוב זורם ומרגיע</li>
+                        <li>לוח זמנים אינטראקטיבי</li>
+                        <li>6 סוגי שיעורים</li>
+                        <li>אנימציות עדינות</li>
+                        <li>מערכת הרשמה</li>
+                    </ul>
+                    <div class="template-price">₪1,900</div>
+                    <div class="template-actions">
+                        <a href="https://yoga-studio-demo.netlify.app/" target="_blank" class="btn btn-demo">
+                            🚀 דמו חי
+                        </a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20סטודיו%20יוגה" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
                     </div>
-                    <p class="template-description">אתר מתקדם להוראת מדעים עם סימולציות וניסויים</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ סימולציות מדעיות</span>
-                        <span class="feature-tag">✓ ניסויים וירטואליים</span>
-                        <span class="feature-tag">✓ תוכן אינטראקטיבי</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #667eea;">₪1,900</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #667eea;" onclick="contactWhatsApp('מורה למדעים')">
-                        אני רוצה אתר כזה
-                    </button>
                 </div>
             </div>
 
-            <!-- Template 12 -->
-            <div class="template-card" data-category="יופי ועיצוב">
-                <div class="template-image" style="background: linear-gradient(135deg, #a8edea, #fed6e3);">
-                    מעצבת פנים
+            <!-- תזונאית קלינית - דמו חי -->
+            <div class="template-card" data-category="health">
+                <div class="template-image">
+                    🍎
+                    <div class="demo-badge">🍎 דמו חי</div>
                 </div>
                 <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">מעצבת פנים</h3>
-                        <span class="template-category" style="background-color: #a8edea;">יופי ועיצוב</span>
+                    <h3 class="template-title">תזונאית קלינית</h3>
+                    <p class="template-category">בריאות וכושר</p>
+                    <ul class="template-features">
+                        <li>4 מחשבונים מתקדמים</li>
+                        <li>6 שירותי יעוץ</li>
+                        <li>עיצוב טרי ובריא</li>
+                        <li>אנימציות תזונתיות</li>
+                        <li>פגישת היכרות חינם</li>
+                    </ul>
+                    <div class="template-price">₪1,800</div>
+                    <div class="template-actions">
+                        <a href="https://nutritionist-clinic-demo.netlify.app/" target="_blank" class="btn btn-demo">
+                            🚀 דמו חי
+                        </a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20תזונאית%20קלינית" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
                     </div>
-                    <p class="template-description">פורטפוליו מקצועי למעצבי פנים עם גלריית פרויקטים</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ פורטפוליו פרויקטים</span>
-                        <span class="feature-tag">✓ תהליך עיצוב</span>
-                        <span class="feature-tag">✓ בלוג עיצוב</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #a8edea;">₪1,800</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #a8edea;" onclick="contactWhatsApp('מעצבת פנים')">
-                        אני רוצה אתר כזה
-                    </button>
                 </div>
             </div>
 
-            <!-- Template 13 -->
-            <div class="template-card" data-category="עסקי ומשפטי">
-                <div class="template-image" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-                    שירותי שכר
+            <!-- משרד עורכי דין - דמו חי חדש! -->
+            <div class="template-card" data-category="business">
+                <div class="template-image">
+                    ⚖️
+                    <div class="demo-badge law">⚖️ דמו חי</div>
                 </div>
                 <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">שירותי שכר</h3>
-                        <span class="template-category" style="background-color: #667eea;">עסקי ומשפטי</span>
+                    <h3 class="template-title">משרד עורכי דין</h3>
+                    <p class="template-category">עסקי ומשפטי</p>
+                    <ul class="template-features">
+                        <li>אנימציית typing מתקדמת</li>
+                        <li>מחשבון פיצויי פיטורים</li>
+                        <li>6 תחומי התמחות</li>
+                        <li>צוות מומחים</li>
+                        <li>יעוץ ראשוני חינם</li>
+                    </ul>
+                    <div class="template-price">₪2,500</div>
+                    <div class="template-actions">
+                        <a href="https://law-firm-demo.netlify.app/" target="_blank" class="btn btn-demo law">
+                            ⚖️ דמו חי
+                        </a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20משרד%20עורכי%20דין" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
                     </div>
-                    <p class="template-description">פלטפורמה לשירותי הנהלת חשבונות ושכר</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ לוח בקרה לקוחות</span>
-                        <span class="feature-tag">✓ דוחות פיננסיים</span>
-                        <span class="feature-tag">✓ יעוץ עסקי</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #667eea;">₪1,700</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #667eea;" onclick="contactWhatsApp('שירותי שכר')">
-                        אני רוצה אתר כזה
-                    </button>
                 </div>
             </div>
 
-            <!-- Template 14 -->
-            <div class="template-card" data-category="טכנולוגיה ומחשבים">
-                <div class="template-image" style="background: linear-gradient(135deg, #f7971e, #ffd200);">
-                    יועץ אנרגיה סולארית
-                </div>
+            <!-- קלינאית תקשורת -->
+            <div class="template-card" data-category="health">
+                <div class="template-image">🗣️</div>
                 <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">יועץ אנרגיה סולארית</h3>
-                        <span class="template-category" style="background-color: #f7971e;">טכנולוגיה ומחשבים</span>
+                    <h3 class="template-title">קלינאית תקשורת</h3>
+                    <p class="template-category">בריאות וכושר</p>
+                    <ul class="template-features">
+                        <li>כלי הערכה ומשחקים</li>
+                        <li>תחומי התמחות</li>
+                        <li>גלריית פעילויות</li>
+                        <li>מידע להורים</li>
+                        <li>קביעת פגישות</li>
+                    </ul>
+                    <div class="template-price">₪1,700</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">תצוגה מקדימה</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20קלינאית%20תקשורת" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
                     </div>
-                    <p class="template-description">פלטפורמה לשירותי אנרגיה סולארית עם מחשבון חיסכון</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ מחשבון חיסכון</span>
-                        <span class="feature-tag">✓ תכנון מערכות</span>
-                        <span class="feature-tag">✓ מעקב ייצור</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #f7971e;">₪1,800</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #f7971e;" onclick="contactWhatsApp('יועץ אנרגיה סולארית')">
-                        אני רוצה אתר כזה
-                    </button>
                 </div>
             </div>
 
-            <!-- Template 15 -->
-            <div class="template-card" data-category="טכנולוגיה ומחשבים">
-                <div class="template-image" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-                    ביוטכנולוגיה
-                </div>
+            <!-- מאמן מנטלי -->
+            <div class="template-card" data-category="health">
+                <div class="template-image">🧘‍♂️</div>
                 <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">ביוטכנולוגיה</h3>
-                        <span class="template-category" style="background-color: #667eea;">טכנולוגיה ומחשבים</span>
+                    <h3 class="template-title">מאמן מנטלי</h3>
+                    <p class="template-category">בריאות וכושר</p>
+                    <ul class="template-features">
+                        <li>כלי חשיבה ומדיטציות</li>
+                        <li>תוכניות אימון מנטלי</li>
+                        <li>בלוג מקצועי</li>
+                        <li>סדנאות וקורסים</li>
+                        <li>מעקב התקדמות</li>
+                    </ul>
+                    <div class="template-price">₪1,600</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">תצוגה מקדימה</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20מאמן%20מנטלי" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
                     </div>
-                    <p class="template-description">אתר מדעי לחברת ביוטכנולוגיה עם מחקרים ופתרונות</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ מחקרים מדעיים</span>
-                        <span class="feature-tag">✓ פתרונות טכנולוגיים</span>
-                        <span class="feature-tag">✓ פרסומים</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #667eea;">₪2,500</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #667eea;" onclick="contactWhatsApp('ביוטכנולוגיה')">
-                        אני רוצה אתר כזה
-                    </button>
                 </div>
             </div>
 
-            <!-- Template 16 -->
-            <div class="template-card" data-category="טכנולוגיה ומחשבים">
-                <div class="template-image" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
-                    נגישות דיגיטלית
-                </div>
+            <!-- מורה פרטי -->
+            <div class="template-card" data-category="education">
+                <div class="template-image">👨‍🏫</div>
                 <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">נגישות דיגיטלית</h3>
-                        <span class="template-category" style="background-color: #11998e;">טכנולוגיה ומחשבים</span>
+                    <h3 class="template-title">מורה פרטי</h3>
+                    <p class="template-category">חינוך ולימודים</p>
+                    <ul class="template-features">
+                        <li>נושאי הוראה מגוונים</li>
+                        <li>לוח זמנים מתעדכן</li>
+                        <li>חומרי לימוד</li>
+                        <li>מעקב הישגים</li>
+                        <li>שיעורים אונליין</li>
+                    </ul>
+                    <div class="template-price">₪1,500</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">תצוגה מקדימה</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20מורה%20פרטי" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
                     </div>
-                    <p class="template-description">פלטפורמה ליועצת נגישות דיגיטלית עם כלי בדיקה</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ כלי בדיקת נגישות</span>
-                        <span class="feature-tag">✓ הנחיות WCAG</span>
-                        <span class="feature-tag">✓ הדרכות</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #11998e;">₪1,900</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #11998e;" onclick="contactWhatsApp('נגישות דיגיטלית')">
-                        אני רוצה אתר כזה
-                    </button>
                 </div>
             </div>
 
-            <!-- Template 17 -->
-            <div class="template-card" data-category="טכנולוגיה ומחשבים">
-                <div class="template-image" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-                    WebMaster Pro
-                </div>
+            <!-- מורה למדעים -->
+            <div class="template-card" data-category="education">
+                <div class="template-image">🔬</div>
                 <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">WebMaster Pro</h3>
-                        <span class="template-category" style="background-color: #667eea;">טכנולוגיה ומחשבים</span>
+                    <h3 class="template-title">מורה למדעים</h3>
+                    <p class="template-category">חינוך ולימודים</p>
+                    <ul class="template-features">
+                        <li>סימולציות וניסויים</li>
+                        <li>גלריית מעבדה</li>
+                        <li>חומרי הכנה לבגרות</li>
+                        <li>פרויקטים מדעיים</li>
+                        <li>שיעורי עזר</li>
+                    </ul>
+                    <div class="template-price">₪1,600</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">תצוגה מקדימה</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20מורה%20למדעים" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
                     </div>
-                    <p class="template-description">פלטפורמה מתקדמת לבניית אתרים עם עורך ויזואלי</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ עורך ויזואלי</span>
-                        <span class="feature-tag">✓ תבניות מקצועיות</span>
-                        <span class="feature-tag">✓ תמיכה 24/7</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #667eea;">₪3,000</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #667eea;" onclick="contactWhatsApp('WebMaster Pro')">
-                        אני רוצה אתר כזה
-                    </button>
                 </div>
             </div>
-                <div class="stat-item">
-                    <div class="stat-number">1,247</div>
-                    <div class="stat-label">לקוחות מרוצים</div>
+
+            <!-- מספרה מקצועית -->
+            <div class="template-card" data-category="beauty">
+                <div class="template-image">💄</div>
+                <div class="template-content">
+                    <h3 class="template-title">מספרה מקצועית</h3>
+                    <p class="template-category">יופי ועיצוב</p>
+                    <ul class="template-features">
+                        <li>גלריית עבודות מרשימה</li>
+                        <li>הזמנת תורים אונליין</li>
+                        <li>מחירון שירותים</li>
+                        <li>צוות מיומן</li>
+                        <li>עיצוב צבעוני ויפה</li>
+                    </ul>
+                    <div class="template-price">₪1,400</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">תצוגה מקדימה</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20מספרה%20מקצועית" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">4.8</div>
-                    <div class="stat-label">דירוג ממוצע</div>
+            </div>
+
+            <!-- מעצבת פנים -->
+            <div class="template-card" data-category="beauty">
+                <div class="template-image">🏠</div>
+                <div class="template-content">
+                    <h3 class="template-title">מעצבת פנים</h3>
+                    <p class="template-category">יופי ועיצוב</p>
+                    <ul class="template-features">
+                        <li>פורטפוליו פרויקטים</li>
+                        <li>גלריית השראה</li>
+                        <li>תהליך העבודה</li>
+                        <li>המלצות לקוחות</li>
+                        <li>ייעוץ אונליין</li>
+                    </ul>
+                    <div class="template-price">₪1,700</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">תצוגה מקדימה</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20מעצבת%20פנים" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- משרד רואי חשבון -->
+            <div class="template-card" data-category="business">
+                <div class="template-image">📊</div>
+                <div class="template-content">
+                    <h3 class="template-title">משרד רואי חשבון</h3>
+                    <p class="template-category">עסקי ומשפטי</p>
+                    <ul class="template-features">
+                        <li>שירותי הנהלת חשבונות</li>
+                        <li>ייעוץ מס ופיננסי</li>
+                        <li>דוחות כספיים</li>
+                        <li>שירותי שכר</li>
+                        <li>מחשבונים פיננסיים</li>
+                    </ul>
+                    <div class="template-price">₪2,200</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">תצוגה מקדימה</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20משרד%20רואי%20חשבון" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- מומחה סייבר -->
+            <div class="template-card" data-category="tech">
+                <div class="template-image">🔒</div>
+                <div class="template-content">
+                    <h3 class="template-title">מומחה אבטחת סייבר</h3>
+                    <p class="template-category">טכנולוגיה ומחשבים</p>
+                    <ul class="template-features">
+                        <li>שירותי אבטחה מתקדמים</li>
+                        <li>בדיקות חדירה</li>
+                        <li>הדרכות סייבר</li>
+                        <li>ייעוץ אבטחה</li>
+                        <li>עיצוב טכנולוגי</li>
+                    </ul>
+                    <div class="template-price">₪3,000</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">תצוגה מקדימה</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20מומחה%20סייבר" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- יועץ אנרגיה סולארית -->
+            <div class="template-card" data-category="tech">
+                <div class="template-image">☀️</div>
+                <div class="template-content">
+                    <h3 class="template-title">יועץ אנרגיה סולארית</h3>
+                    <p class="template-category">טכנולוגיה ומחשבים</p>
+                    <ul class="template-features">
+                        <li>מחשבון חיסכון בחשמל</li>
+                        <li>תכנון מערכות סולאריות</li>
+                        <li>ייעוץ וליווי התקנה</li>
+                        <li>מימון והחזר השקעה</li>
+                        <li>עיצוב ירוק ואקולוגי</li>
+                    </ul>
+                    <div class="template-price">₪2,800</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">תצוגה מקדימה</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20יועץ%20אנרגיה%20סולארית" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- חברת ביוטכנולוגיה -->
+            <div class="template-card" data-category="tech">
+                <div class="template-image">🧬</div>
+                <div class="template-content">
+                    <h3 class="template-title">חברת ביוטכנולוגיה</h3>
+                    <p class="template-category">טכנולוגיה ומחשבים</p>
+                    <ul class="template-features">
+                        <li>מחקרים ופתרונות</li>
+                        <li>צוות מדענים</li>
+                        <li>מוצרים חדשניים</li>
+                        <li>שותפויות ומשקיעים</li>
+                        <li>עיצוב מדעי מתקדם</li>
+                    </ul>
+                    <div class="template-price">₪4,000</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">תצוגה מקדימה</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20חברת%20ביוטכנולוגיה" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- נגישות דיגיטלית -->
+            <div class="template-card" data-category="tech">
+                <div class="template-image">♿</div>
+                <div class="template-content">
+                    <h3 class="template-title">נגישות דיגיטלית</h3>
+                    <p class="template-category">טכנולוגיה ומחשבים</p>
+                    <ul class="template-features">
+                        <li>כלי בדיקה והנחיות</li>
+                        <li>ביקורת נגישות</li>
+                        <li>הדרכות והטמעה</li>
+                        <li>תקנים ותקנות</li>
+                        <li>עיצוב נגיש לכולם</li>
+                    </ul>
+                    <div class="template-price">₪2,500</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">תצוגה מקדימה</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20באתר%20נגישות%20דיגיטלית" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WebMaster Pro -->
+            <div class="template-card" data-category="tech">
+                <div class="template-image">🚀</div>
+                <div class="template-content">
+                    <h3 class="template-title">WebMaster Pro - הפלטפורמה שלנו</h3>
+                    <p class="template-category">טכנולוגיה ומחשבים</p>
+                    <ul class="template-features">
+                        <li>17 תבניות מקצועיות</li>
+                        <li>4 דמואים חיים ופועלים</li>
+                        <li>גלריה אינטראקטיבית</li>
+                        <li>מערכת לידים מתקדמת</li>
+                        <li>עיצוב מודרני ורספונסיבי</li>
+                    </ul>
+                    <div class="template-price">₪5,000</div>
+                    <div class="template-actions">
+                        <a href="#" class="btn btn-secondary">אתה כאן!</a>
+                        <a href="https://wa.me/972541234567?text=שלום,%20אני%20מעוניין/ת%20לבנות%20גלריה%20כמו%20WebMaster%20Pro" target="_blank" class="btn btn-primary">
+                            אני רוצה אתר כזה
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Categories -->
-        <div class="categories">
-            <button class="category-btn active" onclick="filterTemplates('הכל')">הכל</button>
-            <button class="category-btn" onclick="filterTemplates('בריאות וכושר')">בריאות וכושר</button>
-            <button class="category-btn" onclick="filterTemplates('חינוך ולימודים')">חינוך ולימודים</button>
-            <button class="category-btn" onclick="filterTemplates('יופי ועיצוב')">יופי ועיצוב</button>
-            <button class="category-btn" onclick="filterTemplates('עסקי ומשפטי')">עסקי ומשפטי</button>
-            <button class="category-btn" onclick="filterTemplates('טכנולוגיה ומחשבים')">טכנולוגיה ומחשבים</button>
-        </div>
-
-        <!-- Templates Grid -->
-        <div class="templates-grid" id="templatesGrid">
-            <!-- Template 1 - Updated with real demo -->
-            <div class="template-card" data-category="בריאות וכושר">
-                <div class="template-image" style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E);">
-                    מאמן כושר אישי - דמו מלא
-                </div>
-                <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">אלון כהן - מאמן כושר אישי</h3>
-                        <span class="template-category" style="background-color: #FF6B6B;">בריאות וכושר</span>
-                    </div>
-                    <p class="template-description">אתר מלא ומתקדם עם וידאו רקע, מחשבוני כושר, גלריית before/after ומצב כהה</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ וידאו רקע מרהיב</span>
-                        <span class="feature-tag">✓ מחשבוני BMI/BMR</span>
-                        <span class="feature-tag">✓ גלריית before/after</span>
-                        <span class="feature-tag">✓ מצב כהה/בהיר</span>
-                        <span class="feature-tag">✓ תפריט צד נפתח</span>
-                        <span class="feature-tag">✓ אנימציות מתקדמות</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #FF6B6B;">₪2,200</div>
-                            <div class="price-label">מחיר בניית אתר (עם כל הפיצ'רים)</div>
-                        </div>
-                    </div>
-                    
-                    <!-- כפתורי פעולה משופרים -->
-                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-                        <button
-                            onclick="window.open('https://fitness-coach-demo.netlify.app/', '_blank')"
-                            style="
-                                flex: 1;
-                                padding: 0.75rem;
-                                border: 2px solid #FF6B6B;
-                                background-color: transparent;
-                                color: #FF6B6B;
-                                border-radius: 6px;
-                                cursor: pointer;
-                                font-weight: bold;
-                                transition: all 0.3s ease;
-                            "
-                            onmouseenter="this.style.backgroundColor='#FF6B6B'; this.style.color='white';"
-                            onmouseleave="this.style.backgroundColor='transparent'; this.style.color='#FF6B6B';"
-                        >
-                            🚀 דמו מלא!
-                        </button>
-                        
-                        <button
-                            onclick="contactWhatsApp('מאמן כושר אישי - דמו מלא')"
-                            style="
-                                flex: 1;
-                                padding: 0.75rem;
-                                border: none;
-                                background-color: #FF6B6B;
-                                color: white;
-                                border-radius: 6px;
-                                cursor: pointer;
-                                font-weight: bold;
-                                transition: all 0.3s ease;
-                            "
-                            onmouseenter="this.style.backgroundColor='#FF8E8E';"
-                            onmouseleave="this.style.backgroundColor='#FF6B6B';"
-                        >
-                            אני רוצה אתר כזה
-                        </button>
-                    </div>
-                    
-                    <!-- תגית "דמו מלא" -->
-                    <div style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: linear-gradient(45deg, #FFD700, #FFA500);
-                        color: #333;
-                        padding: 0.3rem 0.8rem;
-                        border-radius: 15px;
-                        font-size: 0.8rem;
-                        font-weight: bold;
-                        box-shadow: 0 2px 10px rgba(255,215,0,0.3);
-                    ">
-                        🔥 דמו מלא
-                    </div>
-                </div>
-            </div>
-
-            <!-- Template 2 - Updated with real demo -->
-            <div class="template-card" data-category="בריאות וכושר">
-                <div class="template-image" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-                    פסיכולוגיה קלינית - דמו מלא
-                </div>
-                <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">ד"ר נועה רוזן - פסיכולוגיה קלינית</h3>
-                        <span class="template-category" style="background-color: #667eea;">בריאות וכושר</span>
-                    </div>
-                    <p class="template-description">אתר מקצועי ורגוע עם 6 תחומי התמחות, טופס יצירת קשר דיסקרטי ועיצוב שלו</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ 6 תחומי התמחות</span>
-                        <span class="feature-tag">✓ טופס דיסקרטי</span>
-                        <span class="feature-tag">✓ עיצוב רגוע</span>
-                        <span class="feature-tag">✓ כרטיס מקצועי</span>
-                        <span class="feature-tag">✓ אנימציות עדינות</span>
-                        <span class="feature-tag">✓ רספונסיבי מלא</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #667eea;">₪2,000</div>
-                            <div class="price-label">מחיר בניית אתר (עם כל הפיצ'רים)</div>
-                        </div>
-                    </div>
-                    
-                    <!-- כפתורי פעולה משופרים -->
-                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-                        <button
-                            onclick="window.open('https://psychology-clinic-demo.netlify.app/', '_blank')"
-                            style="
-                                flex: 1;
-                                padding: 0.75rem;
-                                border: 2px solid #667eea;
-                                background-color: transparent;
-                                color: #667eea;
-                                border-radius: 6px;
-                                cursor: pointer;
-                                font-weight: bold;
-                                transition: all 0.3s ease;
-                            "
-                            onmouseenter="this.style.backgroundColor='#667eea'; this.style.color='white';"
-                            onmouseleave="this.style.backgroundColor='transparent'; this.style.color='#667eea';"
-                        >
-                            🚀 דמו מלא!
-                        </button>
-                        
-                        <button
-                            onclick="contactWhatsApp('פסיכולוגיה קלינית - דמו מלא')"
-                            style="
-                                flex: 1;
-                                padding: 0.75rem;
-                                border: none;
-                                background-color: #667eea;
-                                color: white;
-                                border-radius: 6px;
-                                cursor: pointer;
-                                font-weight: bold;
-                                transition: all 0.3s ease;
-                            "
-                            onmouseenter="this.style.backgroundColor='#764ba2';"
-                            onmouseleave="this.style.backgroundColor='#667eea';"
-                        >
-                            אני רוצה אתר כזה
-                        </button>
-                    </div>
-                    
-                    <!-- תגית "דמו מלא" -->
-                    <div style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: linear-gradient(45deg, #667eea, #764ba2);
-                        color: white;
-                        padding: 0.3rem 0.8rem;
-                        border-radius: 15px;
-                        font-size: 0.8rem;
-                        font-weight: bold;
-                        box-shadow: 0 2px 10px rgba(102,126,234,0.3);
-                    ">
-                        🧠 דמו מלא
-                    </div>
-                </div>
-            </div>
-
-            <!-- Template 3 - Updated with real demo -->
-            <div class="template-card" data-category="בריאות וכושר">
-                <div class="template-image" style="background: linear-gradient(135deg, #43cea2, #185a9d);">
-                    סטודיו יוגה - דמו מלא
-                </div>
-                <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">נשימה בתנועה - סטודיו יוגה</h3>
-                        <span class="template-category" style="background-color: #43cea2;">בריאות וכושר</span>
-                    </div>
-                    <p class="template-description">אתר זורם ומרגיע עם 6 סוגי שיעורים, לוח זמנים אינטראקטיבי ואנימציות מרחפות</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ 6 סוגי שיעורים</span>
-                        <span class="feature-tag">✓ לוח זמנים אינטראקטיבי</span>
-                        <span class="feature-tag">✓ אנימציות מרחפות</span>
-                        <span class="feature-tag">✓ מעגל מדיטציה</span>
-                        <span class="feature-tag">✓ כפתורי הרשמה חכמים</span>
-                        <span class="feature-tag">✓ עיצוב זורם</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #43cea2;">₪1,900</div>
-                            <div class="price-label">מחיר בניית אתר (עם כל הפיצ'רים)</div>
-                        </div>
-                    </div>
-                    
-                    <!-- כפתורי פעולה משופרים -->
-                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-                        <button
-                            onclick="window.open('https://yoga-studio-demo.netlify.app/', '_blank')"
-                            style="
-                                flex: 1;
-                                padding: 0.75rem;
-                                border: 2px solid #43cea2;
-                                background-color: transparent;
-                                color: #43cea2;
-                                border-radius: 6px;
-                                cursor: pointer;
-                                font-weight: bold;
-                                transition: all 0.3s ease;
-                            "
-                            onmouseenter="this.style.backgroundColor='#43cea2'; this.style.color='white';"
-                            onmouseleave="this.style.backgroundColor='transparent'; this.style.color='#43cea2';"
-                        >
-                            🚀 דמו מלא!
-                        </button>
-                        
-                        <button
-                            onclick="contactWhatsApp('סטודיו יוגה - דמו מלא')"
-                            style="
-                                flex: 1;
-                                padding: 0.75rem;
-                                border: none;
-                                background-color: #43cea2;
-                                color: white;
-                                border-radius: 6px;
-                                cursor: pointer;
-                                font-weight: bold;
-                                transition: all 0.3s ease;
-                            "
-                            onmouseenter="this.style.backgroundColor='#185a9d';"
-                            onmouseleave="this.style.backgroundColor='#43cea2';"
-                        >
-                            אני רוצה אתר כזה
-                        </button>
-                    </div>
-                    
-                    <!-- תגית "דמו מלא" -->
-                    <div style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: linear-gradient(45deg, #43cea2, #7fdbca);
-                        color: white;
-                        padding: 0.3rem 0.8rem;
-                        border-radius: 15px;
-                        font-size: 0.8rem;
-                        font-weight: bold;
-                        box-shadow: 0 2px 10px rgba(67,206,162,0.3);
-                    ">
-                        🧘‍♀️ דמו מלא
-                    </div>
-                </div>
-            </div>
-
-            <!-- Template 4 - Updated with real demo -->
-            <div class="template-card" data-category="בריאות וכושר">
-                <div class="template-image" style="background: linear-gradient(135deg, #a8edea, #fed6e3);">
-                    תזונאית קלינית - דמו מלא
-                </div>
-                <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">לירון ברק - תזונאית קלינית</h3>
-                        <span class="template-category" style="background-color: #a8edea;">בריאות וכושר</span>
-                    </div>
-                    <p class="template-description">אתר מתקדם עם 4 מחשבוני תזונה, 6 שירותי יעוץ ותוכן מקצועי מלא</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ 4 מחשבוני תזונה</span>
-                        <span class="feature-tag">✓ 6 שירותי יעוץ</span>
-                        <span class="feature-tag">✓ כרטיס מקצועי</span>
-                        <span class="feature-tag">✓ טופס יצירת קשר</span>
-                        <span class="feature-tag">✓ אנימציות מרחפות</span>
-                        <span class="feature-tag">✓ עיצוב טרי</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #a8edea;">₪1,800</div>
-                            <div class="price-label">מחיר בניית אתר (עם כל הפיצ'רים)</div>
-                        </div>
-                    </div>
-                    
-                    <!-- כפתורי פעולה משופרים -->
-                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-                        <button
-                            onclick="window.open('https://nutritionist-clinic-demo.netlify.app/', '_blank')"
-                            style="
-                                flex: 1;
-                                padding: 0.75rem;
-                                border: 2px solid #a8edea;
-                                background-color: transparent;
-                                color: #a8edea;
-                                border-radius: 6px;
-                                cursor: pointer;
-                                font-weight: bold;
-                                transition: all 0.3s ease;
-                            "
-                            onmouseenter="this.style.backgroundColor='#a8edea'; this.style.color='white';"
-                            onmouseleave="this.style.backgroundColor='transparent'; this.style.color='#a8edea';"
-                        >
-                            🚀 דמו מלא!
-                        </button>
-                        
-                        <button
-                            onclick="contactWhatsApp('תזונאית קלינית - דמו מלא')"
-                            style="
-                                flex: 1;
-                                padding: 0.75rem;
-                                border: none;
-                                background-color: #a8edea;
-                                color: white;
-                                border-radius: 6px;
-                                cursor: pointer;
-                                font-weight: bold;
-                                transition: all 0.3s ease;
-                            "
-                            onmouseenter="this.style.backgroundColor='#fed6e3';"
-                            onmouseleave="this.style.backgroundColor='#a8edea';"
-                        >
-                            אני רוצה אתר כזה
-                        </button>
-                    </div>
-                    
-                    <!-- תגית "דמו מלא" -->
-                    <div style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: linear-gradient(45deg, #a8edea, #fed6e3);
-                        color: white;
-                        padding: 0.3rem 0.8rem;
-                        border-radius: 15px;
-                        font-size: 0.8rem;
-                        font-weight: bold;
-                        box-shadow: 0 2px 10px rgba(168,237,234,0.3);
-                    ">
-                        🍎 דמו מלא
-                    </div>
-                </div>
-            </div>
-
-            <!-- Template 5 -->
-            <div class="template-card" data-category="חינוך ולימודים">
-                <div class="template-image" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
-                    מורה פרטי
-                </div>
-                <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">מורה פרטי</h3>
-                        <span class="template-category" style="background-color: #11998e;">חינוך ולימודים</span>
-                    </div>
-                    <p class="template-description">פלטפורמה ללימודים פרטיים</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ לוח זמנים</span>
-                        <span class="feature-tag">✓ חומרי לימוד</span>
-                        <span class="feature-tag">✓ מבחנים</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #11998e;">₪1,300</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #11998e;" onclick="contactWhatsApp('מורה פרטי')">
-                        אני רוצה אתר כזה
-                    </button>
-                </div>
-            </div>
-
-            <!-- Template 6 -->
-            <div class="template-card" data-category="יופי ועיצוב">
-                <div class="template-image" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
-                    מספרה מקצועית
-                </div>
-                <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">מספרה מקצועית</h3>
-                        <span class="template-category" style="background-color: #f093fb;">יופי ועיצוב</span>
-                    </div>
-                    <p class="template-description">אתר אלגנטי למספרה</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ הזמנת תורים</span>
-                        <span class="feature-tag">✓ גלריה</span>
-                        <span class="feature-tag">✓ מחירון</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #f093fb;">₪1,200</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #f093fb;" onclick="contactWhatsApp('מספרה מקצועית')">
-                        אני רוצה אתר כזה
-                    </button>
-                </div>
-            </div>
-
-            <!-- Template 7 -->
-            <div class="template-card" data-category="עסקי ומשפטי">
-                <div class="template-image" style="background: linear-gradient(135deg, #2c3e50, #34495e);">
-                    משרד עורכי דין
-                </div>
-                <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">משרד עורכי דין</h3>
-                        <span class="template-category" style="background-color: #2c3e50;">עסקי ומשפטי</span>
-                    </div>
-                    <p class="template-description">אתר מקצועי למשרד עורכי דין</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ התמחויות</span>
-                        <span class="feature-tag">✓ צוות</span>
-                        <span class="feature-tag">✓ מאמרים</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #2c3e50;">₪2,000</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #2c3e50;" onclick="contactWhatsApp('משרד עורכי דין')">
-                        אני רוצה אתר כזה
-                    </button>
-                </div>
-            </div>
-
-            <!-- Template 8 -->
-            <div class="template-card" data-category="טכנולוגיה ומחשבים">
-                <div class="template-image" style="background: linear-gradient(135deg, #0f0f23, #1a1a2e);">
-                    מומחה סייבר
-                </div>
-                <div class="template-content">
-                    <div class="template-header">
-                        <h3 class="template-title">מומחה סייבר</h3>
-                        <span class="template-category" style="background-color: #0f0f23;">טכנולוגיה ומחשבים</span>
-                    </div>
-                    <p class="template-description">אתר לשירותי אבטחת מידע</p>
-                    <div class="template-features">
-                        <span class="feature-tag">✓ סקירות אבטחה</span>
-                        <span class="feature-tag">✓ יעוץ</span>
-                        <span class="feature-tag">✓ הדרכות</span>
-                    </div>
-                    <div class="template-footer">
-                        <div>
-                            <div class="template-price" style="color: #0f0f23;">₪2,200</div>
-                            <div class="price-label">מחיר בניית אתר</div>
-                        </div>
-                    </div>
-                    <button class="contact-btn" style="background-color: #0f0f23;" onclick="contactWhatsApp('מומחה סייבר')">
-                        אני רוצה אתר כזה
-                    </button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <h2>מוכן להתחיל?</h2>
-            <p>בחר תבנית ואנחנו נבנה לך אתר מקצועי תוך 7-14 ימי עבודה</p>
-            <button class="cta-btn" onclick="contactWhatsApp('שיחת ייעוץ כללית')">
-                קבע שיחת ייעוץ חינם
-            </button>
-        </div>
-    </footer>
+        <footer class="footer">
+            <p>&copy; 2024 WebMaster Pro. כל הזכויות שמורות.</p>
+            <p>בניית אתרים מקצועית עם דגש על חוויית משתמש ותוצאות עסקיות</p>
+        </footer>
+    </div>
 
     <script>
-        // Filter templates by category
-        function filterTemplates(category) {
-            const cards = document.querySelectorAll('.template-card');
-            const buttons = document.querySelectorAll('.category-btn');
-            
-            // Update active button
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Filter cards
-            cards.forEach(card => {
-                if (category === 'הכל' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const templateCards = document.querySelectorAll('.template-card');
 
-        // Contact via WhatsApp
-        function contactWhatsApp(templateName) {
-            const message = `שלום, אני מעוניין/ת לבנות אתר בסגנון "${templateName}". אשמח לקבל פרטים נוספים ותמחור.`;
-            const whatsappUrl = `https://wa.me/972501234567?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
 
-        // Update stats to show 17 templates
-        document.addEventListener('DOMContentLoaded', function() {
-            // Update the stats numbers
-            const statsNumbers = document.querySelectorAll('.stat-number');
-            if (statsNumbers[0]) statsNumbers[0].textContent = '17';
-            if (statsNumbers[1]) statsNumbers[1].textContent = '1,247';
-            if (statsNumbers[2]) statsNumbers[2].textContent = '4.8';
-            
-            const cards = document.querySelectorAll('.template-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.transition = 'all 0.5s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
+                const category = btn.getAttribute('data-category');
+
+                templateCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
+
+        // Add smooth animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe template cards for animation
+        templateCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add CSS animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
