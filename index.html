@@ -1,117 +1,1190 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <title>WebMaster Pro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-      }
-    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebMaster Pro - תבניות אתרים ברמה עולמית</title>
+    <meta name="description" content="תבניות אתרים מקצועיות עם דמואים חיים. עיצוב ברמה עולמית לעסקים, מקצועות חופשיים ויועצים.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    
     <style>
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
-  </head>
-  <body class="dark:bg-gray-900 dark:text-white bg-gray-100 text-gray-900 font-sans">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- 🔝 תפריט עליון -->
-    <header class="bg-white/80 backdrop-blur-md shadow-md fixed top-0 w-full z-50 dark:bg-gray-800/80">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <h1 class="text-2xl font-bold text-purple-700 dark:text-yellow-400">WebMaster Pro</h1>
-        <nav class="space-x-6 space-x-reverse">
-          <a href="#features" class="hover:underline">תכונות</a>
-          <a href="#templates" class="hover:underline">תבניות</a>
-          <a href="#cta" class="hover:underline">התחל עכשיו</a>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00d4ff, #7c3aed);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 120px; height: 120px; top: 60%; left: 80%; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 60px; height: 60px; top: 80%; left: 20%; animation-delay: 4s; }
+        .shape:nth-child(4) { width: 100px; height: 100px; top: 30%; left: 70%; animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Header */
+        .header {
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00d4ff, #7c3aed, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-links a:hover::before {
+            left: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(124, 58, 237, 0.3); }
+            to { box-shadow: 0 0 30px rgba(124, 58, 237, 0.6); }
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #00d4ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00d4ff, #7c3aed, #f59e0b);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00d4ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        /* Templates Grid */
+        .templates-section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-tab.active,
+        .filter-tab:hover {
+            background: linear-gradient(135deg, #00d4ff, #7c3aed);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        /* Templates Grid */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .template-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            group: hover;
+        }
+
+        .template-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .template-preview {
+            position: relative;
+            height: 250px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .template-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .preview-icon {
+            font-size: 4rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 3;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .template-content {
+            padding: 2rem;
+        }
+
+        .template-category {
+            color: #00d4ff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .template-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .template-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .template-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-tag {
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            color: #a855f7;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .template-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .template-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .template-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4ff, #0ea5e9);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 4rem 2rem;
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(124, 58, 237, 0.05));
+            z-index: -1;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(15, 15, 35, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00d4ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00d4ff;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .templates-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .template-card {
+                margin: 0 1rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .filter-tabs {
+                gap: 0.5rem;
+            }
+
+            .filter-tab {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                🚀 WebMaster Pro
+            </div>
+            <ul class="nav-links">
+                <li><a href="#templates">תבניות</a></li>
+                <li><a href="#demos">דמואים</a></li>
+                <li><a href="#pricing">מחירים</a></li>
+                <li><a href="#contact">צור קשר</a></li>
+            </ul>
         </nav>
-      </div>
     </header>
 
-    <!-- 🎥 רקע עם וידאו -->
-    <section class="relative h-[95vh] flex items-center justify-center text-center text-white overflow-hidden">
-      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-[-1] brightness-50">
-        <source src="https://cdn.coverr.co/videos/coverr-working-on-a-laptop-2408/1080p.mp4" type="video/mp4" />
-      </video>
-      <div class="z-10 px-4">
-        <h2 class="text-5xl font-extrabold mb-4">WebMaster Pro</h2>
-        <p class="text-xl mb-6">תבניות אתרים חכמות עם דמואים חיים, עיצוב מתקדם ואפשרויות בלתי מוגבלות</p>
-        <a href="#templates" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full shadow-lg text-lg transition">🚀 התחל לבנות אתר</a>
-      </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">
+            ✨ חדש! 7 דמואים חיים
+        </div>
+        <h1>תבניות אתרים ברמה עולמית</h1>
+        <p class="hero-subtitle">
+            עיצובים מקצועיים עם דמואים חיים לעסקים, מקצועות חופשיים ויועצים. 
+            בנויים עם טכנולוגיות מתקדמות ומותאמים לכל מכשיר.
+        </p>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card loading">
+                <span class="stat-number">17+</span>
+                <span class="stat-label">תבניות מקצועיות</span>
+            </div>
+            <div class="stat-card loading">
+                <span class="stat-number">7</span>
+                <span class="stat-label">דמואים חיים</span>
+            </div>
+            <div class="stat-card loading">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">רספונסיבי</span>
+            </div>
+            <div class="stat-card loading">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">תמיכה</span>
+            </div>
+        </div>
     </section>
 
-    <!-- 📊 מספרים -->
-    <section id="features" class="py-12 bg-white dark:bg-gray-800 text-center">
-      <h3 class="text-3xl font-bold mb-8 text-purple-700 dark:text-yellow-400">למה לבחור בנו?</h3>
-      <div class="flex flex-wrap justify-center gap-12 text-2xl font-semibold text-gray-700 dark:text-gray-300">
-        <div><span class="text-5xl text-yellow-400 block">17+</span> תבניות מוכנות</div>
-        <div><span class="text-5xl text-yellow-400 block">4</span> דמואים חיים</div>
-        <div><span class="text-5xl text-yellow-400 block">150+</span> לקוחות מרוצים</div>
-      </div>
+    <!-- Templates Section -->
+    <section class="templates-section" id="templates">
+        <div class="section-header">
+            <h2 class="section-title">דמואים חיים ותבניות</h2>
+            <p class="section-subtitle">
+                אתרים מלאים ופועלים שאתה יכול לראות, לבדוק ולהשתמש בהם מיד
+            </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <div class="filter-tab active" data-category="all">הכל</div>
+            <div class="filter-tab" data-category="health">בריאות</div>
+            <div class="filter-tab" data-category="legal">משפטי</div>
+            <div class="filter-tab" data-category="education">חינוך</div>
+            <div class="filter-tab" data-category="finance">פיננסים</div>
+            <div class="filter-tab" data-category="beauty">יופי</div>
+            <div class="filter-tab" data-category="business">עסקי</div>
+        </div>
+
+        <!-- Templates Grid -->
+        <div class="templates-grid">
+            <!-- מאמן כושר אישי -->
+            <div class="template-card loading" data-category="health">
+                <div class="template-preview">
+                    <div class="live-badge">דמו חי</div>
+                    <div class="preview-icon">🏋️‍♂️</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">בריאות וכושר</div>
+                    <h3 class="template-title">מאמן כושר אישי</h3>
+                    <p class="template-description">אתר מקצועי למאמן כושר עם מחשבוני BMI/BMR, תוכניות אימון מותאמות אישית וגלריית לפני/אחרי.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">מחשבוני כושר</span>
+                        <span class="feature-tag">תוכניות אימון</span>
+                        <span class="feature-tag">גלריה</span>
+                        <span class="feature-tag">הזמנת אימונים</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪1,800</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">🚀 דמו חי</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר מאמן כושר (₪1,800)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- סטודיו יוגה -->
+            <div class="template-card loading" data-category="health">
+                <div class="template-preview">
+                    <div class="live-badge">דמו חי</div>
+                    <div class="preview-icon">🧘‍♀️</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">בריאות ורוחניות</div>
+                    <h3 class="template-title">סטודיו יוגה ומדיטציה</h3>
+                    <p class="template-description">אתר רגוע ומעורר השראה עם לוח זמנים אינטראקטיבי, הזמנת שיעורים ותוכן על יוגה ומדיטציה.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">לוח זמנים</span>
+                        <span class="feature-tag">הזמנות</span>
+                        <span class="feature-tag">מדיטציה</span>
+                        <span class="feature-tag">בלוג</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪1,700</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">🚀 דמו חי</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר יוגה (₪1,700)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- תזונאית קלינית -->
+            <div class="template-card loading" data-category="health">
+                <div class="template-preview">
+                    <div class="live-badge">דמו חי</div>
+                    <div class="preview-icon">🍎</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">בריאות ותזונה</div>
+                    <h3 class="template-title">תזונאית קלינית</h3>
+                    <p class="template-description">אתר מקצועי עם 4 מחשבונים תזונתיים, מתכונים בריאים, תוכניות דיאטה ומעקב התקדמות.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">4 מחשבונים</span>
+                        <span class="feature-tag">מתכונים</span>
+                        <span class="feature-tag">דיאטות</span>
+                        <span class="feature-tag">מעקב</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪2,100</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">🚀 דמו חי</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר תזונאית (₪2,100)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- משרד עורכי דין -->
+            <div class="template-card loading" data-category="legal">
+                <div class="template-preview">
+                    <div class="live-badge">דמו חי</div>
+                    <div class="preview-icon">⚖️</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">משפטי</div>
+                    <h3 class="template-title">משרד עורכי דין</h3>
+                    <p class="template-description">אתר מקצועי ואמין עם מחשבון פיצויי פיטורים, תחומי התמחות, צוות עורכי הדין וטופס יעוץ ראשוני.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">מחשבון פיצויים</span>
+                        <span class="feature-tag">תחומי התמחות</span>
+                        <span class="feature-tag">צוות</span>
+                        <span class="feature-tag">יעוץ ראשוני</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪2,500</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">🚀 דמו חי</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר עורכי דין (₪2,500)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- חשבת שכר -->
+            <div class="template-card loading" data-category="finance">
+                <div class="template-preview">
+                    <div class="live-badge">דמו חי</div>
+                    <div class="preview-icon">💰</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">פיננסים וחשבונאות</div>
+                    <h3 class="template-title">חשבת שכר מקצועית</h3>
+                    <p class="template-description">אתר מתקדם עם מחשבונים לשכר, פיצויים, דמי הבראה וחופשה. שירותי עיבוד שכר מלאים.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">מחשבוני שכר</span>
+                        <span class="feature-tag">פיצויים</span>
+                        <span class="feature-tag">דוחות</span>
+                        <span class="feature-tag">ביטוח לאומי</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪2,200</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">🚀 דמו חי</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר חשבת שכר (₪2,200)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ד"ר רונית לוי - החדש! -->
+            <div class="template-card loading" data-category="education" style="border: 2px solid #00d4ff; box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);">
+                <div class="template-preview" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6, #06b6d4);">
+                    <div class="live-badge" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">🆕 חדש!</div>
+                    <div class="preview-icon">👩‍🏫</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category" style="color: #fbbf24;">חינוך והוראה</div>
+                    <h3 class="template-title">ד"ר רונית לוי - מורה פרטית</h3>
+                    <p class="template-description">אתר מקצועי למורה פרטית לבגרויות עם עמוד מאמרים מתקדם, סינון תוכן, תמונות מקצועיות וטופס ששולח לווטסאפ.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">5 דפים מלאים</span>
+                        <span class="feature-tag">עמוד מאמרים</span>
+                        <span class="feature-tag">סינון תוכן</span>
+                        <span class="feature-tag">טופס לווטסאפ</span>
+                        <span class="feature-tag">תמונות מקצועיות</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪2,000</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">🚀 דמו חי</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר מורה פרטית (₪2,000)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- מספרה BELLA -->
+            <div class="template-card loading" data-category="beauty">
+                <div class="template-preview">
+                    <div class="live-badge">דמו חי</div>
+                    <div class="preview-icon">💄</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">יופי ועיצוב</div>
+                    <h3 class="template-title">סטודיו BELLA למספרות</h3>
+                    <p class="template-description">אתר יוקרתי למספרה עם גלריית עבודות, הזמנת תורים אונליין, מחירון שירותים וצוות מעצבי שיער.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">הזמנת תורים</span>
+                        <span class="feature-tag">גלריה</span>
+                        <span class="feature-tag">מחירון</span>
+                        <span class="feature-tag">צוות</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪1,900</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">🚀 דמו חי</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר מספרה (₪1,900)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- תבניות נוספות -->
+            <div class="template-card loading" data-category="business">
+                <div class="template-preview">
+                    <div class="preview-icon">🏢</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">עסקי</div>
+                    <h3 class="template-title">יועץ עסקי</h3>
+                    <p class="template-description">אתר מקצועי ליועץ עסקי עם תיק עבודות, שירותי ייעוץ, מקרי בוחן ותהליך עבודה מפורט.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">תיק עבודות</span>
+                        <span class="feature-tag">מקרי בוחן</span>
+                        <span class="feature-tag">ייעוץ</span>
+                        <span class="feature-tag">תהליך עבודה</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪2,300</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">📋 פרטים</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר יועץ עסקי (₪2,300)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-card loading" data-category="health">
+                <div class="template-preview">
+                    <div class="preview-icon">💉</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">בריאות ואסתטיקה</div>
+                    <h3 class="template-title">אסתטיקה רפואית</h3>
+                    <p class="template-description">אתר יוקרתי למרפאה אסתטית עם גלריית לפני/אחרי, טיפולים מפורטים ותהליך הזמנה מתקדם.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">לפני/אחרי</span>
+                        <span class="feature-tag">טיפולים</span>
+                        <span class="feature-tag">הזמנות</span>
+                        <span class="feature-tag">מחירון</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪2,800</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">📋 פרטים</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר אסתטיקה רפואית (₪2,800)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-card loading" data-category="business">
+                <div class="template-preview">
+                    <div class="preview-icon">🏠</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">נדל"ן</div>
+                    <h3 class="template-title">מתווך נדל"ן</h3>
+                    <p class="template-description">אתר מתקדם למתווך נדל"ן עם מאגר נכסים, מחשבון משכנתא, סיורים וירטואליים והערכות שווי.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">מאגר נכסים</span>
+                        <span class="feature-tag">מחשבון משכנתא</span>
+                        <span class="feature-tag">סיורים וירטואליים</span>
+                        <span class="feature-tag">הערכות שווי</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪2,600</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">📋 פרטים</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר מתווך נדל״ן (₪2,600)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-card loading" data-category="business">
+                <div class="template-preview">
+                    <div class="preview-icon">🎨</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">עיצוב ואמנות</div>
+                    <h3 class="template-title">מעצב פנים</h3>
+                    <p class="template-description">אתר יוקרתי למעצב פנים עם פורטפוליו מרשים, פרויקטים לפי סגנונות ותהליך עיצוב מפורט.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">פורטפוליו</span>
+                        <span class="feature-tag">סגנונות עיצוב</span>
+                        <span class="feature-tag">תהליך עבודה</span>
+                        <span class="feature-tag">אומדן עלויות</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪2,400</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">📋 פרטים</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר מעצב פנים (₪2,400)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-card loading" data-category="health">
+                <div class="template-preview">
+                    <div class="preview-icon">🦷</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">בריאות רפואית</div>
+                    <h3 class="template-title">רופא שיניים</h3>
+                    <p class="template-description">אתר מקצועי למרפאת שיניים עם הזמנת תורים, טיפולים, גלריית חיוכים ומידע רפואי.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">הזמנת תורים</span>
+                        <span class="feature-tag">טיפולי שיניים</span>
+                        <span class="feature-tag">גלריה</span>
+                        <span class="feature-tag">מידע רפואי</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪2,300</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">📋 פרטים</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר רופא שיניים (₪2,300)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-card loading" data-category="business">
+                <div class="template-preview">
+                    <div class="preview-icon">🔧</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">שירותים טכניים</div>
+                    <h3 class="template-title">חשמלאי מקצועי</h3>
+                    <p class="template-description">אתר לחשמלאי עם שירותי חירום 24/7, מחירון עבודות, פרויקטים ויעוץ בטיחות חשמל.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">שירותי חירום</span>
+                        <span class="feature-tag">מחירון</span>
+                        <span class="feature-tag">פרויקטים</span>
+                        <span class="feature-tag">בטיחות</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪1,800</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">📋 פרטים</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר חשמלאי (₪1,800)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-card loading" data-category="business">
+                <div class="template-preview">
+                    <div class="preview-icon">📸</div>
+                </div>
+                <div class="template-content">
+                    <div class="template-category">אמנות וצילום</div>
+                    <h3 class="template-title">צלם חתונות</h3>
+                    <p class="template-description">אתר מרהיב לצלם חתונות עם גלריות מדהימות, חבילות צילום ותהליך הזמנה מפורט.</p>
+                    <div class="template-features">
+                        <span class="feature-tag">גלריות מרהיבות</span>
+                        <span class="feature-tag">חבילות צילום</span>
+                        <span class="feature-tag">אלבומים</span>
+                        <span class="feature-tag">הזמנות</span>
+                    </div>
+                    <div class="template-footer">
+                        <span class="template-price">₪2,700</span>
+                        <div class="template-actions">
+                            <a href="#" class="btn btn-primary">📋 פרטים</a>
+                            <a href="https://wa.me/972501234567?text=היי! אני מעוניין באתר צלם חתונות (₪2,700)" class="btn btn-secondary">💬 WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- 🎯 קטגוריות -->
-    <section class="text-center py-10 bg-gray-50 dark:bg-gray-900">
-      <p class="text-xl font-bold mb-4">🎯 חפש לפי תחום</p>
-      <div class="flex flex-wrap justify-center gap-3 text-sm">
-        <button class="px-4 py-2 rounded-full bg-yellow-400 text-black font-semibold hover:bg-yellow-500 transition">הכל ☀️</button>
-        <button class="px-4 py-2 rounded-full bg-purple-100 dark:bg-gray-700 hover:bg-purple-200">בריאות 🏥</button>
-        <button class="px-4 py-2 rounded-full bg-purple-100 dark:bg-gray-700 hover:bg-purple-200">עסקי 💼</button>
-        <button class="px-4 py-2 rounded-full bg-purple-100 dark:bg-gray-700 hover:bg-purple-200">חינוך 📚</button>
-        <button class="px-4 py-2 rounded-full bg-purple-100 dark:bg-gray-700 hover:bg-purple-200">טכנולוגיה 💻</button>
-        <button class="px-4 py-2 rounded-full bg-purple-100 dark:bg-gray-700 hover:bg-purple-200">משפטי ⚖️</button>
-        <button class="px-4 py-2 rounded-full bg-purple-100 dark:bg-gray-700 hover:bg-purple-200">יופי 💅</button>
-      </div>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="cta-title">מוכן להתחיל?</h2>
+        <p class="cta-subtitle">בחר תבנית, התאם אישית וקבל אתר מקצועי תוך 48 שעות</p>
+        <a href="https://wa.me/972501234567?text=היי! אני מעוניין לקבל מידע על התבניות שלכם" class="cta-button">
+            💬 התחל עכשיו
+        </a>
     </section>
 
-    <!-- 🖼️ גלריית תבניות -->
-    <section id="templates" class="py-14 px-6 bg-white dark:bg-gray-800">
-      <h3 class="text-3xl font-bold text-center mb-10 text-purple-700 dark:text-yellow-400">תבניות נבחרות</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        <template-card title="תבנית בריאות" img="health"></template-card>
-        <template-card title="תבנית יוגה" img="yoga"></template-card>
-        <template-card title="תבנית כושר" img="fitness"></template-card>
-        <template-card title="תבנית טכנולוגיה" img="technology"></template-card>
-        <template-card title="תבנית עסק" img="business"></template-card>
-        <template-card title="תבנית מסעדה" img="restaurant"></template-card>
-      </div>
-    </section>
-
-    <!-- 📢 קריאה לפעולה -->
-    <section id="cta" class="py-16 text-center bg-gradient-to-r from-purple-600 to-indigo-700 text-white">
-      <h3 class="text-4xl font-bold mb-4">רוצה להתחיל?</h3>
-      <p class="text-lg mb-6">בחר תבנית והתחל לבנות את האתר שלך תוך דקות.</p>
-      <a href="#!" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-lg transition shadow-lg">✨ בחר תבנית עכשיו</a>
-    </section>
-
-    <!-- 🦶 פוטר -->
-    <footer class="bg-gray-900 text-gray-400 text-sm text-center py-6">
-      <p>&copy; 2025 WebMaster Pro. כל הזכויות שמורות.</p>
-      <p class="mt-2"><a href="#" class="underline hover:text-white">תנאי שימוש</a> | <a href="#" class="underline hover:text-white">מדיניות פרטיות</a></p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">🚀 WebMaster Pro</div>
+            <p class="footer-text">יוצרים אתרים ברמה עולמית לעסקים ומקצועות חופשיים</p>
+            <div class="footer-links">
+                <a href="#templates">תבניות</a>
+                <a href="#demos">דמואים</a>
+                <a href="#pricing">מחירים</a>
+                <a href="#contact">צור קשר</a>
+                <a href="#support">תמיכה</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WebMaster Pro. כל הזכויות שמורות.</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- 📦 תבנית כרטיס -->
     <script>
-      function templateCard({ title, img }) {
-        return `
-        <div class="rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition transform bg-white dark:bg-gray-700">
-          <img src="https://source.unsplash.com/400x250/?${img}" alt="${title}" class="w-full h-48 object-cover">
-          <div class="p-4 text-right">
-            <h3 class="text-lg font-bold mb-2">${title}</h3>
-            <span class="inline-block bg-green-500 text-white text-sm px-3 py-1 rounded-full">דמו חי</span>
-          </div>
-        </div>`;
-      }
+        // Loading Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                    }
+                });
+            });
 
-      // רנדר דינמי
-      document.querySelectorAll('template-card').forEach(el => {
-        const title = el.getAttribute('title');
-        const img = el.getAttribute('img');
-        el.outerHTML = templateCard({ title, img });
-      });
+            document.querySelectorAll('.loading').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Filter Functionality
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                const category = tab.getAttribute('data-category');
+                const cards = document.querySelectorAll('.template-card');
+
+                cards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Smooth Header on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 15, 35, 0.98)';
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + (counter.textContent.includes('+') ? '+' : '') + (counter.textContent.includes('%') ? '%' : '');
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + (counter.textContent.includes('+') ? '+' : '') + (counter.textContent.includes('%') ? '%' : '');
+                    }
+                }, 20);
+            });
+        }
+
+        // Start counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.disconnect();
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Add click effect to cards
+        document.querySelectorAll('.template-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('btn')) {
+                    card.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        card.style.transform = '';
+                    }, 150);
+                }
+            });
+        });
     </script>
-
-  </body>
+</body>
 </html>
