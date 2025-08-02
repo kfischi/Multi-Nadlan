@@ -8,206 +8,82 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-bg: #0F1012;
-            --secondary-bg: #1A1B1E;
-            --card-bg: #1F2023;
-            --text-light: #E8E8E8;
-            --text-muted: #A0A0A0;
-            --accent-gold: #D4AF37;
-            --accent-gold-hover: #EACD85;
-            --border-color: rgba(212, 175, 55, 0.2);
-            --font-main: 'Heebo', sans-serif;
+            --primary-bg: #0F1012; --secondary-bg: #1A1B1E; --card-bg: #1F2023;
+            --text-light: #E8E8E8; --text-muted: #A0A0A0; --accent-gold: #D4AF37;
+            --accent-gold-hover: #EACD85; --border-color: rgba(212, 175, 55, 0.2);
+            --font-main: 'Assistant', sans-serif;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: var(--font-main);
-            line-height: 1.8;
-            color: var(--text-light);
-            background: var(--primary-bg);
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-main);
-            font-weight: 700;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
+        body { line-height: 1.8; color: var(--text-light); background: var(--primary-bg); }
+        
         .header {
-            background: rgba(15, 16, 18, 0.95);
-            backdrop-filter: blur(15px);
+            background: rgba(15, 16, 18, 0.7); backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border-color);
-            position: fixed;
-            top: 0; width: 100%; z-index: 1000;
-            padding: 1rem 0;
+            position: sticky; top: 0; width: 100%; z-index: 1000;
         }
-
-        .nav-container {
-            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem; font-weight: 800; color: var(--text-light); text-decoration: none;
-        }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; }
+        .logo { font-size: 1.8rem; font-weight: 800; color: var(--text-light); text-decoration: none; }
         .logo span { color: var(--accent-gold); }
-
         .back-link {
-            color: var(--accent-gold); text-decoration: none; font-weight: 500;
-            transition: color 0.3s ease;
+            text-decoration: none; color: var(--text-muted); font-weight: 700;
+            font-size: 1rem; transition: color 0.3s ease;
         }
-        .back-link:hover { color: var(--accent-gold-hover); }
+        .back-link:hover { color: var(--accent-gold); }
+        .back-link i { margin-left: 8px; }
 
         .hero {
             background: linear-gradient(rgba(15, 16, 18, 0.8), rgba(15, 16, 18, 0.8)), url('https://i.imgur.com/bRxqB6I.jpg') center/cover;
-            min-height: 70vh; display: flex; align-items: center;
-            padding-top: 80px;
+            min-height: 70vh; display: flex; align-items: center; text-align: center;
         }
-
-        .hero-content {
-            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-            text-align: center;
-        }
-
+        .hero-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .project-badge {
-            background: var(--accent-gold); color: var(--primary-bg);
-            padding: 8px 16px; border-radius: 20px; font-weight: 700;
-            display: inline-block; margin-bottom: 1rem; font-size: 0.9rem;
+            background: var(--accent-gold); color: var(--primary-bg); padding: 8px 16px;
+            border-radius: 20px; font-weight: 700; display: inline-block;
+            margin-bottom: 1rem; font-size: 0.9rem;
         }
+        .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 1rem; }
+        .hero-subtitle { font-size: 1.3rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 2rem; }
 
-        .hero h1 {
-            font-size: 4rem; font-weight: 800; margin-bottom: 1rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem; color: var(--text-muted); max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        .main-content {
-            max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;
-        }
-
-        .content-grid {
-            display: grid; grid-template-columns: 2fr 1fr; gap: 4rem;
-            align-items: start;
-        }
-
-        .project-details h2 {
-            font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;
-            color: var(--accent-gold);
-        }
-
-        .project-details h3 {
-            font-size: 1.8rem; font-weight: 600; margin: 2rem 0 1rem;
-        }
-
-        .project-details p, .project-details li {
-            margin-bottom: 1.5rem; font-size: 1.1rem;
-            color: var(--text-muted);
-        }
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+        .project-details h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--accent-gold); }
+        .project-details h3 { font-size: 1.8rem; font-weight: 600; margin: 2rem 0 1rem; }
+        .project-details p, .project-details li { margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--text-muted); }
+        .project-details ul { padding-right: 20px; list-style-type: none; }
+        .project-details li::before { content: "\f00c"; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--accent-gold); margin-left: 10px; }
         
-        .project-details ul {
-            padding-right: 20px;
-            list-style-type: none;
-        }
-        .project-details li::before {
-            content: "\f00c"; /* Font Awesome check icon */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: var(--accent-gold);
-            margin-left: 10px;
-        }
-        
-        .highlight-box {
-            background: var(--card-bg); padding: 2rem; border-radius: 12px;
-            border-left: 4px solid var(--accent-gold); margin: 2rem 0;
-            font-size: 1.1rem;
-        }
-        .highlight-box strong { color: var(--accent-gold); }
+        .sidebar { position: sticky; top: 120px; }
+        .price-card { background: var(--card-bg); padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color); text-align: center; margin-bottom: 2rem; }
+        .price-label { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .price-current { font-size: 3rem; font-weight: 800; color: var(--accent-gold); display: block; margin-bottom: 0.5rem; }
+        .price-details { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .price-potential { background: var(--secondary-bg); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
+        .potential-label { color: var(--text-muted); font-size: 0.8rem; }
+        .potential-value { font-size: 1.8rem; font-weight: 700; color: var(--accent-gold); }
+        .cta-button { background: var(--accent-gold); color: var(--primary-bg); padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; display: block; text-align: center; margin-bottom: 1rem; }
+        .cta-button:hover { background: var(--accent-gold-hover); transform: translateY(-2px); }
 
-        .sidebar {
-            position: sticky; top: 120px;
-        }
-
-        .price-card {
-            background: var(--card-bg); padding: 2rem; border-radius: 16px;
-            border: 1px solid var(--border-color); text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .price-label {
-            color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;
-        }
-
-        .price-current {
-            font-size: 3rem; font-weight: 800; color: var(--accent-gold);
-            display: block; margin-bottom: 0.5rem;
-        }
-
-        .price-details {
-            color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;
-        }
-
-        .price-potential {
-            background: var(--secondary-bg); padding: 1rem; border-radius: 8px;
-            margin-bottom: 1.5rem;
-        }
-
-        .potential-label {
-            color: var(--text-muted); font-size: 0.8rem;
-        }
-
-        .potential-value {
-            font-size: 1.8rem; font-weight: 700; color: var(--accent-gold);
-        }
-
-        .cta-button {
-            background: var(--accent-gold); color: var(--primary-bg);
-            padding: 15px 30px; border-radius: 50px; text-decoration: none;
-            font-weight: 700; transition: all 0.3s ease;
-            display: block; text-align: center; margin-bottom: 1rem;
-        }
-        .cta-button:hover {
-            background: var(--accent-gold-hover);
-            transform: translateY(-2px);
-        }
-
-        .warning-section {
-            background: #2a2020; border: 1px solid #a85252;
-            padding: 2rem; border-radius: 12px; margin: 3rem 0;
-        }
-        .warning-section h3 {
-            color: #f0a0a0; margin-bottom: 1rem; display: flex; align-items: center;
-        }
+        .warning-section { background: #2a2020; border: 1px solid #a85252; padding: 2rem; border-radius: 12px; margin: 3rem 0; }
+        .warning-section h3 { color: #f0a0a0; margin-bottom: 1rem; display: flex; align-items: center; }
         .warning-section h3 i { margin-left: 10px; }
-        
         .warning-section p { font-size: 1rem; }
-        .warning-section .sub-point {
-            padding-right: 20px;
-            border-right: 2px solid #a85252;
-            margin-top: -10px;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
 
-
-        @media (max-width: 992px) {
-            .content-grid { grid-template-columns: 1fr; }
-            .sidebar { position: static; }
-            .hero h1 { font-size: 3rem; }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .main-content { padding: 2rem 1rem; }
-            .price-current { font-size: 2.5rem; }
-        }
+        .footer { background: #000; padding: 4rem 0 2rem; border-top: 1px solid var(--border-color); margin-top: 4rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; max-width: 1200px; margin-left:auto; margin-right:auto; padding: 0 2rem;}
+        .footer-grid h4 { font-weight: 700; color: var(--accent-gold); margin-bottom: 1rem; }
+        .footer-grid ul { list-style: none; }
+        .footer-grid li { margin-bottom: 0.5rem; }
+        .footer-grid a { color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
+        .footer-grid a:hover { color: var(--accent-gold); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; }
+        
+        @media (max-width: 992px) { .content-grid { grid-template-columns: 1fr; } .sidebar { position: static; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .footer-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -215,16 +91,16 @@
         <nav class="nav-container">
             <a href="index.html" class="logo">MULTI-<span>NADLAN</span></a>
             <a href="index.html#projects" class="back-link">
-                <i class="fas fa-arrow-right"></i> חזרה לפרויקטים
+                <i class="fas fa-arrow-right"></i> חזרה לכל הפרויקטים
             </a>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <div class="project-badge">הזדמנות הנדל"ן של גוש דן</div>
+            <div class="project-badge">פרויקט הדגל</div>
             <h1>Raanana Heights</h1>
-            <p class="hero-subtitle">מיקום מנצח ליד תחנת המטרו M1 הראשונה, בלב אזור הביקוש של השרון.</p>
+            <p class="hero-subtitle">הזדמנות השקעה נדירה בקרקע אסטרטגית, צמודה לתחנת המטרו M1 ברעננה.</p>
         </div>
     </section>
 
@@ -233,69 +109,39 @@
             <div class="project-details">
                 <h2>סקירת הפרויקט</h2>
                 <p>פרויקט "Raanana Heights" מציע הזדמנות נדירה לרכוש קרקע במיקום אסטרטגי שאין שני לו – בצמוד לתחנת המטרו M1 העתידית ברעננה. הקרקע מהווה חלק מתוכנית לאומית להסדרת תחבורה ונהנית מאישור ממשלתי ותכנון עירוני המיועד לבנייה בצפיפות גבוהה, מה שמבטיח פוטנציאל השבחה יוצא דופן.</p>
-
-                <div class="highlight-box">
-                    <strong>הזדמנות לרווח משמעותי:</strong> על פי דוח שמאי, שווי הקרקע צפוי לזנק עם אישורי הבנייה, עם אפשרות להגיע לשווי של כ-2,500,000 ₪ עם קבלת המפתח.
-                </div>
-
                 <h3>יתרונות ההשקעה</h3>
                 <ul>
-                    <li><strong>מיקום מנצח:</strong> תחנה ראשונה בקו המטרו M1, שתחבר את רעננה ישירות לתל אביב, הרצליה וכל גוש דן.</li>
-                    <li><strong>תוכנית מתקדמת:</strong> הקרקע שייכת לתוכנית לאומית מאושרת, מה שמקצר משמעותית את לוחות הזמנים.</li>
-                    <li><strong>בעלות מלאה בטאבו:</strong> הקרקע נרשמת על שמכם באופן מיידי, ומעניקה ביטחון מלא.</li>
-                    <li><strong>מס רכישה מופחת:</strong> 6% בלבד, הטבה משמעותית בהשוואה לרכישת דירה.</li>
-                     <li><strong>גמישות מלאה:</strong> תוכלו למכור את הקרקע בכל שלב לאורך הדרך, או להמתין לבנייה כדי למקסם רווחים.</li>
-                    <li><strong>ליווי מלא שלנו:</strong> אנו מלווים אתכם לאורך כל הדרך, כולל סיוע במכירה עתידית ובתהליך אישורי הבנייה (צפי של כ-5 שנים).</li>
+                    <li><strong>מיקום מנצח:</strong> תחנה ראשונה בקו המטרו M1, שתחבר את רעננה ישירות לתל אביב וכל גוש דן.</li>
+                    <li><strong>תוכנית מתקדמת:</strong> הקרקע שייכת לתוכנית לאומית מאושרת, המקצרת משמעותית את לוחות הזמנים.</li>
+                    <li><strong>בעלות מלאה בטאבו:</strong> רישום הקרקע על שמכם באופן מיידי.</li>
+                    <li><strong>מס רכישה מופחת:</strong> 6% בלבד.</li>
+                    <li><strong>ליווי מלא:</strong> אנו מלווים אתכם לאורך כל הדרך, כולל סיוע במכירה עתידית (צפי אישורים כ-5 שנים).</li>
                 </ul>
-
                 <div class="warning-section">
-                    <h3><i class="fas fa-exclamation-triangle"></i> מה חשוב לדעת לפני שמשקיעים?</h3>
-                    <p>אנו מאמינים בשקיפות מלאה. חשוב להבין שמדובר בהשקעה לטווח בינוני-ארוך עם פוטנציאל אדיר, אך היא אינה זמינה לבנייה מיידית.</p>
-                    
-                    <h4>1. הקרקע אינה זמינה לבנייה מיידית</h4>
-                    <div class="sub-point">
-                        <p><strong>משמעות:</strong> התהליך עד לקבלת היתרי בנייה עלול להימשך 5-15 שנים. זו אינה השקעה נזילה לטווח קצר.</p>
-                    </div>
-
-                    <h4>2. מדובר בקרקע בייעוד מיוחד</h4>
-                     <div class="sub-point">
-                        <p><strong>משמעות:</strong> למרות שהתוכנית מתקדמת, ייתכנו שינויים ועיכובים. אין התחייבות חוזית לקבלת דירה.</p>
-                    </div>
-                    
-                    <h4>3. התחזיות מבוססות על הערכת שמאי</h4>
-                    <div class="sub-point">
-                        <p><strong>משמעות:</strong> הערך העתידי הוא תחזית מקצועית אך אינו מהווה הבטחה. הצלחת הפרויקט תלויה בגורמים רבים.</p>
-                    </div>
-                     <h4>4. מתי כן לשקול השקעה כזו?</h4>
-                     <div class="sub-point">
-                        <p><strong>תשובה:</strong> אם יש לכם הון פנוי שאינו נדרש ב-7-15 השנים הקרובות, אתם מבינים את הסיכון הספקולטיבי, ומוכנים להשקעה סבלנית עם פוטנציאל לתשואה חלומית.</p>
-                    </div>
+                    <h3><i class="fas fa-exclamation-triangle"></i> מה חשוב לדעת?</h3>
+                    <p>אנו מאמינים בשקיפות. חשוב להבין שמדובר בהשקעה לטווח בינוני-ארוך עם פוטנציאל אדיר, אך היא אינה זמינה לבנייה מיידית. התהליך עד קבלת היתר עלול להימשך 5-15 שנים. הערך העתידי הוא תחזית מקצועית ואינו הבטחה.</p>
                 </div>
             </div>
-
             <div class="sidebar">
                 <div class="price-card">
                     <div class="price-label">מחיר כניסה</div>
                     <span class="price-current">₪350,000</span>
                     <div class="price-details">עבור 50 מ"ר קרקע</div>
-                    
                     <div class="price-potential">
                         <div class="potential-label">שווי עתידי צפוי (לפי דוח שמאי)</div>
                         <div class="potential-value">₪2,500,000</div>
                     </div>
-                    
-                    <a href="#contact" class="cta-button">בקשת מידע נוסף</a>
-                    <a href="#contact" class="cta-button" style="background: var(--secondary-bg); color: var(--text-light); border: 1px solid var(--border-color);">תיאום פגישה</a>
-                </div>
-
-                <div id="contact" style="background: var(--secondary-bg); padding: 1.5rem; border-radius: 12px; text-align: center;">
-                    <h4 style="color: var(--accent-gold); margin-bottom: 1rem;">דברו איתנו</h4>
-                    <p><i class="fas fa-phone"></i> 052-123-4567</p>
-                    <p><i class="fas fa-envelope"></i> info@multi-nadlan.co.il</p>
-                    <p><i class="fas fa-map-marker-alt"></i> מגדלי אלון, תל אביב</p>
+                    <a href="mailto:info@multi-nadlan.co.il" class="cta-button">תיאום פגישת ייעוץ</a>
                 </div>
             </div>
         </div>
     </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 MULTI-NADLAN. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
