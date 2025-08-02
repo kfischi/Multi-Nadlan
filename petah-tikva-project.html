@@ -61,6 +61,12 @@
         .status-item h4 { font-size: 1rem; margin-bottom: 0.5rem; font-weight: 700; }
         .status-item p { font-size: 0.8rem; margin: 0; color: var(--text-muted); }
 
+        .timeline { margin: 3rem 0; }
+        .timeline-item { display: flex; gap: 1rem; margin-bottom: 2rem; align-items: flex-start; }
+        .timeline-icon { background: var(--accent-gold); color: var(--primary-bg); width: 80px; height: 40px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; margin-top: 5px; font-size: 0.9rem; }
+        .timeline-content h4 { font-weight: 700; margin-bottom: 0.5rem; }
+        .timeline-content p { color: var(--text-muted); margin: 0; }
+
         .sidebar { position: sticky; top: 120px; }
         .price-card { background: var(--card-bg); padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color); text-align: center; margin-bottom: 2rem; }
         .price-label { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
@@ -101,7 +107,8 @@
         <div class="content-grid">
             <div class="project-details">
                 <h2>סקירת הפרויקט</h2>
-                <p>אזור נהר הירקון בפתח תקווה עומד בפני מהפכת פיתוח אדירה עם תכניות מקיפות לבניית שכונות מגורים, מוסדות חינוך ופארקים. הפרויקט זוכה לגיבוי מלא של העירייה ונמצא בשלבי אישור מתקדמים בוועדה המחוזית.</p>
+                <p>אזור נהר הירקון בפתח תקווה עומד בפני מהפכת פיתוח אדירה עם תכניות מקיפות לבניית שכונות מגורים חדשות, מוסדות חינוך, פארקים ושטחי מסחר. הפרויקט זוכה לגיבוי מלא של עיריית פתח תקווה ונמצא כעת בשלבי אישור מתקדמים בוועדה המחוזית.</p>
+                
                 <h3>סטטוס הליכי התכנון</h3>
                 <div class="status-indicators">
                     <div class="status-item completed">
@@ -118,6 +125,38 @@
                         <i class="fas fa-clock"></i>
                         <h4>ועדה מחוזית</h4>
                         <p>בתהליך אישור</p>
+                    </div>
+                </div>
+
+                <h3>לוח זמנים צפוי</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">עכשיו</div>
+                        <div class="timeline-content">
+                            <h4>רכישה ורישום</h4>
+                            <p>רכישת הקרקע ורישומה בטאבו על שם הרוכש</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">שנה 1-2</div>
+                        <div class="timeline-content">
+                            <h4>אישור מחוזי</h4>
+                            <p>השלמת הליכי האישור והתחלת הכנות לפיתוח</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">שנה 3</div>
+                        <div class="timeline-content">
+                            <h4>היתרי בנייה</h4>
+                            <p>קבלת היתרי בנייה ותחילת שיווק דירות</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">שנה 4-6</div>
+                        <div class="timeline-content">
+                            <h4>פיתוח ובנייה</h4>
+                            <p>ביצוע עבודות הפיתוח ובניית המתחמים</p>
+                        </div>
                     </div>
                 </div>
             </div>
