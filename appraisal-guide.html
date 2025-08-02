@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מדריך מלא: איך לקרוא דוח שמאי | MULTI-NADLAN</title>
+    <title>מדריך למשקיע: פענוח דוח שמאי (תקן 22) והערכת פוטנציאל אמיתי | MULTI-NADLAN</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
     <style>
         :root {
             --primary-bg: #0F1012; --secondary-bg: #1A1B1E; --card-bg: #1F2023;
-            --text-light: #E8E8E8; --text-muted: #A0A0A0; --accent-gold: #D4AF37;
+            --text-light: #E8E8E8; --text-muted: #CCCCCC; --accent-gold: #D4AF37;
             --accent-gold-hover: #EACD85; --border-color: rgba(212, 175, 55, 0.2);
             --font-main: 'Assistant', sans-serif;
         }
@@ -28,7 +28,7 @@
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; }
         .logo { font-size: 1.8rem; font-weight: 800; color: var(--text-light); text-decoration: none; }
         .logo span { color: var(--accent-gold); }
-        .back-link { text-decoration: none; color: var(--text-muted); font-weight: 700; font-size: 1rem; transition: color 0.3s ease; }
+        .back-link { text-decoration: none; color: #CCCCCC; font-weight: 700; font-size: 1rem; transition: color 0.3s ease; }
         .back-link:hover { color: var(--accent-gold); }
         .back-link i { margin-left: 8px; }
         
@@ -40,10 +40,16 @@
         .article-hero h1 { font-size: 3.5rem; max-width: 800px; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
         
         .article-content { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
-        .article-content h2 { font-size: 2.2rem; color: var(--accent-gold); margin-top: 3rem; margin-bottom: 1.5rem; }
+        .article-content h2 { font-size: 2.2rem; color: var(--accent-gold); margin-top: 3rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
         .article-content p, .article-content li { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
-        .article-content ul { padding-right: 20px; }
-        .article-content strong { color: var(--text-light); font-weight: 600; }
+        .article-content ul { padding-right: 25px; list-style: none; }
+        .article-content li::before { content: "\2022"; color: var(--accent-gold); font-weight: bold; display: inline-block; width: 1em; margin-right: -1em; }
+        .article-content strong { color: var(--text-light); font-weight: 700; }
+        .article-content .callout {
+            background: var(--secondary-bg); padding: 2rem;
+            border-radius: 12px; margin: 2rem 0; border: 1px solid var(--border-color);
+        }
+        .article-content .callout h3 { font-size: 1.4rem; color: var(--accent-gold); margin-bottom: 1rem; }
         
         .footer { background: #000; padding: 4rem 0 2rem; border-top: 1px solid var(--border-color); margin-top: 4rem; }
         .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; max-width: 1200px; margin-left:auto; margin-right:auto; }
@@ -60,20 +66,42 @@
     </header>
 
     <section class="article-hero">
-        <h1>המדריך המלא: איך לקרוא דוח שמאי לקרקע</h1>
+        <h1>מדריך למשקיע: כיצד לפענח דוח שמאי (תקן 22) ולהעריך פוטנציאל אמיתי</h1>
     </section>
 
     <article class="article-content">
-        <p>כאשר שוקלים השקעה בקרקע שאינה זמינה לבנייה, דוח השמאי הוא המסמך החשוב ביותר. הוא לא רק קובע את שווי הקרקע כיום, אלא מעריך את הפוטנציאל העתידי שלה. המפתח הוא לדעת לקרוא אותו נכון, במיוחד לפי <strong>תקן 22</strong> של מועצת השמאים.</p>
-        <h2>מהו תקן 22?</h2>
-        <p>תקן 22 נועד ליצור אחידות וشفافות בהערכת שווי של קרקעות שאינן זמינות לבנייה. הוא מחייב את השמאי לבחון מספר תרחישים ולציין בבירור את ההנחות עליהן הוא מתבסס.</p>
-        <h2>סעיפים מרכזיים לבדיקה</h2>
+        <p>בהשקעה בקרקע שאינה זמינה לבנייה, דוח השמאי אינו מסמך טכני בלבד – הוא כלי הניווט החשוב ביותר שלכם. הוא מגשר על הפער בין המצב הקיים של הקרקע לבין הפוטנציאל העתידי שלה. הבנה מעמיקה של הדוח, ובפרט של <strong>תקן 22</strong>, היא המפתח לקבלת החלטה מושכלת ולהבנת היקף ההזדמנות.</p>
+        
+        <h2>מהו תקן 22 ומדוע הוא נוצר?</h2>
+        <p>תקן 22 של מועצת השמאים נוצר במיוחד כדי להסדיר את אופן הערכת השווי של קרקעות שאינן מאושרות לבנייה. מטרתו היא ליצור שפה אחידה ולחייב את השמאי להציג תמונה מלאה, הכוללת לא רק את התרחיש האופטימי, אלא גם את הסיכונים, לוחות הזמנים וההנחות שבבסיס ההערכה. דוח שנכתב לפי תקן זה הוא סימן לאמינות ומקצועיות.</p>
+
+        <h2>אנטומיה של דוח שמאי: סעיפים שחייבים להתעמק בהם</h2>
+        <p>אל תסתפקו רק בשורה התחתונה. משקיע נבון צולל לעומק הסעיפים הבאים:</p>
         <ul>
-            <li><strong>מצב תכנוני קיים:</strong> מה ייעוד הקרקע כיום? מהן תוכניות המתאר החלות עליה? האם ישנן מגבלות?</li>
-            <li><strong>פוטנציאל תכנוני (התרחיש האופטימי):</strong> ניתוח הסיכוי לשינוי ייעוד, צפיפות הבנייה הצפויה, והערכת השווי של הקרקע אילו הייתה מאושרת לבנייה היום.</li>
-            <li><strong>ההנחות והסיכונים:</strong> סעיף קריטי. פירוט המכשולים האפשריים: התנגדויות, עלויות פיתוח, היטלי השבחה ולוחות זמנים.</li>
-            <li><strong>ניתוח שווי:</strong> הדוח חייב להציג שני ערכים: שווי הקרקע במצבה הנוכחי, והשווי הפוטנציאלי העתידי, מהוון להיום.</li>
+            <li><strong>המצב התכנוני הקיים:</strong> זהו הבסיס. מה ייעוד הקרקע כיום (חקלאי, תעשייה)? מהן תכניות המתאר (ארציות, מחוזיות, מקומיות) החלות עליה? סעיף זה יגלה לכם אם הקרקע כבר נמצאת על "מפת הפיתוח" של המדינה.</li>
+            <li><strong>הפוטנציאל התכנוני:</strong> לב ליבו של הדוח. כאן השמאי מנתח את הסיכוי לשינוי ייעוד. חפשו התייחסות לתוכניות ספציפיות כמו תמ"א 70 (תוכנית המתאר הארצית למטרו), צפיפות בנייה צפויה, והערכת שווי של הקרקע <strong>אילו הייתה מאושרת לבנייה היום.</strong> זהו המספר הגבוה המייצג את הפוטנציאל.</li>
+            <li><strong>מקדמי הפחתה ולוחות זמנים:</strong> זהו סעיף "בדיקת המציאות". השמאי חייב לפרט את הסיכונים (התנגדויות, שינויים רגולטוריים), העלויות העתידיות (היטלי השבחה, עלויות פיתוח) וצפי לוחות הזמנים. על בסיס נתונים אלו, הוא "מהוון" (מפחית) את השווי העתידי לערכו הנוכחי הריאלי.</li>
         </ul>
+
+        <div class="callout">
+            <h3>אור ירוק מול נורה אדומה: מה לחפש בדוח?</h3>
+            <p><strong>אור ירוק (סימן חיובי):</strong></p>
+            <ul>
+                <li>התבססות על תכניות מתאר ארציות או מחוזיות שכבר קודמו.</li>
+                <li>ניתוח מפורט של לוחות זמנים וסיכונים.</li>
+                <li>פירוט שקוף של עלויות עתידיות והיטלים.</li>
+            </ul>
+            <p><strong>נורה אדומה (סימן מדאיג):</strong></p>
+            <ul>
+                <li>התבססות על "כוונות" או תכניות שטרם הופקדו.</li>
+                <li>התעלמות מסיכונים או לוחות זמנים לא ריאליים.</li>
+                <li>הערכת שווי עתידית ללא פירוט ההנחות וההפחתות שבוצעו.</li>
+            </ul>
+        </div>
+        
+        <h2>סיכום: דוח שמאי הוא סיפור של פוטנציאל מבוסס נתונים</h2>
+        <p>דוח שמאי איכותי הוא הרבה יותר מהערכת מחיר. הוא מציג תזה מנומקת, המבוססת על נתונים תכנוניים, כלכליים ומשפטיים. היכולת שלכם לקרוא ולהבין אותו לעומק היא זו שתאפשר לכם להבדיל בין הבטחה ריקה לבין הזדמנות אמיתית לבניית הון.</p>
+
     </article>
     <footer class="footer">
         <div class="container">
