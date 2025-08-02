@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MULTI-NADLAN | השקעות קרקע אסטרטגיות בישראל</title>
-    <meta name="description" content="MULTI-NADLAN מתמחה באיתור ושיווק קרקעות להשקעה עם פוטנציאל השבחה גבוה באזורי ביקוש במרכז הארץ.">
+    <meta name="description" content="MULTI-NADLAN מתמחה באיתור ושיווק קרקעות במיקומי פריים במרכז הארץ, על בסיס תכניות מתאר ארציות. בואו להיות שותפים בהזדמנויות הנדלן של המחר.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -21,438 +22,255 @@
             --accent-gold: #D4AF37;
             --accent-gold-hover: #EACD85;
             --border-color: rgba(212, 175, 55, 0.2);
-            --font-main: 'Heebo', sans-serif;
+            --font-main: 'Assistant', sans-serif;
+            --shadow-soft: 0px 15px 40px rgba(0, 0, 0, 0.5);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
+        html { scroll-behavior: smooth; }
+        body { line-height: 1.8; color: var(--text-light); background: var(--primary-bg); overflow-x: hidden; }
         
-        body, html {
-            font-family: var(--font-main);
-            line-height: 1.8;
-            color: var(--text-light);
-            background: var(--primary-bg);
-            scroll-behavior: smooth;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-main);
-            font-weight: 700;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header */
         .header {
-            background: rgba(15, 16, 18, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 16, 18, 0.7); backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border-color);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            transition: background 0.3s ease;
         }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; }
+        .logo { font-size: 1.8rem; font-weight: 800; color: var(--text-light); text-decoration: none; }
+        .logo span { color: var(--accent-gold); }
+        .nav-menu { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
+        .nav-link {
+            text-decoration: none; color: var(--text-muted); font-weight: 500; font-size: 1rem;
+            position: relative; transition: color 0.3s ease; padding-bottom: 5px;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--text-light); }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 1px; bottom: 0; right: 0;
+            background-color: var(--accent-gold);
+            transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--text-light);
-            text-decoration: none;
-        }
-        .logo span {
-            color: var(--accent-gold);
-        }
-        
-        .main-nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            margin-right: 2rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        .main-nav a:hover, .main-nav a.active {
-            color: var(--accent-gold);
-        }
-        .main-nav a:last-child {
-            margin-right: 0;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(15, 16, 18, 0.8), rgba(15, 16, 18, 0.8)), url('https://i.imgur.com/YBVcCdX.jpg') center/cover no-repeat;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-        
-        .hero .highlight {
-            color: var(--accent-gold);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-        
         .cta-button {
-            background: var(--accent-gold);
-            color: var(--primary-bg);
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            display: inline-block;
+            background: var(--accent-gold); color: var(--primary-bg); padding: 12px 28px;
+            border-radius: 50px; text-decoration: none; font-weight: 700;
+            transition: all 0.3s ease; border: 1px solid var(--accent-gold);
         }
         .cta-button:hover {
-            background: var(--accent-gold-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            background: var(--accent-gold-hover); transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
         }
 
-        /* Projects Section */
-        #projects {
-            padding: 6rem 0;
-            background: var(--secondary-bg);
+        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
+        .hero::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://i.imgur.com/YBVcCdX.jpg') center/cover no-repeat;
+            opacity: 0.4; z-index: 0;
         }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle, rgba(15, 16, 18, 0.1) 0%, var(--primary-bg) 75%);
+            z-index: 1;
         }
-        .section-title h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
+        .hero-content { position: relative; z-index: 2; text-align: center; }
+        .hero-content h1 {
+            font-size: 4.5rem; font-weight: 800; color: var(--text-light);
+            margin-bottom: 1.5rem; line-height: 1.3; max-width: 900px;
+            margin-left: auto; margin-right: auto;
         }
-        .section-title p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+        .hero-content p {
+            font-size: 1.3rem; color: var(--text-muted); margin: 0 auto 2.5rem;
+            font-weight: 400; max-width: 700px;
         }
 
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            border-color: var(--accent-gold);
-        }
+        .section { padding: 6rem 0; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-weight: 700; font-size: 3rem; margin-bottom: 1rem; }
+        .section-header p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
 
-        .project-image {
-            height: 220px;
-            overflow: hidden;
-        }
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
-        }
-        
-        .project-content {
-            padding: 2rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .project-content h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-location {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-        
-        .project-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .stat-item .label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 0.25rem;
-        }
-        .stat-item .value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-        }
-        
-        .project-cta {
-            margin-top: auto;
-        }
-        
-        .project-cta .cta-button {
-            width: 100%;
-            text-align: center;
-        }
-        
-        /* Knowledge Center */
-        #knowledge-center {
-            padding: 6rem 0;
-        }
+        .projects-section { background: var(--primary-bg); }
+        .projects-grid { display: grid; grid-template-columns: 1fr; gap: 5rem; }
+        .project-card { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; }
+        .project-card:nth-child(even) { direction: ltr; }
+        .project-card:nth-child(even) .project-content { direction: rtl; }
+        .project-card img { width: 100%; border-radius: 16px; box-shadow: var(--shadow-soft); }
+        .project-content h3 { font-weight: 700; font-size: 3rem; margin-bottom: 1rem; }
+        .project-content .tagline { color: var(--accent-gold); font-weight: 700; margin-bottom: 1.5rem; display: block; }
+        .project-content p { color: var(--text-muted); margin-bottom: 2rem; }
+        .project-highlights { margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 2rem; }
+        .highlight-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+        .highlight-item i { color: var(--accent-gold); font-size: 1.2rem; margin-top: 5px; }
+        .highlight-item h4 { margin: 0; font-size: 1.1rem; color: var(--text-light); font-weight: 700; }
+        .highlight-item p { margin: 0; color: var(--text-muted); font-size: 1rem; line-height: 1.5; }
 
-        .knowledge-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .knowledge-card {
-            background: var(--card-bg);
-            border: 1px solid transparent;
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: var(--text-light);
-            display: flex;
-            flex-direction: column;
-        }
-        .knowledge-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-gold);
-        }
+        .knowledge-center { background: var(--secondary-bg); }
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .article-card { background: var(--card-bg); border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); transition: transform 0.3s ease; text-decoration: none; color: var(--text-light); }
+        .article-card:hover { transform: translateY(-5px); }
+        .article-card img { width: 100%; height: 200px; object-fit: cover; }
+        .article-content { padding: 1.5rem; }
+        .article-content h3 { font-size: 1.25rem; margin-bottom: 1rem; font-weight: 700; }
+        .article-content .read-more { color: var(--accent-gold); text-decoration: none; font-weight: 700; }
+        .article-content .read-more:hover { text-decoration: underline; }
         
-        .knowledge-card .icon {
-            font-size: 2rem;
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-        }
+        .final-cta { background: var(--primary-bg); text-align: center; }
+        .final-cta h2 { font-weight: 700; font-size: 3rem; margin-bottom: 1rem; }
+        .final-cta p { color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem; }
+
+        .footer { background: #000; padding: 4rem 0 2rem; border-top: 1px solid var(--border-color); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-grid h4 { font-weight: 700; color: var(--accent-gold); margin-bottom: 1rem; }
+        .footer-grid ul { list-style: none; }
+        .footer-grid li { margin-bottom: 0.5rem; }
+        .footer-grid a { color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
+        .footer-grid a:hover { color: var(--accent-gold); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; }
         
-        .knowledge-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .knowledge-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            flex-grow: 1;
-            margin-bottom: 1.5rem;
-        }
-
-        .knowledge-card .read-more {
-            color: var(--accent-gold);
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .knowledge-card .read-more i {
-            margin-right: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-        .knowledge-card:hover .read-more i {
-            transform: translateX(-4px);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--secondary-bg);
-            padding: 4rem 0 2rem;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-        }
-        .footer .logo {
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        .footer p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-        .footer .contact-info a {
-            color: var(--text-light);
-            text-decoration: none;
-            margin: 0 1rem;
-        }
-        .footer .copyright {
-            margin-top: 3rem;
-            font-size: 0.9rem;
-        }
-
         @media (max-width: 992px) {
-            .hero h1 { font-size: 3.5rem; }
-            .projects-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 4rem; }
+            .project-card { grid-template-columns: 1fr; }
+            .project-card img { order: -1; margin-bottom: 2rem; }
+            .project-card:nth-child(even) { direction: rtl; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
-
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.1rem; }
-            .section-title h2 { font-size: 2.5rem; }
-            .main-nav { display: none; } /* Simple solution for mobile nav */
+            .nav-menu { display: none; }
+            .hero-content h1 { font-size: 3rem; }
+            .hero-content p { font-size: 1.1rem; }
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">MULTI-<span>NADLAN</span></a>
-            <nav class="main-nav">
-                <a href="#projects" class="active">פרויקטים</a>
-                <a href="#knowledge-center">מרכז ידע</a>
-                <a href="#contact">צור קשר</a>
-            </nav>
-        </div>
+
+    <header class="header" id="header">
+        <nav class="container nav-container">
+            <a href="#home" class="logo">MULTI-<span>NADLAN</span></a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">בית</a></li>
+                <li><a href="#projects" class="nav-link">פרויקטים</a></li>
+                <li><a href="#knowledge" class="nav-link">מרכז ידע</a></li>
+                <li><a href="#contact" class="cta-button">תיאום פגישה</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>השקעות קרקע <span class="highlight">אסטרטגיות</span> במרכז הארץ</h1>
-            <p>איתור ושיווק הזדמנויות נדל"ן ייחודיות עם פוטנציאל השבחה גבוה, בליווי מקצועי מלא משלב הרכישה ועד למימוש.</p>
-            <a href="#projects" class="cta-button">צפה בפרויקטים שלנו</a>
-        </div>
-    </section>
-
     <main>
-        <section id="projects">
+        <section class="hero section" id="home">
+            <div class="container hero-content">
+                <h1>האסטרטגיה לטווח ארוך מתחילה מהנכס היסודי ביותר: הקרקע.</h1>
+                <p>אנו מאתרים קרקעות אסטרטגיות בלב אזורי הביקוש של ישראל, על תוואי תכניות המתאר הארציות, והופכים אותן להזדמנות השקעה נדירה לטווח ארוך.</p>
+                <a href="#projects" class="cta-button">לצפייה בפרויקטים</a>
+            </div>
+        </section>
+
+        <section class="section projects-section" id="projects">
             <div class="container">
-                <div class="section-title">
+                 <div class="section-header">
                     <h2>הזדמנויות ההשקעה שלנו</h2>
-                    <p>אנו בוחרים בקפידה פרויקטים במיקומי מפתח, עם תכנון מתקדם ופוטנציאל צמיחה משמעותי.</p>
+                    <p>אנו גאים להציג את קולקציית הפרויקטים האסטרטגיים שנבחרו בקפידה על ידי המומחים שלנו.</p>
                 </div>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://i.imgur.com/bRxqB6I.jpg" alt="הדמיה של שכונת מגורים יוקרתית ברעננה">
-                        </div>
                         <div class="project-content">
+                            <span class="tagline">פרויקט הדגל</span>
                             <h3>Raanana Heights</h3>
-                            <p class="project-location"><i class="fas fa-map-marker-alt"></i> רעננה, סמוך לתחנת המטרו M1</p>
-                            <div class="project-stats">
-                                <div class="stat-item">
-                                    <div class="label">מחיר כניסה (50 מ"ר)</div>
-                                    <div class="value">₪350,000</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="label">שווי עתידי צפוי</div>
-                                    <div class="value">₪2,500,000</div>
-                                </div>
-                            </div>
-                            <div class="project-cta">
-                                <a href="raanana-project.html" class="cta-button">לפרטים נוספים</a>
-                            </div>
+                            <p>הזדמנות ייחודית להיות שותפים בפיתוח המתחם האורבני החדשני של השרון. הפרויקט ממוקם על קרקע אסטרטגית ב"טבעת הראשונה" הצמודה לתחנת הדיפו של קו המטרו M1, המקבלת קידום מואץ.</p>
+                            <a href="raanana-project.html" class="cta-button">לפרטים נוספים על הפרויקט</a>
                         </div>
+                        <img src="https://i.imgur.com/bRxqB6I.jpg" alt="הדמיה של שכונת מגורים יוקרתית ברעננה">
                     </div>
                     <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://i.imgur.com/nbsC4vZ.jpg" alt="פארק אורבני על גדת נהר הירקון בפתח תקווה">
-                        </div>
                         <div class="project-content">
+                            <span class="tagline">הזדמנות בפיתוח מואץ</span>
                             <h3>נהר הירקון, פתח תקווה</h3>
-                            <p class="project-location"><i class="fas fa-map-marker-alt"></i> פתח תקווה, מתחם נהר הירקון</p>
-                            <div class="project-stats">
-                                <div class="stat-item">
-                                    <div class="label">מחיר כניסה (100 מ"ר)</div>
-                                    <div class="value">₪350,000</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="label">רווח צפוי (דוח שמאי)</div>
-                                    <div class="value">₪900,000</div>
-                                </div>
-                            </div>
-                            <div class="project-cta">
-                                <a href="petah-tikva-project.html" class="cta-button">לפרטים נוספים</a>
-                            </div>
+                            <p>אזור נהר הירקון בפתח תקווה עומד בפני מהפכת פיתוח אדירה, עם תכניות מאושרות בוועדה המקומית לבניית שכונות מגורים, פארקים ומרכזי מסחר. הקרקע נמצאת במיקום אסטרטגי, רגע לפני קפיצת הערך המשמעותית.</p>
+                            <a href="petah-tikva-project.html" class="cta-button">לפרטים נוספים על הפרויקט</a>
                         </div>
+                        <img src="https://i.imgur.com/nbsC4vZ.jpg" alt="פארק אורבני על גדת נהר הירקון">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="knowledge-center">
+        <section class="section knowledge-center" id="knowledge">
             <div class="container">
-                <div class="section-title">
+                <div class="section-header">
                     <h2>מרכז ידע למשקיע</h2>
-                    <p>כל המידע שצריך כדי לקבל החלטת השקעה מושכלת, מבוססת נתונים והבנה מעמיקה של השוק.</p>
+                    <p>אנו מאמינים שהשקעה טובה מתחילה בידע. קראו את הניתוחים והמאמרים של המומחים שלנו.</p>
                 </div>
-                <div class="knowledge-grid">
-                    <a href="metro-article.html" class="knowledge-card">
-                        <div class="icon"><i class="fas fa-train"></i></div>
-                        <h3>מהפכת המטרו בגוש דן</h3>
-                        <p>איך פרויקט התחבורה הגדול בישראל עומד לשנות את מפת הנדל"ן ואיפה נמצאות ההזדמנויות החמות ביותר.</p>
-                        <span class="read-more">קרא את המאמר <i class="fas fa-arrow-left"></i></span>
-                    </a>
-                    <a href="appraisal-guide.html" class="knowledge-card">
-                        <div class="icon"><i class="fas fa-file-signature"></i></div>
-                        <h3>מדריך: איך לקרוא דוח שמאי</h3>
-                        <p>הסבר מקיף על תקן 22, זיהוי פוטנציאל השבחה וכל המונחים שחשוב להכיר לפני שרוכשים קרקע.</p>
-                        <span class="read-more">קרא את המדריך <i class="fas fa-arrow-left"></i></span>
-                    </a>
-                    <a href="long-term-investment.html" class="knowledge-card">
-                        <div class="icon"><i class="fas fa-seedling"></i></div>
-                        <h3>אסטרטגיה להשקעה ארוכת טווח</h3>
-                        <p>למה השקעה בקרקע במרכז הארץ נחשבת לאפיק סולידי ומהם היתרונות על פני השקעות אחרות.</p>
-                         <span class="read-more">קרא את המאמר <i class="fas fa-arrow-left"></i></span>
-                    </a>
+                <div class="article-grid">
+                    <div class="article-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="מפת קווי המטרו">
+                        <div class="article-content">
+                            <h3>ניתוח: כיצד מהפכת המטרו משפיעה על ערך הקרקע?</h3>
+                            <a href="metro-article.html" class="read-more">קרא עוד &larr;</a>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <img src="https://i.imgur.com/MF61Ck4.jpg" alt="דוח שמאות">
+                        <div class="article-content">
+                            <h3>מדריך: איך לקרוא דוח שמאי לפי תקן 22?</h3>
+                            <a href="appraisal-guide.html" class="read-more">קרא עוד &larr;</a>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <img src="https://i.imgur.com/8XWlej2.jpg" alt="עץ בונסאי המסמל צמיחה סבלנית">
+                        <div class="article-content">
+                            <h3>השקעה לטווח ארוך: מדוע קרקע היא נכס בטוח?</h3>
+                            <a href="long-term-investment.html" class="read-more">קרא עוד &larr;</a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
+        
+        <section class="section final-cta" id="contact">
+            <div class="container">
+                 <h2>העתיד שלך נבנה מהקרקע.</h2>
+                 <p>השאירו פרטים ומומחה השקעות אסטרטגיות יחזור אליכם לשיחת ייעוץ אישית, ללא התחייבות, ויציג בפניכם את ההזדמנויות הרלוונטיות עבורכם.</p>
+                 <a href="mailto:info@multi-nadlan.co.il" class="cta-button">קבע פגישת ייעוץ</a>
             </div>
         </section>
     </main>
 
-    <footer id="contact" class="footer">
+    <footer class="footer">
         <div class="container">
-            <a href="index.html" class="logo">MULTI-<span>NADLAN</span></a>
-            <p>מומחים בהשקעות קרקע אסטרטגיות. נשמח לעמוד לשירותכם.</p>
-            <div class="contact-info">
-                 <p><i class="fas fa-phone"></i> 052-123-4567 | <i class="fas fa-envelope"></i> info@multi-nadlan.co.il | <i class="fas fa-map-marker-alt"></i> מגדלי אלון, תל אביב</p>
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h4>MULTI-<span>NADLAN</span></h4>
+                    <p>איתור ושיווק הזדמנויות השקעה בקרקעות בעלות פוטנציאל השבחה גבוה בלב אזורי הביקוש של ישראל.</p>
+                </div>
+                <div>
+                    <h4>ניווט מהיר</h4>
+                    <ul>
+                        <li><a href="#home">בית</a></li>
+                        <li><a href="#projects">פרויקטים</a></li>
+                        <li><a href="#knowledge">מרכז ידע</a></li>
+                        <li><a href="#contact">יצירת קשר</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>פרויקטים מובילים</h4>
+                    <ul>
+                        <li><a href="raanana-project.html">Raanana Heights</a></li>
+                        <li><a href="petah-tikva-project.html">נהר הירקון, פ"ת</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>צרו קשר</h4>
+                    <ul>
+                        <li><a href="tel:052-123-4567">טלפון: 052-123-4567</a></li>
+                        <li><a href="mailto:info@multi-nadlan.co.il">אימייל: info@multi-nadlan.co.il</a></li>
+                        <li>כתובת: מגדלי אלון, תל אביב</li>
+                    </ul>
+                </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 כל הזכויות שמורות ל-MULTI-NADLAN. אין לראות במידע באתר זה המלצה או ייעוץ להשקעה.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MULTI-NADLAN. כל הזכויות שמורות. אין לראות במידע באתר זה המלצה או ייעוץ להשקעה.</p>
             </div>
         </div>
     </footer>
