@@ -3,192 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אסטרטגיה להשקעה ארוכת טווח: למה קרקע במרכז היא הנכס הבטוח ביותר | MULTI-NADLAN</title>
-    <meta name="description" content="היתרונות של השקעה סבלנית בקרקע במרכז הארץ, השוואה לאפיקי השקעה אחרים, ומדוע זוהי הדרך הטובה ביותר לבנות הון יציב.">
+    <title>אסטרטגיה להשקעה ארוכת טווח: למה קרקע היא נכס בטוח | MULTI-NADLAN</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-bg: #0F1012;
-            --secondary-bg: #1A1B1E;
-            --card-bg: #1F2023;
-            --text-light: #E8E8E8;
-            --text-muted: #A0A0A0;
-            --accent-gold: #D4AF37;
-            --accent-gold-hover: #EACD85;
-            --border-color: rgba(212, 175, 55, 0.2);
-            --font-main: 'Heebo', sans-serif;
+            --primary-bg: #0F1012; --secondary-bg: #1A1B1E; --card-bg: #1F2023;
+            --text-light: #E8E8E8; --text-muted: #A0A0A0; --accent-gold: #D4AF37;
+            --accent-gold-hover: #EACD85; --border-color: rgba(212, 175, 55, 0.2);
+            --font-main: 'Assistant', sans-serif;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: var(--font-main);
-            line-height: 1.8;
-            color: var(--text-light);
-            background: var(--primary-bg);
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-main);
-            font-weight: 700;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
+        body { line-height: 1.8; color: var(--text-light); background: var(--primary-bg); }
 
         .header {
-            background: rgba(15, 16, 18, 0.95);
-            backdrop-filter: blur(15px);
+            background: rgba(15, 16, 18, 0.7); backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0; width: 100%; z-index: 1000;
-            padding: 1rem 0;
+            position: sticky; top: 0; width: 100%; z-index: 1000;
         }
-
-        .nav-container {
-            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem; font-weight: 800; color: var(--text-light); text-decoration: none;
-        }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; }
+        .logo { font-size: 1.8rem; font-weight: 800; color: var(--text-light); text-decoration: none; }
         .logo span { color: var(--accent-gold); }
-
-        .back-link {
-            color: var(--accent-gold); text-decoration: none; font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        .back-link:hover { color: var(--accent-gold-hover); }
+        .back-link { text-decoration: none; color: var(--text-muted); font-weight: 700; font-size: 1rem; transition: color 0.3s ease; }
+        .back-link:hover { color: var(--accent-gold); }
+        .back-link i { margin-left: 8px; }
 
         .article-hero {
-            position: relative;
-            height: 50vh;
+            position: relative; height: 50vh;
             background: linear-gradient(rgba(15, 16, 18, 0.7), rgba(15, 16, 18, 0.7)), url('https://i.imgur.com/8XWlej2.jpg') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            display: flex; align-items: center; justify-content: center; text-align: center;
         }
-
-        .article-hero h1 {
-            font-size: 3.5rem;
-            max-width: 800px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-        }
+        .article-hero h1 { font-size: 3.5rem; max-width: 800px; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
         
-        .article-content {
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .article-content h2 {
-            font-size: 2.2rem;
-            color: var(--accent-gold);
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .article-content p, .article-content li {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
+        .article-content { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+        .article-content h2 { font-size: 2.2rem; color: var(--accent-gold); margin-top: 3rem; margin-bottom: 1.5rem; }
+        .article-content p, .article-content li { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .article-content ul { padding-right: 20px; }
+        .article-content strong { color: var(--text-light); font-weight: 600; }
         
-        .article-content ul {
-            padding-right: 20px;
-            list-style-type: '✓  ';
-        }
-
-        .article-content strong {
-            color: var(--text-light);
-            font-weight: 600;
-        }
-        
-        .article-content blockquote {
-            margin: 2rem 0;
-            padding: 1.5rem;
-            padding-right: 2rem;
-            background: var(--card-bg);
-            border-right: 4px solid var(--accent-gold);
-            font-size: 1.2rem;
-            font-style: italic;
-            color: var(--text-light);
-        }
-
-        .final-cta {
-            text-align: center;
-            padding: 3rem;
-            background: var(--secondary-bg);
-            margin-top: 4rem;
-            border-radius: 12px;
-        }
-
-        .final-cta h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-button {
-            background: var(--accent-gold);
-            color: var(--primary-bg);
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-        .cta-button:hover {
-            background: var(--accent-gold-hover);
-            transform: translateY(-3px);
-        }
+        .footer { background: #000; padding: 4rem 0 2rem; border-top: 1px solid var(--border-color); margin-top: 4rem; }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; max-width: 1200px; margin-left:auto; margin-right:auto; }
     </style>
 </head>
 <body>
     <header class="header">
         <nav class="nav-container">
             <a href="index.html" class="logo">MULTI-<span>NADLAN</span></a>
-            <a href="index.html#knowledge-center" class="back-link">
+            <a href="index.html#knowledge" class="back-link">
                 <i class="fas fa-arrow-right"></i> חזרה למרכז הידע
             </a>
         </nav>
     </header>
 
     <section class="article-hero">
-        <h1>כמו לגדל עץ: למה השקעה בקרקע היא האסטרטגיה הבטוחה ביותר לטווח ארוך</h1>
+        <h1>כמו לגדל עץ: למה השקעה בקרקע היא אסטרטגיה בטוחה לטווח ארוך</h1>
     </section>
 
     <article class="article-content">
-        <p>בעולם של שוקי הון תנודתיים ומטבעות דיגיטליים בלתי צפויים, משקיעים רבים מחפשים עוגן של יציבות. השקעה בקרקע במרכז הארץ היא יותר מאפיק פיננסי – היא אסטרטגיה סבלנית, מבוססת, שכמו גידול עץ בונסאי, דורשת זמן אך מניבה פירות יקרי ערך בעתיד.</p>
-        
+        <p>בעולם של שוקי הון תנודתיים, השקעה בקרקע במרכז הארץ היא עוגן של יציבות. זוהי אסטרטגיה סבלנית, מבוססת, שכמו גידול עץ, דורשת זמן אך מניבה פירות יקרי ערך בעתיד.</p>
         <h2>הנכס היחיד שלא ניתן לייצר ממנו עוד</h2>
-        <p>בניגוד למניות, אגרות חוב או אפילו זהב, קרקע היא משאב סופי. במדינה קטנה וצפופה כמו ישראל, הביקוש למגורים ותעסוקה במרכז הארץ רק הולך וגדל, בעוד היצע הקרקעות נותר קבוע. עיקרון כלכלי בסיסי זה הוא הבסיס לכך שערך הקרקעות במרכז תמיד נמצא במגמת עלייה בטווח הארוך.</p>
-        
-        <blockquote>"קנו קרקע, הם כבר לא מייצרים אותה יותר." - מארק טוויין</blockquote>
-        
-        <h2>היתרונות המרכזיים של השקעה בקרקע</h2>
+        <p>קרקע היא משאב סופי. במדינה קטנה וצפופה כמו ישראל, הביקוש למגורים ותעסוקה במרכז רק הולך וגדל, בעוד היצע הקרקעות נותר קבוע. עיקרון כלכלי זה הוא הבסיס לכך שערך הקרקעות במרכז תמיד נמצא במגמת עלייה בטווח הארוך.</p>
+        <h2>יתרונות ההשקעה בקרקע</h2>
         <ul>
-            <li><strong>פוטנציאל תשואה אדיר:</strong> "הקפצת השווי" הגדולה ביותר בנדל"ן מתרחשת במעבר מקרקע חקלאית לקרקע מאושרת לבנייה. השקעה מוקדמת מאפשרת ליהנות מכל עליית הערך הזו, שיכולה להגיע למאות אחוזים.</li>
-            <li><strong>הגנה מאינפלציה:</strong> ערך הנדל"ן נוטה לעלות יחד עם האינפלציה ואף להשיג אותה, ובכך הוא שומר על כוח הקנייה של הכסף שלכם.</li>
-            <li><strong>נכס מוחשי וביטחון:</strong> אתם רוכשים נכס פיזי, רשום על שמכם בטאבו. זהו נכס שאי אפשר "למחוק" בלחיצת כפתור, והוא מעניק תחושת ביטחון שקשה למצוא באפיקים אחרים.</li>
-            <li><strong>מיסוי מופחת:</strong> מס הרכישה על קרקע (6%) נמוך משמעותית ממס הרכישה על דירה שנייה (8%), מה שמותיר יותר כסף "לעבוד" עבורכם.</li>
+            <li><strong>פוטנציאל תשואה אדיר:</strong> "הקפצת השווי" הגדולה ביותר בנדל"ן מתרחשת במעבר מקרקע חקלאית לקרקע מאושרת לבנייה.</li>
+            <li><strong>הגנה מאינפלציה:</strong> ערך הנדל"ן נוטה לעלות יחד עם האינפלציה ובכך שומר על כוח הקנייה.</li>
+            <li><strong>נכס מוחשי וביטחון:</strong> אתם רוכשים נכס פיזי, רשום על שמכם בטאבו.</li>
+            <li><strong>מיסוי מופחת:</strong> מס הרכישה על קרקע (6%) נמוך משמעותית ממס על דירה שנייה (8%).</li>
         </ul>
-        
-        <h2>השקעה בקרקע לעומת אפיקים אחרים</h2>
-        <p><strong>שוק ההון:</strong> מציע נזילות גבוהה אך תנודתיות וסיכון גבוהים בהרבה. דורש מעקב מתמיד וידע פיננסי.<br>
-        <strong>דירה להשקעה:</strong> דורשת הון עצמי גבוה בהרבה, התעסקות עם שוכרים, בלאי ותחזוקה, והתשואה השוטפת נשחקה בשנים האחרונות.<br>
-        <strong>השקעה בקרקע:</strong> דורשת סבלנות והבנה שמדובר בהשקעה לא נזילה, אך מציעה פשטות ניהולית ("שגר ושכח") ופוטנציאל לתשואה חסרת תחרות עם שינוי הייעוד.</p>
-
-        <div class="final-cta">
-            <h3>מוכנים לשתול את העץ שלכם?</h3>
-            <p>השקעה נכונה בקרקע היום היא הדרך להבטיח את העתיד הכלכלי שלכם ושל הדורות הבאים. בואו נבנה יחד את תיק ההשקעות שלכם.</p>
-            <a href="index.html#contact" class="cta-button">בואו נדבר על העתיד</a>
-        </div>
     </article>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 MULTI-NADLAN. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
