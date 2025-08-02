@@ -4,148 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מהפכת המטרו בגוש דן והשפעתה על הנדל"ן | MULTI-NADLAN</title>
-    <meta name="description" content="ניתוח מעמיק על פרויקט המטרו, השפעתו הצפויה על ערכי הקרקע, ואיפה נמצאות הזדמנויות ההשקעה האסטרטגיות ביותר.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-bg: #0F1012;
-            --secondary-bg: #1A1B1E;
-            --card-bg: #1F2023;
-            --text-light: #E8E8E8;
-            --text-muted: #A0A0A0;
-            --accent-gold: #D4AF37;
-            --accent-gold-hover: #EACD85;
-            --border-color: rgba(212, 175, 55, 0.2);
-            --font-main: 'Heebo', sans-serif;
+            --primary-bg: #0F1012; --secondary-bg: #1A1B1E; --card-bg: #1F2023;
+            --text-light: #E8E8E8; --text-muted: #A0A0A0; --accent-gold: #D4AF37;
+            --accent-gold-hover: #EACD85; --border-color: rgba(212, 175, 55, 0.2);
+            --font-main: 'Assistant', sans-serif;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: var(--font-main);
-            line-height: 1.8;
-            color: var(--text-light);
-            background: var(--primary-bg);
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-main);
-            font-weight: 700;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
+        body { line-height: 1.8; color: var(--text-light); background: var(--primary-bg); }
 
         .header {
-            background: rgba(15, 16, 18, 0.95);
-            backdrop-filter: blur(15px);
+            background: rgba(15, 16, 18, 0.7); backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0; width: 100%; z-index: 1000;
-            padding: 1rem 0;
+            position: sticky; top: 0; width: 100%; z-index: 1000;
         }
-
-        .nav-container {
-            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem; font-weight: 800; color: var(--text-light); text-decoration: none;
-        }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; }
+        .logo { font-size: 1.8rem; font-weight: 800; color: var(--text-light); text-decoration: none; }
         .logo span { color: var(--accent-gold); }
-
-        .back-link {
-            color: var(--accent-gold); text-decoration: none; font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        .back-link:hover { color: var(--accent-gold-hover); }
+        .back-link { text-decoration: none; color: var(--text-muted); font-weight: 700; font-size: 1rem; transition: color 0.3s ease; }
+        .back-link:hover { color: var(--accent-gold); }
+        .back-link i { margin-left: 8px; }
 
         .article-hero {
-            position: relative;
-            height: 50vh;
+            position: relative; height: 50vh;
             background: linear-gradient(rgba(15, 16, 18, 0.7), rgba(15, 16, 18, 0.7)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            display: flex; align-items: center; justify-content: center; text-align: center;
         }
-
-        .article-hero h1 {
-            font-size: 3.5rem;
-            max-width: 800px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-        }
+        .article-hero h1 { font-size: 3.5rem; max-width: 800px; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
         
-        .article-content {
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .article-content h2 {
-            font-size: 2.2rem;
-            color: var(--accent-gold);
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .article-content p, .article-content li {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
+        .article-content { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+        .article-content h2 { font-size: 2.2rem; color: var(--accent-gold); margin-top: 3rem; margin-bottom: 1.5rem; }
+        .article-content p, .article-content li { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .article-content ul { padding-right: 20px; }
+        .article-content strong { color: var(--text-light); font-weight: 600; }
         
-        .article-content ul {
-            padding-right: 20px;
-        }
-
-        .article-content strong {
-            color: var(--text-light);
-            font-weight: 600;
-        }
-        
-        .article-content blockquote {
-            margin: 2rem 0;
-            padding: 1.5rem;
-            padding-right: 2rem;
-            background: var(--card-bg);
-            border-right: 4px solid var(--accent-gold);
-            font-size: 1.2rem;
-            font-style: italic;
-            color: var(--text-light);
-        }
-
-        .final-cta {
-            text-align: center;
-            padding: 3rem;
-            background: var(--secondary-bg);
-            margin-top: 4rem;
-            border-radius: 12px;
-        }
-
-        .final-cta h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-button {
-            background: var(--accent-gold);
-            color: var(--primary-bg);
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-        .cta-button:hover {
-            background: var(--accent-gold-hover);
-            transform: translateY(-3px);
-        }
+        .footer { background: #000; padding: 4rem 0 2rem; border-top: 1px solid var(--border-color); margin-top: 4rem; }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; max-width: 1200px; margin-left:auto; margin-right:auto; }
 
     </style>
 </head>
@@ -153,43 +54,31 @@
     <header class="header">
         <nav class="nav-container">
             <a href="index.html" class="logo">MULTI-<span>NADLAN</span></a>
-            <a href="index.html#knowledge-center" class="back-link">
+            <a href="index.html#knowledge" class="back-link">
                 <i class="fas fa-arrow-right"></i> חזרה למרכז הידע
             </a>
         </nav>
     </header>
 
     <section class="article-hero">
-        <h1>מהפכת המטרו: איך פרויקט התחבורה הגדול במדינה ישנה את פני הנדל"ן בגוש דן</h1>
+        <h1>מהפכת המטרו: איך פרויקט התחבורה הגדול במדינה ישנה את פני הנדל"ן</h1>
     </section>
 
     <article class="article-content">
         <p>פרויקט המטרו של גוש דן אינו רק פרויקט תחבורתי; זוהי מהפכה כלכלית וחברתית שעתידה לעצב מחדש את מפת הנדל"ן במרכז הארץ. עבור המשקיע האסטרטגי, הבנת ההשפעה של המטרו היא המפתח לאיתור הזדמנויות עם פוטנציאל השבחה חסר תקדים.</p>
-        
         <h2>מהו פרויקט המטרו?</h2>
-        <p>פרויקט המטרו כולל הקמת רשת רכבות תחתיות מודרנית שתחבר את כל ערי גוש דן, מאזור השרון בצפון ועד רחובות בדרום. הרשת, שתכלול שלושה קווים מרכזיים (M1, M2, M3) באורך כולל של כ-150 ק"מ וכ-109 תחנות, תאפשר ניידות מהירה ויעילה ותפחית באופן דרמטי את התלות ברכב פרטי ואת עומסי התנועה.</p>
-        
+        <p>פרויקט המטרו כולל הקמת רשת רכבות תחתיות מודרנית שתחבר את כל ערי גוש דן. הרשת, שתכלול שלושה קווים מרכזיים (M1, M2, M3) באורך כולל של כ-150 ק"מ וכ-109 תחנות, תאפשר ניידות מהירה ויעילה ותפחית באופן דרמטי את התלות ברכב פרטי.</p>
         <h2>ההשפעה הישירה על ערכי הנדל"ן</h2>
-        <p>הניסיון העולמי מוכיח באופן חד משמעי: <strong>קרבה לתחנת מטרו היא אחד הגורמים המשמעותיים ביותר לעליית ערך נכסים.</strong> מחקרים מראים כי נכסים במרחק של עד 800 מטר מתחנת מטרו חדשה חווים עליית ערך ממוצעת של 15%-30% עוד לפני שהרכבת הראשונה נוסעת.</p>
-        
-        <blockquote>"פרויקט המטרו הוא 'Game Changer'. הוא לא רק יקצר זמני נסיעה, אלא ייצור מרכזי חיים, תעסוקה ופנאי חדשים סביב התחנות."</blockquote>
-        
-        <h2>הזדמנויות ההשקעה: איפה כדאי לחפש?</h2>
-        <p>ההזדמנויות הגדולות ביותר אינן נמצאות במרכז תל אביב, שם המחירים כבר גבוהים, אלא במעגלים החיצוניים יותר, בערים כמו רעננה, פתח תקווה, חולון וראשון לציון. המפתח הוא לאתר קרקעות הנמצאות כיום בייעוד חקלאי או אחר, אך ממוקמות בסמיכות לתחנות מטרו מתוכננות וכלולות בתוכניות מתאר ארציות או מחוזיות.</p>
-        
-        <ul>
-            <li><strong>קו M1 (צפון-דרום):</strong> קו זה, שמקשר בין רעננה וכפר סבא ללוד ורחובות דרך תל אביב, נחשב לקו עם הפוטנציאל המיידי הגבוה ביותר, במיוחד בתחנות הקצה שלו כמו רעננה, שם מתוכננים מתחמי פיתוח רחבי היקף.</li>
-            <li><strong>קרקעות בתוכניות מתקדמות:</strong> יש לתת עדיפות לקרקעות שכבר נכללות בתוכניות לאומיות (כמו תת"ל) או עירוניות, מה שמבטיח הליך אישורים מהיר יותר.</li>
-        </ul>
-
-        <h2>אסטרטגיית הפעולה</h2>
-        <p>השקעה חכמה בקרקע ליד המטרו דורשת סבלנות וראייה לטווח ארוך. רוכשים היום קרקע במחיר נמוך יחסית, מלווים את תהליכי התכנון והאישור, ונהנים מהזינוק המשמעותי בערך הקרקע עם שינוי הייעוד וקבלת היתרי הבנייה. זהו מסלול המאפשר למשקיעים פרטיים להצטרף להצלחה של הפרויקטים הגדולים ביותר במדינה.</p>
-        
-        <div class="final-cta">
-            <h3>רוצים לשמוע עוד על הזדמנויות ליד המטרו?</h3>
-            <p>הצוות שלנו מתמחה באיתור הקרקעות המבטיחות ביותר לאורך קווי המטרו. דברו איתנו.</p>
-            <a href="index.html#contact" class="cta-button">אני רוצה ייעוץ</a>
-        </div>
+        <p>הניסיון העולמי מוכיח: <strong>קרבה לתחנת מטרו היא אחד הגורמים המשמעותיים ביותר לעליית ערך נכסים.</strong> נכסים במרחק של עד 800 מטר מתחנת מטרו חדשה חווים עליית ערך ממוצעת של 15%-30% עוד לפני שהרכבת הראשונה נוסעת.</p>
+        <h2>הזדמנויות ההשקעה</h2>
+        <p>ההזדמנויות הגדולות ביותר אינן נמצאות במרכז תל אביב, אלא במעגלים החיצוניים יותר, בערים כמו רעננה ופתח תקווה. המפתח הוא לאתר קרקעות הנמצאות כיום בייעוד חקלאי אך ממוקמות בסמיכות לתחנות מטרו מתוכננות וכלולות בתוכניות מתאר ארציות או מחוזיות.</p>
     </article>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 MULTI-NADLAN. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
