@@ -1,1 +1,45 @@
+# Robots.txt for MULTI-NADLAN
+# Created: January 2025
 
+User-agent: *
+Allow: /
+
+# Main pages
+Allow: /index.html
+Allow: /raanana-project.html
+Allow: /petah-tikva-project.html
+
+# Knowledge center articles
+Allow: /metro-article.html
+Allow: /appraisal-guide.html
+Allow: /long-term-investment.html
+Allow: /and_investment_guide.html
+
+# Legal pages
+Allow: /accessibility.html
+Allow: /privacy.html
+Allow: /terms.html
+
+# Block any admin or test directories (if they exist)
+Disallow: /admin/
+Disallow: /test/
+Disallow: /backup/
+Disallow: /_notes/
+Disallow: /temp/
+
+# Allow CSS, JS and images for better crawling
+Allow: *.css
+Allow: *.js
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.png
+Allow: *.webp
+Allow: *.svg
+Allow: *.gif
+Allow: *.pdf
+
+# Sitemap location
+Sitemap: https://multi-nadlan.co.il/sitemap.xml
+
+# Crawl-delay (optional, for polite crawling)
+Crawl-delay: 1
