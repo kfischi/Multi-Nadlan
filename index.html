@@ -6,6 +6,16 @@
     <title>MULTI-NADLAN | השקעות קרקע אסטרטגיות בישראל</title>
     <meta name="description" content="MULTI-NADLAN מתמחה באיתור ושיווק קרקעות במיקומי פריים במרכז הארץ, על בסיס תכניות מתאר ארציות. בואו להיות שותפים בהזדמנויות הנדלן של המחר.">
     
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="MULTI-NADLAN | השקעות קרקע אסטרטגיות בישראל">
+    <meta property="og:description" content="השקעות קרקע חכמות במרכז הארץ עם פוטנציאל השבחה גבוה">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://multi-nadlan.co.il">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://multi-nadlan.co.il">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap" rel="stylesheet">
@@ -17,8 +27,8 @@
             --primary-bg: #0F1012;
             --secondary-bg: #1A1B1E;
             --card-bg: #1F2023;
-            --text-light: #E8E8E8;
-            --text-muted: #A0A0A0;
+            --text-light: #FFFFFF;
+            --text-muted: #E8E8E8;
             --accent-gold: #D4AF37;
             --accent-gold-hover: #EACD85;
             --border-color: rgba(212, 175, 55, 0.2);
@@ -29,6 +39,14 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
         html { scroll-behavior: smooth; }
         body { line-height: 1.8; color: var(--text-light); background: var(--primary-bg); overflow-x: hidden; }
+        
+        /* Skip Navigation Link for Accessibility */
+        .skip-link {
+            position: absolute; top: -40px; left: 6px; z-index: 100000;
+            color: white; background: var(--accent-gold); padding: 8px; text-decoration: none;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 6px; }
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
@@ -58,16 +76,20 @@
             background: var(--accent-gold); color: var(--primary-bg); padding: 12px 28px;
             border-radius: 50px; text-decoration: none; font-weight: 700;
             transition: all 0.3s ease; border: 1px solid var(--accent-gold);
+            cursor: pointer; display: inline-block;
         }
         .cta-button:hover {
             background: var(--accent-gold-hover); transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
         }
+        .cta-button:focus {
+            outline: 2px solid var(--accent-gold); outline-offset: 2px;
+        }
 
         .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
         .hero::after {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: url('https://i.imgur.com/YBVcCdX.jpg') center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
             opacity: 0.4; z-index: 0;
         }
         .hero::before {
@@ -88,7 +110,7 @@
 
         .section { padding: 6rem 0; }
         .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-header h2 { font-weight: 700; font-size: 3rem; margin-bottom: 1rem; }
+        .section-header h2 { font-weight: 700; font-size: 3rem; margin-bottom: 1rem; color: var(--text-light); }
         .section-header p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
         
         .about-section { background: var(--secondary-bg); }
@@ -108,8 +130,12 @@
         .project-card { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; }
         .project-card:nth-child(even) { direction: ltr; }
         .project-card:nth-child(even) .project-content { direction: rtl; }
-        .project-card img { width: 100%; border-radius: 16px; box-shadow: var(--shadow-soft); }
-        .project-content h3 { font-weight: 700; font-size: 3rem; margin-bottom: 1rem; }
+        .project-card img { 
+            width: 100%; border-radius: 16px; box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease;
+        }
+        .project-card img:hover { transform: scale(1.02); }
+        .project-content h3 { font-weight: 700; font-size: 3rem; margin-bottom: 1rem; color: var(--text-light); }
         .project-content .tagline { color: var(--accent-gold); font-weight: 700; margin-bottom: 1.5rem; display: block; }
         .project-content p { color: var(--text-muted); margin-bottom: 2rem; }
         
@@ -132,15 +158,23 @@
 
         .knowledge-center { background: var(--primary-bg); }
         .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .article-card { background: var(--card-bg); border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); transition: transform 0.3s ease; text-decoration: none; color: var(--text-light); }
+        .article-card { 
+            background: var(--card-bg); border-radius: 16px; overflow: hidden; 
+            border: 1px solid var(--border-color); transition: transform 0.3s ease; 
+            text-decoration: none; color: var(--text-light);
+        }
         .article-card:hover { transform: translateY(-5px); }
-        .article-card img { width: 100%; height: 200px; object-fit: cover; }
-        .article-content { padding: 1.5rem; }
-        .article-content h3 { font-size: 1.25rem; margin-bottom: 1rem; font-weight: 700; }
-        .article-content .read-more { color: var(--accent-gold); text-decoration: none; font-weight: 700; }
+        .article-card img { 
+            width: 100%; height: 200px; object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .article-card:hover img { transform: scale(1.05); }
+        .article-content-card { padding: 1.5rem; }
+        .article-content-card h3 { font-size: 1.25rem; margin-bottom: 1rem; font-weight: 700; color: var(--text-light); }
+        .article-content-card .read-more { color: var(--accent-gold); text-decoration: none; font-weight: 700; }
         
         .final-cta { background: var(--secondary-bg); text-align: center; }
-        .final-cta h2 { font-weight: 700; font-size: 3rem; margin-bottom: 1rem; }
+        .final-cta h2 { font-weight: 700; font-size: 3rem; margin-bottom: 1rem; color: var(--text-light); }
         .final-cta p { color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem; }
 
         .footer { background: #000; padding: 4rem 0 2rem; border-top: 1px solid var(--border-color); }
@@ -150,7 +184,31 @@
         .footer-grid li { margin-bottom: 0.5rem; }
         .footer-grid a { color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
         .footer-grid a:hover { color: var(--accent-gold); }
-        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; }
+        .footer-bottom { 
+            text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); 
+            color: var(--text-muted); font-size: 0.9rem; 
+        }
+        
+        /* Contact Form Styling */
+        .contact-form {
+            background: var(--card-bg); padding: 3rem; border-radius: 16px;
+            margin: 3rem auto; max-width: 600px; border: 1px solid var(--border-color);
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block; margin-bottom: 0.5rem; color: var(--text-light);
+            font-weight: 500;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 12px 16px; background: var(--secondary-bg);
+            border: 1px solid var(--border-color); border-radius: 8px;
+            color: var(--text-light); font-family: var(--font-main);
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none; border-color: var(--accent-gold);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+        .form-group textarea { min-height: 120px; resize: vertical; }
         
         @media (max-width: 992px) {
             .hero-content h1 { font-size: 4rem; }
@@ -172,10 +230,11 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">קפוץ לתוכן הראשי</a>
 
     <header class="header" id="header">
-        <nav class="container nav-container">
-            <a href="#home" class="logo">MULTI-<span>NADLAN</span></a>
+        <nav class="container nav-container" role="navigation" aria-label="תפריט ראשי">
+            <a href="#home" class="logo" aria-label="MULTI-NADLAN דף הבית">MULTI-<span>NADLAN</span></a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">בית</a></li>
                 <li><a href="#about" class="nav-link">הפילוסופיה שלנו</a></li>
@@ -186,7 +245,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="hero section" id="home">
             <div class="container hero-content">
                 <h1>האסטרטגיה לטווח ארוך מתחילה מהנכס היסודי ביותר: הקרקע.</h1>
@@ -207,22 +266,22 @@
                     </div>
                     <div class="principles-grid">
                         <div class="principle-card">
-                            <i class="fas fa-binoculars"></i>
+                            <i class="fas fa-binoculars" aria-hidden="true"></i>
                             <h4>איתור הזדמנויות אסטרטגי</h4>
                             <p>אנו ממפים את תכניות המתאר הארציות ומתמקדים אך ורק בקרקעות בעלות פוטנציאל השבחה ודאי, במיקומים שיהיו מרכזי הביקוש של המחר.</p>
                         </div>
                         <div class="principle-card">
-                            <i class="fas fa-search-plus"></i>
+                            <i class="fas fa-search-plus" aria-hidden="true"></i>
                             <h4>שקיפות רדיקלית</h4>
                             <p>כל המידע, כל הנתונים, כל הסיכונים. אנו מציגים בפניך תמונה מלאה, כולל דוח שמאי מקיף, כדי שתוכל לקבל החלטה מושכלת.</p>
                         </div>
                         <div class="principle-card">
-                            <i class="fas fa-handshake-angle"></i>
+                            <i class="fas fa-handshake-angle" aria-hidden="true"></i>
                             <h4>אינטרס משותף מובנה</h4>
                             <p>אנו משווקים רק פרויקטים שבהם גם אנחנו היינו משקיעים. מחויבות היזם לקרקע מבטיחה שכולנו באותה סירה, חותרים לאותה מטרה.</p>
                         </div>
                         <div class="principle-card">
-                            <i class="fas fa-layer-group"></i>
+                            <i class="fas fa-layer-group" aria-hidden="true"></i>
                             <h4>ליווי ארוך טווח</h4>
                             <p>הקשר שלנו לא מסתיים בחתימת החוזה. אנו מלווים אותך לאורך כל ציר הזמן של ההשקעה, מעדכנים בהתפתחויות ומסייעים במימוש הפוטנציאל.</p>
                         </div>
@@ -245,7 +304,7 @@
                             <p>הזדמנות ייחודית להיות שותפים בפיתוח המתחם האורבני החדשני של השרון. הפרויקט ממוקם על קרקע אסטרטגית ב"טבעת הראשונה" הצמודה לתחנת הדיפו של קו המטרו M1, המקבלת קידום מואץ.</p>
                             <a href="raanana-project.html" class="cta-button">לפרטים נוספים על הפרויקט</a>
                         </div>
-                        <img src="https://i.imgur.com/bRxqB6I.jpg" alt="הדמיה של שכונת מגורים יוקרתית ברעננה">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="הדמיה של מתחם מגורים מודרני ברעננה עם מנופי בנייה">
                     </div>
                     <div class="project-card">
                         <div class="project-content">
@@ -254,7 +313,7 @@
                             <p>אזור נהר הירקון בפתח תקווה עומד בפני מהפכת פיתוח אדירה, עם תכניות מאושרות בוועדה המקומית לבניית שכונות מגורים, פארקים ומרכזי מסחר. הקרקע נמצאת במיקום אסטרטגי, רגע לפני קפיצת הערך המשמעותית.</p>
                             <a href="petah-tikva-project.html" class="cta-button">לפרטים נוספים על הפרויקט</a>
                         </div>
-                        <img src="https://i.imgur.com/nbsC4vZ.jpg" alt="פארק אורבני על גדת נהר הירקון">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80" alt="נוף של נהר הירקון עם פארק ירוק ופיתוח עירוני ברקע">
                     </div>
                 </div>
             </div>
@@ -303,27 +362,34 @@
                     <p>אנו מאמינים שהשקעה טובה מתחילה בידע. קראו את הניתוחים והמאמרים של המומחים שלנו.</p>
                 </div>
                 <div class="article-grid">
-                    <div class="article-card">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="מפת קווי המטרו">
-                        <div class="article-content">
+                    <a href="metro-article.html" class="article-card" aria-label="מאמר על השפעת המטרו על ערך הקרקע">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80" alt="רכבת קלה מודרנית בתחנה עם נוסעים">
+                        <div class="article-content-card">
                             <h3>ניתוח: כיצד מהפכת המטרו משפיעה על ערך הקרקע?</h3>
-                            <a href="metro-article.html" class="read-more">קרא עוד &larr;</a>
+                            <span class="read-more">קרא עוד &larr;</span>
                         </div>
-                    </div>
-                    <div class="article-card">
-                        <img src="https://i.imgur.com/MF61Ck4.jpg" alt="דוח שמאות">
-                        <div class="article-content">
+                    </a>
+                    <a href="appraisal-guide.html" class="article-card" aria-label="מדריך לקריאת דוח שמאי">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="מסמכים משפטיים ועט על שולחן עבודה">
+                        <div class="article-content-card">
                             <h3>מדריך: איך לקרוא דוח שמאי לפי תקן 22?</h3>
-                            <a href="appraisal-guide.html" class="read-more">קרא עוד &larr;</a>
+                            <span class="read-more">קרא עוד &larr;</span>
                         </div>
-                    </div>
-                    <div class="article-card">
-                        <img src="https://i.imgur.com/8XWlej2.jpg" alt="עץ בונסאי המסמל צמיחה סבלנית">
-                        <div class="article-content">
+                    </a>
+                    <a href="long-term-investment.html" class="article-card" aria-label="מאמר על השקעה לטווח ארוך">
+                        <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=800&q=80" alt="מבט אווירי של עיר מודרנית עם גורדי שחקים">
+                        <div class="article-content-card">
                             <h3>השקעה לטווח ארוך: מדוע קרקע היא נכס בטוח?</h3>
-                            <a href="long-term-investment.html" class="read-more">קרא עוד &larr;</a>
+                            <span class="read-more">קרא עוד &larr;</span>
                         </div>
-                    </div>
+                    </a>
+                    <a href="and_investment_guide.html" class="article-card" aria-label="מדריך השקעה בקרקע">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="שדה פתוח עם אופק עירוני ברקע">
+                        <div class="article-content-card">
+                            <h3>השקעה בקרקע: המדריך החכם לתשואה</h3>
+                            <span class="read-more">קרא עוד &larr;</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -332,7 +398,39 @@
             <div class="container">
                  <h2>העתיד שלך נבנה מהקרקע.</h2>
                  <p>השאירו פרטים ומומחה השקעות אסטרטגיות יחזור אליכם לשיחת ייעוץ אישית, ללא התחייבות, ויציג בפניכם את ההזדמנויות הרלוונטיות עבורכם.</p>
-                 <a href="mailto:info@multi-nadlan.co.il" class="cta-button">קבע פגישת ייעוץ</a>
+                 
+                 <div class="contact-form">
+                    <h3 style="color: var(--accent-gold); margin-bottom: 2rem; text-align: center;">טופס יצירת קשר</h3>
+                    <form id="contactForm" aria-label="טופס יצירת קשר">
+                        <div class="form-group">
+                            <label for="fullName">שם מלא *</label>
+                            <input type="text" id="fullName" name="fullName" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">כתובת אימייל *</label>
+                            <input type="email" id="email" name="email" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">מספר טלפון *</label>
+                            <input type="tel" id="phone" name="phone" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">תקציב משוער להשקעה</label>
+                            <input type="text" id="budget" name="budget" placeholder="לדוגמה: 500,000 ₪">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">הודעה נוספת</label>
+                            <textarea id="message" name="message" placeholder="ספרו לנו על עצמכם ועל מטרות ההשקעה שלכם..."></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">שלח פנייה</button>
+                    </form>
+                 </div>
+                 
+                 <p style="margin-top: 2rem;">
+                     <strong>או צרו קשר ישירות:</strong><br>
+                     <a href="tel:052-123-4567" style="color: var(--accent-gold); text-decoration: none;">📞 052-123-4567</a> | 
+                     <a href="mailto:info@multi-nadlan.co.il" style="color: var(--accent-gold); text-decoration: none;">✉️ info@multi-nadlan.co.il</a>
+                 </p>
             </div>
         </section>
     </main>
@@ -341,7 +439,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <h4>MULTI-<span>NADLAN</span></h4>
+                    <h4>MULTI-<span style="color: var(--accent-gold);">NADLAN</span></h4>
                     <p>איתור ושיווק הזדמנויות השקעה בקרקעות בעלות פוטנציאל השבחה גבוה בלב אזורי הביקוש של ישראל.</p>
                 </div>
                 <div>
@@ -352,6 +450,8 @@
                         <li><a href="#projects">פרויקטים</a></li>
                         <li><a href="#knowledge">מרכז ידע</a></li>
                         <li><a href="#contact">יצירת קשר</a></li>
+                        <li><a href="accessibility.html">הצהרת נגישות</a></li>
+                        <li><a href="privacy.html">מדיניות פרטיות</a></li>
                     </ul>
                 </div>
                 <div>
@@ -375,5 +475,58 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple validation
+            const requiredFields = ['fullName', 'email', 'phone'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = '#F44336';
+                } else {
+                    input.style.borderColor = 'var(--border-color)';
+                }
+            });
+            
+            if (isValid) {
+                // Here you would normally send to server
+                alert('תודה על פנייתכם! נחזור אליכם בהקדם האפשרי.');
+                this.reset();
+            } else {
+                alert('אנא מלאו את כל השדות הנדרשים');
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 16, 18, 0.95)';
+            } else {
+                header.style.background = 'rgba(15, 16, 18, 0.7)';
+            }
+        });
+    </script>
 </body>
 </html>
