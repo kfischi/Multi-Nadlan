@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>השקעה בקרקע: המדריך הפשוט לתשואה חכמה | MULTI-NADLAN</title>
+    <meta name="description" content="המדריך הפשוט והמעשי להשקעה בקרקע - איך לחשב תשואה, מה חשוב לדעת ואיך לא להכשל">
+    <meta name="keywords" content="השקעה בקרקע, תשואה על השקעה, קניית קרקע, השקעות נדלן, ROI קרקע">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-bg: #0F1012;
+            --secondary-bg: #1A1B1E;
+            --card-bg: #1F2023;
+            --text-light: #FFFFFF;
+            --text-muted: #E8E8E8;
+            --accent-gold: #D4AF37;
+            --accent-gold-hover: #EACD85;
+            --border-color: rgba(212, 175, 55, 0.2);
+            --success-green: #4CAF50;
+            --warning-orange: #FF9800;
+            --danger-red: #F44336;
+            --accent-blue: #2196F3;
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Assistant', sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--text-light);
+            background: var(--primary-bg);
+        }
+
+        .header {
+            background: rgba(15, 16, 18, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            top: 0; width: 100%; z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem; font-weight: 800; color: var(--text-light); text-decoration: none;
+        }
+        .logo span { color: var(--accent-gold); }
+
+        .back-link {
+            color: var(--accent-gold); text-decoration: none; font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover { color: var(--accent-gold-hover); }
+
+        .hero {
+            background: linear-gradient(rgba(15, 16, 18, 0.7), rgba(15, 16, 18, 0.7)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80') center/cover;
+            min-height: 65vh; display: flex; align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 1000px; margin: 0 auto; padding: 0 2rem;
+            text-align: center;
+        }
+
+        .article-category {
+            color: var(--accent-gold); font-weight: 700; font-size: 0.9rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem; font-weight: 800; margin-bottom: 1.5rem;
+            line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem; color: var(--text-light); 
+            margin: 0 auto 2rem; max-width: 700px;
+        }
+
+        .article-meta {
+            display: flex; justify-content: center; gap: 2rem;
+            color: var(--text-light); font-size: 0.9rem; flex-wrap: wrap;
+        }
+
+        .article-content {
+            max-width: 900px; margin: 0 auto; padding: 4rem 2rem;
+            color: var(--text-light);
+        }
+
+        .intro-highlight {
+            background: var(--secondary-bg); padding: 2rem; border-radius: 16px;
+            margin: 2rem 0; border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .intro-highlight h3 {
+            color: var(--accent-gold); margin-bottom: 1rem; font-size: 1.4rem;
+        }
+
+        .article-content h2 {
+            font-size: 2rem; font-weight: 700; margin: 3rem 0 1.5rem;
+            color: var(--accent-gold); 
+            display: flex; align-items: center; gap: 1rem;
+        }
+
+        .article-content h2 i {
+            font-size: 1.5rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem; font-weight: 600; margin: 2rem 0 1rem;
+            color: var(--text-light);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .simple-example {
+            background: var(--card-bg); padding: 2rem; border-radius: 12px;
+            margin: 2rem 0; border: 2px solid var(--accent-gold);
+        }
+
+        .simple-example h4 {
+            color: var(--accent-gold); margin-bottom: 1.5rem; text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .example-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem; margin: 0.5rem 0; background: var(--secondary-bg);
+            border-radius: 8px; border: 1px solid var(--border-color);
+        }
+
+        .example-label {
+            font-weight: 500;
+        }
+
+        .example-value {
+            color: var(--accent-gold); font-weight: 700; font-size: 1.1rem;
+        }
+
+        .result-highlight {
+            background: var(--success-green); color: white;
+            padding: 1rem; border-radius: 8px; text-align: center;
+            margin: 1rem 0; font-weight: 700; font-size: 1.2rem;
+        }
+
+        .tips-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; margin: 2rem 0;
+        }
+
+        .tip-card {
+            background: var(--card-bg); padding: 2rem; border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .tip-card h4 {
+            color: var(--accent-gold); margin-bottom: 1rem; font-size: 1.2rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+
+        .tip-card i {
+            font-size: 1.1rem;
+        }
+
+        .comparison-section {
+            margin: 3rem 0;
+        }
+
+        .comparison-cards {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 1.5rem; margin: 2rem 0;
+        }
+
+        .comparison-card {
+            background: var(--card-bg); padding: 2rem; border-radius: 12px;
+            border: 1px solid var(--border-color); text-align: center;
+        }
+
+        .comparison-card h4 {
+            color: var(--accent-gold); margin-bottom: 1rem;
+        }
+
+        .comparison-card .return-rate {
+            font-size: 2rem; font-weight: 800; color: var(--success-green);
+            display: block; margin: 1rem 0;
+        }
+
+        .good-vs-bad {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .good-card {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid var(--success-green);
+            padding: 2rem; border-radius: 12px;
+        }
+
+        .bad-card {
+            background: rgba(244, 67, 54, 0.1);
+            border: 2px solid var(--danger-red);
+            padding: 2rem; border-radius: 12px;
+        }
+
+        .good-card h4 {
+            color: var(--success-green); margin-bottom: 1rem;
+        }
+
+        .bad-card h4 {
+            color: var(--danger-red); margin-bottom: 1rem;
+        }
+
+        .timeline {
+            position: relative; padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: ''; position: absolute; right: 2rem; top: 0; bottom: 0;
+            width: 3px; background: linear-gradient(to bottom, var(--accent-gold), var(--accent-blue));
+        }
+
+        .timeline-item {
+            position: relative; margin-bottom: 3rem; padding-right: 5rem;
+        }
+
+        .timeline-dot {
+            position: absolute; right: 1.2rem; top: 0.5rem;
+            width: 1.5rem; height: 1.5rem; background: var(--accent-gold);
+            border-radius: 50%; border: 3px solid var(--primary-bg);
+        }
+
+        .timeline-content {
+            background: var(--card-bg); padding: 1.5rem; border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-year {
+            color: var(--accent-gold); font-weight: 700; font-size: 1rem;
+        }
+
+        .warning-box {
+            background: rgba(244, 67, 54, 0.1);
+            border-left: 4px solid var(--danger-red);
+            padding: 2rem; margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .warning-box h4 {
+            color: var(--danger-red); margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+
+        .tip-box {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid var(--success-green);
+            padding: 2rem; margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .tip-box h4 {
+            color: var(--success-green); margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+
+        .checklist {
+            background: var(--card-bg); padding: 2rem; border-radius: 12px;
+            margin: 2rem 0; border: 1px solid var(--border-color);
+        }
+
+        .checklist h4 {
+            color: var(--accent-gold); margin-bottom: 1.5rem;
+        }
+
+        .checklist ul {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 0.8rem 0; position: relative; padding-right: 2rem;
+            color: var(--text-light);
+        }
+
+        .checklist li::before {
+            content: "✓"; position: absolute; right: 0; top: 0.8rem;
+            color: var(--success-green); font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .article-content { padding: 2rem 1rem; }
+            .tips-grid { grid-template-columns: 1fr; }
+            .comparison-cards { grid-template-columns: 1fr; }
+            .good-vs-bad { grid-template-columns: 1fr; }
+            .article-meta { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">MULTI-<span>NADLAN</span></a>
+            <a href="index.html#knowledge" class="back-link">
+                <i class="fas fa-arrow-right"></i> חזרה למרכז הידע
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="article-category">מדריך השקעות פשוט</div>
+            <h1>השקעה בקרקע: המדריך החכם לתשואה</h1>
+            <p class="hero-subtitle">איך לחשב תשואה על השקעה בקרקע בלי להסתבך - הכל פשוט ומעשי</p>
+            <div class="article-meta">
+                <span><i class="fas fa-clock"></i> זמן קריאה: 10 דקות</span>
+                <span><i class="fas fa-user"></i> צוות ההשקעות</span>
+                <span><i class="fas fa-calendar"></i> עודכן: ינואר 2025</span>
+            </div>
+        </div>
+    </section>
+
+    <article class="article-content">
+        <div class="intro-highlight">
+            <h3>למה להשקיע בקרקע?</h3>
+            <p>קרקע היא נכס שלא נפגע בזמן, אין הוצאות שוטפות כמו בדירות להשכרה, והיא תמיד תהיה מבוקשת. בממוצע, השקעה חכמה בקרקע מביאה תשואה של 8-12% בשנה לטווח ארוך.</p>
+        </div>
+
+        <p>השקעה בקרקע זה לא רק לעשירים. זה אפיק השקעה שכל מי שחוסך קצת כסף יכול לנצל בחכמה. הבעיה היא שרוב האנשים לא יודעים איך לחשב נכון את התשואה, או מתבלבלים מכל המידע הטכני שזורקים עליהם. בואו נעשה סדר.</p>
+
+        <h2><i class="fas fa-calculator"></i> איך מחשבים תשואה על קרקע - בפשטות</h2>
+
+        <p>בואו ניקח דוגמה פשוטה. נניח שקנינו קרקע ב-2019 תמורת 400,000 ₪ ומכרנו אותה ב-2025 תמורת 700,000 ₪:</p>
+
+        <div class="simple-example">
+            <h4>דוגמה פשוטה: קרקע בפרדס חנה</h4>
+            
+            <div class="example-row">
+                <span class="example-label">מחיר קנייה (2019)</span>
+                <span class="example-value">400,000 ₪</span>
+            </div>
+
+            <div class="example-row">
+                <span class="example-label">מחיר מכירה (2025)</span>
+                <span class="example-value">700,000 ₪</span>
+            </div>
+
+            <div class="example-row">
+                <span class="example-label">רווח כולל</span>
+                <span class="example-value">300,000 ₪</span>
+            </div>
+
+            <div class="example-row">
+                <span class="example-label">תקופת השקעה</span>
+                <span class="example-value">6 שנים</span>
+            </div>
+
+            <div class="result-highlight">
+                תשואה שנתית ממוצעת: כ-12.5%
+            </div>
+        </div>
+
+        <p>זה נשמע טוב, אבל צריך לזכור שיש עוד עלויות. המספר הזה הוא לפני מיסים ולפני עלויות נלוות כמו עורך דין, רישום בטאבו וארנונה שנתית.</p>
+
+        <h2><i class="fas fa-money-bill-wave"></i> העלויות הנסתרות שחשוב לדעת</h2>
+
+        <p>הבעיה הגדולה ברוב ההשקעות בקרקע היא שאנשים שוכחים עלויות שיכולות "לאכול" חלק גדול מהרווח:</p>
+
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h4><i class="fas fa-percent"></i> מס רכישה</h4>
+                <p>בין 6-10% מערך הקרקע, תלוי אם זו השקעה ראשונה או לא. במקרה שלנו - כ-30,000 ₪ נוספים בעלות.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4><i class="fas fa-user-tie"></i> עורך דין ושמאי</h4>
+                <p>כ-10,000-15,000 ₪ לרכישה ועוד כמה אלפים למכירה. הוצאה חד-פעמית אבל משמעותית.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4><i class="fas fa-file-alt"></i> ארנונה שנתית</h4>
+                <p>תלוי באזור, אבל בממוצע 3,000-8,000 ₪ בשנה. במשך 6 שנים זה כ-30,000 ₪.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4><i class="fas fa-coins"></i> מס השבחה</i></h4>
+                <p>25% מהרווח! זה הכי גדול. ברווח של 300,000 ₪ זה 75,000 ₪ שהולכים למדינה.</p>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <h4><i class="fas fa-exclamation-triangle"></i> חשוב לדעת</h4>
+            <p>אחרי כל העלויות, הרווח הנקי במקרה שלנו הוא בערך 165,000 ₪ במקום 300,000 ₪. זה עדיין תשואה טובה של כ-6.5% בשנה, אבל הרבה פחות מהמספר הראשוני.</p>
+        </div>
+
+        <h2><i class="fas fa-chart-line"></i> השוואה לאפיקים אחרים</h2>
+
+        <p>כדי להבין אם השקעה בקרקע משתלמת, חשוב להשוות לחלופות אחרות:</p>
+
+        <div class="comparison-section">
+            <div class="comparison-cards">
+                <div class="comparison-card">
+                    <h4>קרקע (לטווח ארוך)</h4>
+                    <span class="return-rate">6-10%</span>
+                    <p>יציבה, אבל דורשת סבלנות ונזילות נמוכה</p>
+                </div>
+
+                <div class="comparison-card">
+                    <h4>דירות להשכרה</h4>
+                    <span class="return-rate">4-7%</span>
+                    <p>הכנסה שוטפת, אבל דורשת ניהול וטיפול</p>
+                </div>
+
+                <div class="comparison-card">
+                    <h4>קרנות מדד</h4>
+                    <span class="return-rate">7-9%</span>
+                    <p>נזילות גבוהה, פחות ניהול, אבל תנודתיות גבוהה</p>
+                </div>
+
+                <div class="comparison-card">
+                    <h4>פיקדון בנק</h4>
+                    <span class="return-rate">3-5%</span>
+                    <p>בטוח לחלוטין, אבל תשואה נמוכה שלא מנצחת אינפלציה</p>
+                </div>
+            </div>
+        </div>
+
+        <h2><i class="fas fa-target"></i> איך לזהות השקעה טובה בקרקע</h2>
+
+        <p>לא כל קרקע שווה להשקיע בה. יש כמה כללים פשוטים שיעזרו לכם לא להכשל:</p>
+
+        <div class="good-vs-bad">
+            <div class="good-card">
+                <h4><i class="fas fa-thumbs-up"></i> השקעות טובות</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin: 0.5rem 0;">✓ קרקע קרוב לערים מתפתחות</li>
+                    <li style="margin: 0.5rem 0;">✓ אזורים עם תוכניות פיתוח עתידיות</li>
+                    <li style="margin: 0.5rem 0;">✓ מיקום נוח לתחבורה ציבורית</li>
+                    <li style="margin: 0.5rem 0;">✓ אזור שאנשים רוצים לגור בו</li>
+                    <li style="margin: 0.5rem 0;">✓ קרקע שמתאימה לבנייה</li>
+                </ul>
+            </div>
+
+            <div class="bad-card">
+                <h4><i class="fas fa-thumbs-down"></i> השקעות לא טובות</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin: 0.5rem 0;">✗ קרקע חקלאית ללא אישורי בנייה</li>
+                    <li style="margin: 0.5rem 0;">✗ אזורים נידחים ללא פוטנציאל</li>
+                    <li style="margin: 0.5rem 0;">✗ קרקע עם בעיות משפטיות</li>
+                    <li style="margin: 0.5rem 0;">✗ מקומות שאנשים עוזבים</li>
+                    <li style="margin: 0.5rem 0;">✗ קרקע שדורשת השקעות עתק</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2><i class="fas fa-clock"></i> תזמון - מתי לקנות ומתי למכור</h2>
+
+        <p>התזמון בהשקעות קרקע הוא הכל. בניגוד למניות שמשתנות כל יום, מחירי קרקע משתנים לאט - וזה גם היתרון וגם האתגר:</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">זמן טוב לקנייה</div>
+                    <h4>כשהשוק במיתון</h4>
+                    <p>תקופות של חוסר ודאות כלכלית, מחירים נמוכים, פחות מתחרים</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">זמן טוב למכירה</div>
+                    <h4>כשהשוק בשיא</h4>
+                    <p>ביקוש גבוה, מחירים עולים, הרבה קונים פוטנציאליים</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">המתנה ארוכה</div>
+                    <h4>סבלנות היא המפתח</h4>
+                    <p>השקעות קרקע דורשות זמן - לפחות 5-7 שנים לתוצאות משמעותיות</p>
+                </div>
+            </div>
+        </div>
+
+        <h2><i class="fas fa-shield-alt"></i> איך להפחית סיכונים</h2>
+
+        <p>השקעה בקרקע יחסית בטוחה, אבל יש עדיין סיכונים שחשוב להכיר:</p>
+
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h4><i class="fas fa-search"></i> בדיקות יסודיות</h4>
+                <p>תמיד עושים בדיקת יועץ משפטי, בדיקת טאבו, וודאות שאין עיקולים או בעיות משפטיות.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4><i class="fas fa-map-marked-alt"></i> הכרת האזור</h4>
+                <p>קנו רק באזורים שאתם מכירים טוב או שיש לכם ייעוץ מקצועי מהימן באזור.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4><i class="fas fa-piggy-bank"></i> תקציב לעלויות נוספות</h4>
+                <p>תמיד שמרו 20-30% נוספים מהשקעה לעלויות בלתי צפויות.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4><i class="fas fa-users"></i> ייעוץ מקצועי</i></h4>
+                <p>השקיעו בייעוץ טוב מיועץ נדלן, עורך דין ושמאי. זה חוסך טעויות יקרות.</p>
+            </div>
+        </div>
+
+        <h2><i class="fas fa-question-circle"></i> שאלות שחשוב לשאול לפני קנייה</h2>
+
+        <div class="checklist">
+            <h4>רשימת בדיקות חובה</h4>
+            <ul>
+                <li>מה הייעוד העתידי של הקרקע? (מגורים, מסחר, תעשייה)</li>
+                <li>האם יש תוכניות בנייה באזור בשנים הקרובות?</li>
+                <li>מה הגישה לתחבורה ציבורית ותשתיות?</li>
+                <li>איך מתפתח האזור? עולה או יורד?</li>
+                <li>מה העלויות השנתיות? (ארנונה, שמירה וכו')</li>
+                <li>האם הקרקע נקייה משעבודים ועיקולים?</li>
+                <li>מי השכנים? (תעשיות מזהמות, בתי קברות וכו')</li>
+                <li>מה החוקים והמגבלות על הקרקע?</li>
+            </ul>
+        </div>
+
+        <h2><i class="fas fa-lightbulb"></i> טיפים לשיפור התשואה</h2>
+
+        <p>יש כמה דרכים חכמות לשפר את התשואה על השקעת קרקע:</p>
+
+        <div class="tip-box">
+            <h4><i class="fas fa-rocket"></i> שימוש במינוף נבון</h4>
+            <p>אם יש לכם אפשרות לקחת משכנתא על הקרקע בריבית נמוכה, זה יכול להכפיל את התשואה על ההון העצמי. אבל זה גם מגדיל את הסיכון.</p>
+        </div>
+
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h4><i class="fas fa-handshake"></i> קנייה משותפת</h4>
+                <p>קנו עם שותפים כדי להוריד את הסיכון ולאפשר השקעה בקרקעות יקרות יותר.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4><i class="fas fa-chart-line"></i> השקעה מתמשכת</h4>
+                <p>במקום השקעה חד-פעמית גדולה, השקיעו סכומים קטנים יותר לאורך זמן.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4><i class="fas fa-eye"></i> עקיבה אקטיבית</h4>
+                <p>עקבו אחר שינויים באזור, תוכניות פיתוח, ומחירי שוק עדכניים.</p>
+            </div>
+        </div>
+
+        <h2><i class="fas fa-trophy"></i> סיכום: האם השקעה בקרקע מתאימה לכם?</h2>
+
+        <p>השקעה בקרקע מתאימה אם:</p>
+
+        <div class="intro-highlight">
+            <h3>השקעה בקרקע מתאימה לכם אם...</h3>
+            <div style="text-align: right;">
+                <p><strong>✓ יש לכם סבלנות</strong> - השקעות קרקע דורשות זמן ארוך</p>
+                <p><strong>✓ יש לכם תקציב נוח</strong> - לא משקיעים את כל הכסף בביצה אחת</p>
+                <p><strong>✓ אתם לא צריכים נזילות מהירה</strong> - לא תצטרכו את הכסף בשנים הקרובות</p>
+                <p><strong>✓ אתם מחפשים יציבות</strong> - לא אוהבים תנודות גדולות</p>
+            </div>
+        </div>
+
+        <p>אל תשקיעו בקרקע אם אתם מחפשים הכנסה שוטפת או תשואה מהירה. זה משחק של טווח ארוך שדורש מחקר, סבלנות והבנה של השוק המקומי.</p>
+
+        <p>הדבר הכי חשוב: אל תמהרו. השקעה טובה בקרקע דורשת זמן למחקר ובחירה נכונה. עדיף לפספס הזדמנות אחת מאשר להיכנס להשקעה רעה.</p>
+
+        <div style="background: var(--secondary-bg); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+            <h4 style="color: var(--warning-orange); margin-bottom: 1rem;"><i class="fas fa-info-circle"></i> הערת אחריות</h4>
+            <p style="font-size: 0.9rem; color: var(--text-light);">המידע במאמר זה הוא לצרכי חינוך והסברה בלבד. הוא אינו מהווה ייעוץ השקעות או פיננסי אישי. מומלץ להתייעץ עם יועץ מקצועי לפני קבלת החלטות השקעה. תוצאות השקעה עשויות להשתנות ואין זה מובטח שתושגנה התשואות המוזכרות.</p>
+        </div>
+    </article>
+
+    <footer style="background: #000; padding: 2rem 0; text-align: center; border-top: 1px solid var(--border-color);">
+        <p style="color: var(--text-muted);">&copy; 2025 MULTI-NADLAN. כל הזכויות שמורות.</p>
+    </footer>
+</body>
+</html>
