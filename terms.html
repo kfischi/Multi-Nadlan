@@ -1,1 +1,380 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תנאי שימוש | MULTI-NADLAN</title>
+    <meta name="description" content="תנאי השימוש באתר MULTI-NADLAN - כללים והגבלות לשימוש באתר ובשירותים">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-bg: #0F1012;
+            --secondary-bg: #1A1B1E;
+            --card-bg: #1F2023;
+            --text-light: #FFFFFF;
+            --text-muted: #CCCCCC;
+            --accent-gold: #D4AF37;
+            --accent-gold-hover: #EACD85;
+            --border-color: rgba(212, 175, 55, 0.2);
+            --font-main: 'Assistant', sans-serif;
+            --warning-orange: #FF9800;
+            --danger-red: #F44336;
+        }
 
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: var(--font-main);
+        }
+
+        body {
+            line-height: 1.8;
+            color: var(--text-light);
+            background: var(--primary-bg);
+        }
+
+        .header {
+            background: rgba(15, 16, 18, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0; width: 100%; z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem; font-weight: 800; color: var(--text-light); text-decoration: none;
+        }
+        .logo span { color: var(--accent-gold); }
+
+        .back-link {
+            color: var(--accent-gold); text-decoration: none; font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover { color: var(--accent-gold-hover); }
+
+        .main-content {
+            max-width: 900px; margin: 0 auto; padding: 4rem 2rem;
+        }
+
+        .page-header {
+            text-align: center; margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem; font-weight: 800; margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .page-header p {
+            font-size: 1.2rem; color: var(--text-muted); max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .last-updated {
+            background: var(--secondary-bg); padding: 1rem; border-radius: 8px;
+            text-align: center; margin-bottom: 2rem;
+            border-right: 4px solid var(--accent-gold);
+        }
+
+        .content-section {
+            background: var(--card-bg); padding: 3rem; border-radius: 16px;
+            margin: 2rem 0; border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem;
+            color: var(--accent-gold); border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            font-size: 1.4rem; font-weight: 600; margin: 2rem 0 1rem;
+            color: var(--text-light);
+        }
+
+        .content-section p {
+            margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        .content-section ul {
+            margin: 1rem 0; padding-right: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.8rem; font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .warning-box {
+            background: rgba(255, 152, 0, 0.1); padding: 2rem; border-radius: 12px;
+            border-right: 4px solid var(--warning-orange); margin: 2rem 0;
+        }
+
+        .warning-box h3 {
+            color: var(--warning-orange);
+        }
+
+        .important-box {
+            background: rgba(244, 67, 54, 0.1); padding: 2rem; border-radius: 12px;
+            border-right: 4px solid var(--danger-red); margin: 2rem 0;
+        }
+
+        .important-box h3 {
+            color: var(--danger-red);
+        }
+
+        .contact-info {
+            background: var(--secondary-bg); padding: 2rem; border-radius: 12px;
+            margin: 2rem 0; text-align: center;
+        }
+
+        .contact-info h3 {
+            color: var(--accent-gold); margin-bottom: 1rem;
+        }
+
+        .contact-link {
+            color: var(--accent-gold); text-decoration: none;
+            font-weight: 700; transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-gold-hover);
+        }
+
+        .footer {
+            background: #000; padding: 2rem 0; text-align: center;
+            border-top: 1px solid var(--border-color); margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2.2rem; }
+            .main-content { padding: 2rem 1rem; }
+            .content-section { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">MULTI-<span>NADLAN</span></a>
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-right"></i> חזרה לדף הבית
+            </a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>תנאי השימוש</h1>
+            <p>הכללים וההגבלות לשימוש באתר ובשירותי MULTI-NADLAN</p>
+        </div>
+
+        <div class="last-updated">
+            <strong>עדכון אחרון:</strong> 15 בינואר 2025
+        </div>
+
+        <div class="content-section">
+            <h2>הקדמה וקבלת התנאים</h2>
+            <p>ברוכים הבאים לאתר MULTI-NADLAN בע"מ (להלן: "החברה", "אנו"). תנאי שימוש אלו (להלן: "התנאים") מסדירים את השימוש באתר האינטרנט שלנו והשירותים הניתנים באמצעותו.</p>
+
+            <div class="important-box">
+                <h3>קבלת התנאים</h3>
+                <p>השימוש באתר מהווה הסכמה מלאה ובלתי מסויגת לתנאים אלו. אם אינכם מסכימים לתנאים, אנא הימנעו משימוש באתר.</p>
+            </div>
+
+            <h3>הגדרות</h3>
+            <ul>
+                <li><strong>"האתר"</strong> - אתר האינטרנט multi-nadlan.co.il וכל דומיינים קשורים</li>
+                <li><strong>"המשתמש"</strong> - כל מי שגולש באתר או משתמש בשירותים</li>
+                <li><strong>"השירותים"</strong> - כלל השירותים הניתנים דרך האתר</li>
+                <li><strong>"תוכן"</strong> - כל מידע, טקסט, תמונות או חומר אחר המופיע באתר</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>טבע השירותים</h2>
+            
+            <h3>שירותי מידע והתייעצות</h3>
+            <p>MULTI-NADLAN מספקת שירותי מידע, ייעוץ ותיווך בתחום השקעות נדל"ן, במיוחד השקעות בקרקעות. השירותים כוללים:</p>
+            <ul>
+                <li>מידע כלליי על הזדמנויות השקעה בקרקע</li>
+                <li>ניתוח שוק הנדל"ן והמלצות השקעה</li>
+                <li>תיווך בעסקאות קרקע ונדל"ן</li>
+                <li>ליווי וייעוץ לאורך תהליך ההשקעה</li>
+            </ul>
+
+            <div class="warning-box">
+                <h3>אין הבטחת תשואה</h3>
+                <p>חשוב להבין: כל המידע והייעוץ הניתנים באתר הם למטרות מידע בלבד. אין בהם התחייבות או הבטחה לתשואה כלשהי. השקעות כרוכות בסיכונים, ויש לפנות לייעוץ מקצועי לפני קבלת החלטות.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>הגבלות השימוש</h2>
+            
+            <h3>שימושים מותרים</h3>
+            <ul>
+                <li>קריאת התוכן למטרות מידע אישי</li>
+                <li>יצירת קשר עם החברה לקבלת שירותים</li>
+                <li>שיתוף קישורים לדפים באתר ברשתות חברתיות</li>
+                <li>הדפסת חומר למטרות אישיות ולא מסחריות</li>
+            </ul>
+
+            <h3>שימושים אסורים</h3>
+            <ul>
+                <li>העתקת תוכן מהאתר ללא אישור מפורש</li>
+                <li>שימוש מסחרי בתוכן ללא הסכמת החברה</li>
+                <li>פגיעה בתפקוד האתר או ניסיונות פריצה</li>
+                <li>העלאת תוכן זדוני, פוגעני או לא חוקי</li>
+                <li>איסוף מידע על משתמשים אחרים</li>
+                <li>שימוש באתר לקדם תחרות או שירותים דומים</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>זכויות יוצרים וקניין רוחני</h2>
+            
+            <h3>בעלות על התוכן</h3>
+            <p>כל התוכן באתר, כולל טקסטים, תמונות, עיצוב, לוגו ושם המותג, הם קניינה הרוחני של MULTI-NADLAN או בעלי זכויות אחרים, ומוגנים על פי דיני זכויות יוצרים וקניין רוחני.</p>
+
+            <h3>רישיון שימוש מוגבל</h3>
+            <p>אנו מעניקים לכם רישיון מוגבל, אישי ולא ניתן להעברה לצפייה בתוכן האתר למטרות אישיות בלבד. הרישיון לא כולל:</p>
+            <ul>
+                <li>זכות להעתיק, לשנות או להפיץ תוכן</li>
+                <li>זכות לשימוש מסחרי</li>
+                <li>זכות ליצור עבודות נגזרות</li>
+                <li>זכות לבצע הנדסה לאחור</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>אחריות והגבלת אחריות</h2>
+            
+            <h3>כללי</h3>
+            <p>השימוש באתר ובשירותים הוא על אחריותכם הבלעדית. אנו עושים מאמצים לספק מידע מדויק ועדכני, אך איננו יכולים להתחייב לכך שהמידע יהיה מושלם, מלא או חף מטעויות.</p>
+
+            <div class="important-box">
+                <h3>הגבלת אחריות</h3>
+                <p>החברה לא תהיה אחראית לכל נזק ישיר, עקיף, תוצאתי או מיוחד הנובע מהשימוש באתר או מהסתמכות על המידע בו, לרבות:</p>
+                <ul>
+                    <li>אובדן רווחים או הזדמנויות עסקיות</li>
+                    <li>נזקים הנובעים מהחלטות השקעה</li>
+                    <li>נזקים טכניים למחשב או למידע</li>
+                    <li>הפרעות בשירות או אי-זמינות האתר</li>
+                </ul>
+            </div>
+
+            <h3>אחריות המשתמש</h3>
+            <p>המשתמש מתחייב:</p>
+            <ul>
+                <li>לא לפגוע בתפקוד האתר או במשתמשים אחרים</li>
+                <li>לא להעביר וירוסים או תוכנות זדוניות</li>
+                <li>לספק מידע נכון ומדויק בפניות</li>
+                <li>לשמור על סודיות פרטי הגישה (אם ישנם)</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>מידע פיננסי והשקעות</h2>
+            
+            <div class="warning-box">
+                <h3>הצהרת אחריות חשובה</h3>
+                <p>המידע באתר מיועד למטרות מידע כללי בלבד ואינו מהווה:</p>
+                <ul>
+                    <li>ייעוץ השקעות אישי</li>
+                    <li>המלצה לרכישה או מכירה של נכסים</li>
+                    <li>ניתוח פיננסי מקצועי</li>
+                    <li>התחייבות לתוצאות השקעה</li>
+                </ul>
+            </div>
+
+            <h3>סיכונים בהשקעות</h3>
+            <p>כל השקעה כרוכה בסיכונים, כולל אפשרות להפסד חלקי או מלא של ההון המושקע. תוצאות עבר אינן מבטיחות תוצאות עתידיות. יש להתייעץ עם יועצים מקצועיים לפני קבלת החלטות השקעה.</p>
+
+            <h3>רישיונות ורגולציה</h3>
+            <p>החברה פועלת בהתאם לכל הדרישות החוקיות הרלוונטיות בישראל. פרטי הרישיונות זמינים לפי בקשה.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>פרטיות ומידע אישי</h2>
+            <p>איסוף, שימוש ושמירה של מידע אישי מוסדרים במדיניות הפרטיות שלנו, המהווה חלק בלתי נפרד מתנאי שימוש אלו. מומלץ לקרוא את <a href="privacy.html" class="contact-link">מדיניות הפרטיות</a> בעיון.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>שינויים באתר ובתנאים</h2>
+            
+            <h3>שינויים בתוכן</h3>
+            <p>אנו רשאים לשנות, לעדכן או להסיר תוכן מהאתר בכל עת ללא הודעה מוקדמת. התוכן עלול להשתנות עקב שינויים בשוק, ברגולציה או במדיניות החברה.</p>
+
+            <h3>שינויים בתנאי השימוש</h3>
+            <p>תנאי שימוש אלו עלולים להשתנות מעת לעת. שינויים מהותיים יפורסמו באתר עם הודעה של 30 יום. המשך השימוש באתר לאחר השינויים יחשב כהסכמה לתנאים המעודכנים.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>ביטול השירות והפסקת גישה</h2>
+            <p>אנו רשאים להגביל או להפסיק את הגישה לאתר או לחלקים ממנו, זמנית או לצמיתות, במקרה של הפרת תנאי השימוש או מסיבות תפעוליות אחרות.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>דין החל ויישוב סכסוכים</h2>
+            
+            <h3>דין ישראלי</h3>
+            <p>תנאי שימוש אלו ייכנעו לדין הישראלי בלבד, ללא התחשבות בכללי ברירת הדין.</p>
+
+            <h3>סמכות שיפוט</h3>
+            <p>בית המשפט המוסמך היחיד לדון בכל סכסוך הנובע מתנאי שימוש אלו הוא בית המשפט המוסמך בתל אביב-יפו, ישראל.</p>
+
+            <h3>יישוב סכסוכים</h3>
+            <p>בכל מקרה של חילוקי דעות או תלונה, מומלץ לפנות אלינו תחילה לניסיון פתרון בדרכי נועם.</p>
+
+            <div class="contact-info">
+                <h3>פנייה בנושא תנאי השימוש</h3>
+                <p>
+                    📧 אימייל: <a href="mailto:legal@multi-nadlan.co.il" class="contact-link">legal@multi-nadlan.co.il</a><br>
+                    📞 טלפון: <a href="tel:052-123-4567" class="contact-link">052-123-4567</a><br>
+                    📍 כתובת: מגדלי אלון, רח' יגאל אלון 98, תל אביב-יפו
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>הוראות כלליות</h2>
+            
+            <h3>נפרדות</h3>
+            <p>אם ייקבע שאיזה מהוראות תנאי שימוש אלו אינו תקף או בלתי אכיף, יישארו שאר ההוראות בתוקפן המלא.</p>
+
+            <h3>ויתור</h3>
+            <p>אי-ממש זכות בעת מסוימת לא ייחשב כוויתור על אותה זכות בעתיד.</p>
+
+            <h3>תנאי שימוש מלאים</h3>
+            <p>תנאי שימוש אלו, יחד עם מדיניות הפרטיות, מהווים את ההסכם המלא בינינו לבינכם ומבטלים כל הסכם או הבנה קודמים.</p>
+
+            <div class="important-box">
+                <h3>פרטי החברה</h3>
+                <p>
+                    <strong>MULTI-NADLAN בע"מ</strong><br>
+                    ח.פ: 515123456<br>
+                    כתובת: מגדלי אלון, רח' יגאל אלון 98, תל אביב-יפו 6789141<br>
+                    טלפון: 052-123-4567<br>
+                    אימייל: info@multi-nadlan.co.il
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p style="color: var(--text-muted);">&copy; 2025 MULTI-NADLAN. כל הזכויות שמורות.</p>
+    </footer>
+</body>
+</html>
