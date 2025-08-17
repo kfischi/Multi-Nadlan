@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>נהר הירקון פתח תקווה - פרויקט פיתוח מואץ | MULTI-NADLAN</title>
-    <meta name="description" content="הזדמנות השקעה בפתח תקווה: 100 מ'ר ב-350,000 ₪ עם פוטנציאל רווח של 900,000 ₪. פרויקט בהליכי אישור מתקדמים.">
+    <title>Raanana Heights - פרויקט הדגל | MULTI-NADLAN</title>
+    <meta name="description" content="הזדמנות השקעה ברעננה: 50 מ'ר ב-350,000 ₪ סמוך לתחנת המטרו M1, עם פוטנציאל עד 2.5 מיליון ₪">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,73 +16,148 @@
             --primary-bg: #0F1012; --secondary-bg: #1A1B1E; --card-bg: #1F2023;
             --text-light: #E8E8E8; --text-muted: #A0A0A0; --accent-gold: #38b6ff;
             --accent-gold-hover: #5cc4ff; --border-color: rgba(56, 182, 255, 0.2);
-            --font-main: 'Assistant', sans-serif;
+            --font-main: 'Assistant', sans-serif; --success-green: #4CAF50;
+            --warning-orange: #FF9800; --danger-red: #F44336;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
         body { line-height: 1.8; color: var(--text-light); background: var(--primary-bg); }
-
+        
         .header {
-            background: rgba(15, 16, 18, 0.7); backdrop-filter: blur(15px);
+            background: rgba(15, 16, 18, 0.95); backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border-color);
-            position: sticky; top: 0; width: 100%; z-index: 1000;
+            position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 0;
         }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
         .logo { font-size: 1.8rem; font-weight: 800; color: var(--text-light); text-decoration: none; }
-        .logo span { color: #38b6ff; }
-        .back-link {
-            text-decoration: none; color: var(--text-muted); font-weight: 700;
-            font-size: 1rem; transition: color 0.3s ease;
-        }
+        .logo span { color: var(--accent-gold); }
+        .back-link { text-decoration: none; color: var(--text-muted); font-weight: 700; font-size: 1rem; transition: color 0.3s ease; }
         .back-link:hover { color: var(--accent-gold); }
         .back-link i { margin-left: 8px; }
 
         .hero {
-            background: linear-gradient(rgba(15, 16, 18, 0.1), rgba(15, 16, 18, 0.1)), url('images/פתח תקווה.png') center/cover;
-            min-height: 70vh; display: flex; align-items: center; text-align: center;
+            background: linear-gradient(rgba(15, 16, 18, 0.4), rgba(15, 16, 18, 0.6)), url('images/רעננה.png') center/cover;
+            min-height: 85vh; display: flex; align-items: center; text-align: center; padding-top: 80px;
+            position: relative;
         }
-        .hero-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .project-badge { background: var(--accent-gold); color: var(--primary-bg); padding: 8px 16px; border-radius: 20px; font-weight: 700; display: inline-block; margin-bottom: 1rem; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); }
-        .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 1rem; color: #FFFFFF; text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); }
-        .hero-subtitle { font-size: 1.3rem; color: #F5F5F5; max-width: 700px; margin: 0 auto 2rem; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(56, 182, 255, 0.1) 0%, rgba(15, 16, 18, 0.3) 100%);
+            z-index: 1;
+        }
+        .hero-content { 
+            position: relative; 
+            z-index: 2; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 2rem; 
+        }
+        .project-badge { background: var(--accent-gold); color: var(--primary-bg); padding: 10px 20px; border-radius: 25px; font-weight: 700; display: inline-block; margin-bottom: 1.5rem; font-size: 1rem; }
+        .hero h1 { font-size: 4.5rem; font-weight: 800; margin-bottom: 1.5rem; text-shadow: 0 4px 20px rgba(0,0,0,0.8); }
+        .hero-subtitle { font-size: 1.4rem; color: var(--text-light); max-width: 800px; margin: 0 auto 2.5rem; line-height: 1.6; }
+        .hero-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 2rem; flex-wrap: wrap; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--accent-gold); display: block; }
+        .stat-label { font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem; }
 
         .main-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
-        .project-details h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--accent-gold); }
-        .project-details h3 { font-size: 1.8rem; font-weight: 600; margin: 2rem 0 1rem; }
-        .project-details p { margin-bottom: 1.5rem; font-size: 1.1rem; }
-        
-        .status-indicators { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
-        .status-item { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px solid var(--border-color); }
-        .status-item.completed { border-color: #4CAF50; background: rgba(76, 175, 80, 0.1); }
-        .status-item.current { border-color: var(--accent-gold); background: rgba(56, 182, 255, 0.1); }
-        .status-item i { font-size: 2rem; margin-bottom: 0.5rem; }
-        .status-item.completed i { color: #4CAF50; }
-        .status-item.current i { color: var(--accent-gold); }
-        .status-item h4 { font-size: 1rem; margin-bottom: 0.5rem; font-weight: 700; }
-        .status-item p { font-size: 0.8rem; margin: 0; color: var(--text-muted); }
 
-        .timeline { margin: 3rem 0; }
-        .timeline-item { display: flex; gap: 1rem; margin-bottom: 2rem; align-items: flex-start; }
-        .timeline-icon { background: var(--accent-gold); color: var(--primary-bg); width: 80px; height: 40px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; margin-top: 5px; font-size: 0.9rem; }
-        .timeline-content h4 { font-weight: 700; margin-bottom: 0.5rem; }
-        .timeline-content p { color: var(--text-muted); margin: 0; }
+        .investment-overview { background: var(--secondary-bg); padding: 4rem; border-radius: 20px; margin-bottom: 4rem; border: 1px solid var(--border-color); }
+        .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .overview-content h2 { font-size: 2.8rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--accent-gold); }
+        .overview-content p { font-size: 1.2rem; margin-bottom: 1.5rem; line-height: 1.7; }
+        .price-highlight { background: var(--card-bg); padding: 2rem; border-radius: 16px; border: 2px solid var(--accent-gold); text-align: center; }
+        .current-price { font-size: 3.5rem; font-weight: 800; color: var(--accent-gold); display: block; margin-bottom: 0.5rem; }
+        .price-details { color: var(--text-muted); margin-bottom: 1.5rem; }
+        .potential-price { font-size: 1.8rem; font-weight: 700; color: var(--success-green); }
 
-        .sidebar { position: sticky; top: 120px; }
-        .price-card { background: var(--card-bg); padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color); text-align: center; margin-bottom: 2rem; }
-        .price-label { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
-        .price-current { font-size: 3rem; font-weight: 800; color: var(--accent-gold); display: block; margin-bottom: 0.5rem; }
-        .price-details { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
-        .price-potential { background: var(--secondary-bg); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
-        .potential-label { color: var(--text-muted); font-size: 0.8rem; }
-        .potential-value { font-size: 1.8rem; font-weight: 700; color: var(--accent-gold); }
-        .cta-button { background: var(--accent-gold); color: var(--primary-bg); padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; display: block; text-align: center; margin-bottom: 1rem; }
-        .cta-button:hover { background: var(--accent-gold-hover); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(56, 182, 255, 0.2); }
+        .features-section { margin: 4rem 0; }
+        .section-title { font-size: 2.5rem; font-weight: 700; text-align: center; margin-bottom: 3rem; color: var(--accent-gold); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .feature-card { background: var(--card-bg); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border-color); transition: transform 0.3s ease, border-color 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
+        .feature-icon { font-size: 3rem; color: var(--accent-gold); margin-bottom: 1.5rem; }
+        .feature-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-light); }
+        .feature-card p { color: var(--text-muted); line-height: 1.6; }
+
+        .timeline-section { background: var(--secondary-bg); padding: 4rem; border-radius: 20px; margin: 4rem 0; }
+        .timeline-title { font-size: 2.5rem; font-weight: 700; text-align: center; margin-bottom: 3rem; color: var(--accent-gold); }
+        .timeline { position: relative; padding: 2rem 0; }
+        .timeline::before { content: ''; position: absolute; right: 50%; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--accent-gold), var(--success-green)); transform: translateX(50%); }
+        .timeline-item { position: relative; margin-bottom: 4rem; width: 45%; }
+        .timeline-item:nth-child(odd) { margin-right: 55%; text-align: left; }
+        .timeline-item:nth-child(even) { margin-left: 55%; text-align: right; }
+        .timeline-dot { position: absolute; top: 0.5rem; width: 20px; height: 20px; background: var(--accent-gold); border-radius: 50%; border: 3px solid var(--primary-bg); }
+        .timeline-item:nth-child(odd) .timeline-dot { left: calc(100% + 1rem); }
+        .timeline-item:nth-child(even) .timeline-dot { right: calc(100% + 1rem); }
+        .timeline-content { background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); }
+        .timeline-phase { color: var(--accent-gold); font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
+        .timeline-value { font-size: 2rem; font-weight: 800; color: var(--success-green); margin: 0.5rem 0; }
+        .timeline-description { color: var(--text-muted); }
+
+        .location-section { margin: 4rem 0; }
+        .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .location-content h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: var(--accent-gold); }
+        .location-highlights { list-style: none; }
+        .location-highlights li { padding: 1rem 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 1rem; }
+        .location-highlights li:last-child { border-bottom: none; }
+        .location-highlights i { color: var(--accent-gold); font-size: 1.2rem; width: 24px; }
+        .location-image { border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .location-image img { width: 100%; height: 400px; object-fit: cover; }
+
+        .info-section { 
+            background: rgba(56, 182, 255, 0.1); 
+            border: 2px solid var(--accent-gold); 
+            padding: 3rem; 
+            border-radius: 16px; 
+            margin: 4rem 0; 
+        }
+        .info-section h3 { 
+            color: var(--accent-gold); 
+            margin-bottom: 2rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 1rem; 
+            font-size: 1.5rem; 
+        }
+        .info-list { list-style: none; }
+        .info-list li { 
+            margin-bottom: 1.5rem; 
+            padding: 1rem; 
+            background: rgba(56, 182, 255, 0.05); 
+            border-radius: 8px; 
+        }
+        .info-list strong { color: var(--accent-gold); }
+        .sub-info { 
+            margin-top: 0.5rem; 
+            padding-right: 1rem; 
+            border-right: 2px solid var(--accent-gold); 
+            font-style: italic; 
+            color: var(--text-muted); 
+        }
+
+        .cta-section { background: var(--card-bg); padding: 4rem; border-radius: 20px; text-align: center; border: 2px solid var(--accent-gold); margin: 4rem 0; }
+        .cta-section h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--accent-gold); }
+        .cta-section p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta-button { background: var(--accent-gold); color: var(--primary-bg); padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; display: inline-block; }
+        .cta-button:hover { background: var(--accent-gold-hover); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(56, 182, 255, 0.3); }
 
         .footer { background: #000; padding: 4rem 0 2rem; border-top: 1px solid var(--border-color); margin-top: 4rem; }
-        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; max-width: 1200px; margin-left:auto; margin-right:auto;}
-
-        @media (max-width: 992px) { .content-grid { grid-template-columns: 1fr; } .sidebar { position: static; } .status-indicators { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; max-width: 1200px; margin: 0 auto; }
+        
+        @media (max-width: 992px) { 
+            .overview-grid, .location-grid { grid-template-columns: 1fr; } 
+            .timeline::before { right: 2rem; transform: none; }
+            .timeline-item { width: auto; margin-right: 0 !important; margin-left: 4rem !important; text-align: right; }
+            .timeline-dot { right: calc(-2.5rem) !important; left: auto !important; }
+        }
+        @media (max-width: 768px) { 
+            .hero h1 { font-size: 3rem; } 
+            .hero-stats { flex-direction: column; gap: 1.5rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .main-content { padding: 2rem 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -97,87 +172,202 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="project-badge">פרויקט בפיתוח מואץ</div>
-            <h1>נהר הירקון, פתח תקווה</h1>
-            <p class="hero-subtitle">השקעה בפרויקט פיתוח אסטרטגי עם הליכי אישור מתקדמים וגיבוי מלא של עיריית פתח תקווה.</p>
+            <div class="project-badge">פרויקט הדגל - השקעה אסטרטגית</div>
+            <h1>Raanana Heights</h1>
+            <p class="hero-subtitle">הזדמנות ייחודית להשקעה בקרקע אסטרטגית בלב המהפכה העירונית של רעננה - צמוד לתחנת המטרו M1 העתידית ובתמיכה מלאה של תכניות לאומיות מאושרות</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">350K₪</span>
+                    <div class="stat-label">מחיר כניסה</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50</span>
+                    <div class="stat-label">מ"ר קרקע</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2.5M₪</span>
+                    <div class="stat-label">פוטנציאל עתידי</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5-10</span>
+                    <div class="stat-label">שנים לפיתוח</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <main class="main-content">
-        <div class="content-grid">
-            <div class="project-details">
-                <h2>סקירת הפרויקט</h2>
-                <p>אזור נהר הירקון בפתח תקווה עומד בפני מהפכת פיתוח אדירה עם תכניות מקיפות לבניית שכונות מגורים חדשות, מוסדות חינוך, פארקים ושטחי מסחר. הפרויקט זוכה לגיבוי מלא של עיריית פתח תקווה ונמצא כעת בשלבי אישור מתקדמים בוועדה המחוזית.</p>
+        <section class="investment-overview">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>הזדמנות השקעה של פעם בחיים</h2>
+                    <p>פרויקט רעננה הייטס מציע הזדמנות נדירה להיות שותפים בפיתוח המתחם האורבני החדשני של השרון. הקרקע ממוקמת במיקום אסטרטגי בטבעת הראשונה הצמודה לתחנת הדיפו של קו המטרו M1.</p>
+                    <p>זוהי השקעה מבוססת תכנון לאומי, עם גיבוי מלא של תכניות ממשלתיות מאושרות ותמיכה של עיריית רעננה. הפרויקט נהנה מקידום מואץ במסגרת תמ"א 70 - התכנית הארצית להסדרת תחבורה.</p>
+                </div>
                 
-                <h3>סטטוס הליכי התכנון</h3>
-                <div class="status-indicators">
-                    <div class="status-item completed">
-                        <i class="fas fa-check-circle"></i>
-                        <h4>ועדה מקומית</h4>
-                        <p>אושר בהצלחה</p>
-                    </div>
-                    <div class="status-item completed">
-                        <i class="fas fa-check-circle"></i>
-                        <h4>תכנית העיר</h4>
-                        <p>אושר בהצלחה</p>
-                    </div>
-                    <div class="status-item current">
-                        <i class="fas fa-clock"></i>
-                        <h4>ועדה מחוזית</h4>
-                        <p>בתהליך אישור</p>
-                    </div>
+                <div class="price-highlight">
+                    <div class="current-price">₪350,000</div>
+                    <div class="price-details">עבור 50 מ"ר קרקע</div>
+                    <div class="potential-price">פוטנציאל: עד ₪2,500,000</div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">*בהתבסס על הערכת שמאי מוסמך</p>
                 </div>
+            </div>
+        </section>
 
-                <h3>לוח זמנים צפוי</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-icon">עכשיו</div>
-                        <div class="timeline-content">
-                            <h4>רכישה ורישום</h4>
-                            <p>רכישת הקרקע ורישומה בטאבו על שם הרוכש</p>
-                        </div>
+        <section class="features-section">
+            <h2 class="section-title">יתרונות ההשקעה הייחודיים</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-subway"></i></div>
+                    <h3>תחנת מטרו M1 ייעודית</h3>
+                    <p>הקרקע ממוקמת בצמוד לתחנת הדיפו של קו M1 - התחנה הראשונה במערכת המטרו הארצית שתחבר את רעננה ישירות לתל אביב, הרצליה ופתח תקווה</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-flag"></i></div>
+                    <h3>תכנית לאומית מאושרת</h3>
+                    <p>חלק מתמ"א 70 - התכנית הארצית להסדרת תחבורה, הנהנית מסדר עדיפות לאומי ואישור ישיר של הממשלה עם לוחות זמנים מחייבים</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>פוטנציאל השבחה יוצא דופן</h3>
+                    <p>על פי הערכת שמאי מוסמך לפי תקן 22, פוטנציאל השבחה מעל פי 7 - מ-350,000 ₪ להערכה של 2.5 מיליון ₪ עם קבלת היתרי בנייה</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-building"></i></div>
+                    <h3>פיתוח עירוני אינטנסיבי</h3>
+                    <p>האזור מיועד לפיתוח בצפיפות גבוהה עם רח"ק מינימלי של 5, תוך התמקדות במגורים איכותיים ושירותים עירוניים מתקדמים</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>רישום מיידי בטאבו</h3>
+                    <p>הקרקע נרשמת על שם הרוכש באופן מיידי ומעניקה בעלות מלאה וביטחון משפטי מוחלט, עם אפשרות מכירה בכל עת</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-percentage"></i></div>
+                    <h3>מס רכישה מופחת</h3>
+                    <p>מס רכישה של 6% בלבד במקום 8-10% הרגילים, המהווה חיסכון משמעותי של עשרות אלפי שקלים ביחס לרכישת דירה</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <h2 class="timeline-title">מסלול ההשבחה החזוי</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-phase">היום - רכישה</div>
+                        <div class="timeline-value">₪350,000</div>
+                        <div class="timeline-description">רכישת הקרקע במחיר מעוגן בהתבסס על שווי נוכחי של קרקע חקלאית בפוטנציאל</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon">שנה 1-2</div>
-                        <div class="timeline-content">
-                            <h4>אישור מחוזי</h4>
-                            <p>השלמת הליכי האישור והתחלת הכנות לפיתוח</p>
-                        </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-phase">שנים 2-4 - אישור תכניות</div>
+                        <div class="timeline-value">₪1,300,000</div>
+                        <div class="timeline-description">אישור תכניות אזוריות ותכנית מפורטת - שלב המקנה ודאות תכנונית ראשונה</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon">שנה 3</div>
-                        <div class="timeline-content">
-                            <h4>היתרי בנייה</h4>
-                            <p>קבלת היתרי בנייה ותחילת שיווק דירות</p>
-                        </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-phase">שנה 5-6 - היתרי בנייה</div>
+                        <div class="timeline-value">₪2,300,000</div>
+                        <div class="timeline-description">קבלת היתרי בנייה וודאות מלאה לפיתוח - הקרקע הופכת לבת מימוש</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon">שנה 4-6</div>
-                        <div class="timeline-content">
-                            <h4>פיתוח ובנייה</h4>
-                            <p>ביצוע עבודות הפיתוח ובניית המתחמים</p>
-                        </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-phase">שנים 8-10 - דירה מוכנה</div>
+                        <div class="timeline-value">₪2,500,000</div>
+                        <div class="timeline-description">ערך הקרקע כחלק מיחידת דיור מוגמרת - מימוש מלא של הפוטנציאל</div>
                     </div>
                 </div>
             </div>
-            <div class="sidebar">
-                <div class="price-card">
-                    <div class="price-label">מחיר כניסה</div>
-                    <span class="price-current">₪350,000</span>
-                    <div class="price-details">עבור 100 מ"ר קרקע</div>
-                    <div class="price-potential">
-                        <div class="potential-label">רווח צפוי (דוח שמאי)</div>
-                        <div class="potential-value">+₪900,000</div>
-                    </div>
-                    <a href="mailto:info@multi-nadlan.co.il" class="cta-button">תיאום פגישת ייעוץ</a>
+        </section>
+
+        <section class="location-section">
+            <div class="location-grid">
+                <div class="location-content">
+                    <h2>המיקום המנצח</h2>
+                    <ul class="location-highlights">
+                        <li>
+                            <i class="fas fa-star"></i>
+                            <span><strong>רעננה היוקרתית:</strong> עיר עם מוניטין של עשירה, משכילה ומבוקשת על ידי תושבים חוזרים ועולים חדשים</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-train"></i>
+                            <span><strong>תחנת המטרו הראשונה:</strong> חיבור ישיר למרכזי התעסוקה בתל אביב, הרצליה ופתח תקווה</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span><strong>מרכז גוש דן:</strong> מיקום אסטרטגי בלב האזור המבוקש ביותר בישראל</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-road"></i>
+                            <span><strong>נגישות מושלמת:</strong> צמוד לכביש 4 ולצירי התחבורה הראשיים</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-graduation-cap"></i>
+                            <span><strong>מוסדות חינוך מובילים:</strong> קרבה למוסדות חינוך איכותיים ואוניברסיטאות</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-tree"></i>
+                            <span><strong>איכות חיים גבוהה:</strong> שטחים ירוקים, פארקים ואיכות אוויר מעולה</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="location-image">
+                    <img src="images/רעננה-מטרו.png" alt="מפת המטרו והפיתוח ברעננה">
                 </div>
             </div>
+        </section>
+
+        <div class="info-section">
+            <h3><i class="fas fa-info-circle"></i> פרטים חשובים להבנת ההשקעה</h3>
+            <ul class="info-list">
+                <li>
+                    <strong>אופי ההשקעה:</strong> השקעה אסטרטגית לטווח ארוך של 5-10 שנים, המבוססת על תכניות פיתוח מאושרות ותהליכי תכנון מתקדמים.
+                    <div class="sub-info">השקעה מתאימה למשקיעים הבנים את אופיה הארוך טווח של השקעות קרקע.</div>
+                </li>
+                <li>
+                    <strong>תהליכי הפיתוח:</strong> הפרויקט מתבסס על תכניות ממשלתיות מאושרות ותמ"א 70, עם לוחות זמנים המתואמים עם רשויות התכנון.
+                    <div class="sub-info">התקדמות בהתאם לתכניות הממשלה ועיריית רעננה, עם ליווי מקצועי צמוד.</div>
+                </li>
+                <li>
+                    <strong>הערכת הפוטנציאל:</strong> הערכת השמאי מבוססת על ניתוח מקצועי של הפוטנציאל העתידי לפי תקן 22, המהווה בסיס מקצועי להבנת ההשקעה.
+                    <div class="sub-info">ההערכה משקפת את הפוטנציאל המקצועי בהתבסס על תכניות מאושרות וניתוח שוק.</div>
+                </li>
+                <li>
+                    <strong>גמישות השקעה:</strong> אפשרות מכירה בכל שלב של התהליך, עם ליווי מקצועי לאיתור רוכשים ומימוש הערך שנצבר.
+                    <div class="sub-info">המשקיע אינו "נעול" וניתן למכור את הזכויות בכל עת לפי שווי השוק.</div>
+                </li>
+            </ul>
         </div>
+
+        <section class="cta-section">
+            <h2>מוכנים להצטרף לפרויקט המנצח?</h2>
+            <p>הזדמנויות כאלה מגיעות פעם בעשור. צוות המומחים שלנו יסייע לכם להבין את מלוא הפוטנציאל ויליווה אתכם לכל אורך המסע.</p>
+            <a href="contact.html" class="cta-button">קביעת פגישת היכרות ללא התחייבות</a>
+        </section>
     </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
-                <p>&copy; 2025 MULTI-NADLAN. כל הזכויות שמורות.</p>
+                <p>&copy; 2025 MULTI-NADLAN. כל הזכויות שמורות. המידע באתר זה אינו מהווה ייעוץ השקעות או המלצה לקנייה.</p>
             </div>
         </div>
     </footer>
