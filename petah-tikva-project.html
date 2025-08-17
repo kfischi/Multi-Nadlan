@@ -14,8 +14,8 @@
     <style>
         :root {
             --primary-bg: #0F1012; --secondary-bg: #1A1B1E; --card-bg: #1F2023;
-            --text-light: #E8E8E8; --text-muted: #A0A0A0; --accent-gold: #D4AF37;
-            --accent-gold-hover: #EACD85; --border-color: rgba(212, 175, 55, 0.2);
+            --text-light: #E8E8E8; --text-muted: #A0A0A0; --accent-gold: #38b6ff;
+            --accent-gold-hover: #5cc4ff; --border-color: rgba(56, 182, 255, 0.2);
             --font-main: 'Assistant', sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
@@ -28,7 +28,7 @@
         }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; }
         .logo { font-size: 1.8rem; font-weight: 800; color: var(--text-light); text-decoration: none; }
-        .logo span { color: var(--accent-gold); }
+        .logo span { color: #38b6ff; }
         .back-link {
             text-decoration: none; color: var(--text-muted); font-weight: 700;
             font-size: 1rem; transition: color 0.3s ease;
@@ -37,7 +37,7 @@
         .back-link i { margin-left: 8px; }
 
         .hero {
-            background: linear-gradient(rgba(15, 16, 18, 0.8), rgba(15, 16, 18, 0.8)), url('https://i.imgur.com/nbsC4vZ.jpg') center/cover;
+            background: linear-gradient(rgba(15, 16, 18, 0.8), rgba(15, 16, 18, 0.8)), url('images/פתח תקווה.png') center/cover;
             min-height: 70vh; display: flex; align-items: center; text-align: center;
         }
         .hero-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
@@ -54,7 +54,7 @@
         .status-indicators { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
         .status-item { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px solid var(--border-color); }
         .status-item.completed { border-color: #4CAF50; background: rgba(76, 175, 80, 0.1); }
-        .status-item.current { border-color: var(--accent-gold); background: rgba(212, 175, 55, 0.1); }
+        .status-item.current { border-color: var(--accent-gold); background: rgba(56, 182, 255, 0.1); }
         .status-item i { font-size: 2rem; margin-bottom: 0.5rem; }
         .status-item.completed i { color: #4CAF50; }
         .status-item.current i { color: var(--accent-gold); }
@@ -76,7 +76,7 @@
         .potential-label { color: var(--text-muted); font-size: 0.8rem; }
         .potential-value { font-size: 1.8rem; font-weight: 700; color: var(--accent-gold); }
         .cta-button { background: var(--accent-gold); color: var(--primary-bg); padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; display: block; text-align: center; margin-bottom: 1rem; }
-        .cta-button:hover { background: var(--accent-gold-hover); transform: translateY(-2px); }
+        .cta-button:hover { background: var(--accent-gold-hover); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(56, 182, 255, 0.2); }
 
         .footer { background: #000; padding: 4rem 0 2rem; border-top: 1px solid var(--border-color); margin-top: 4rem; }
         .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; max-width: 1200px; margin-left:auto; margin-right:auto;}
